@@ -200,6 +200,117 @@
     scroll-snap-align: start;
   }
 
+  .botao-mobile-menu {
+    display: inline-flex;
+    min-height: 3rem;
+    min-width: 7rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid var(--color-linha);
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    font-weight: 600;
+    transition:
+      background-color 0.2s,
+      transform 0.2s var(--ease-saida);
+  }
+
+  .botao-mobile-menu:hover,
+  .botao-mobile-menu:focus-visible {
+    background: var(--color-superficie);
+  }
+
+  .botao-mobile-menu:active,
+  .mobile-navigation-close:active,
+  .mobile-navigation-link:active {
+    transform: scale(0.98);
+  }
+
+  .desktop-navigation-list {
+    display: none;
+  }
+
+  .mobile-navigation {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: color-mix(in srgb, var(--color-tinta) 42%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+  }
+
+  .mobile-navigation.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .mobile-navigation-panel {
+    min-height: 100%;
+    width: min(100%, 28rem);
+    margin-left: auto;
+    overflow-y: auto;
+    background: var(--color-fundo);
+    padding: max(1.25rem, env(safe-area-inset-top)) 1.25rem max(1.5rem, env(safe-area-inset-bottom));
+    transform: translateX(1.5rem);
+    transition: transform 0.25s var(--ease-saida);
+  }
+
+  .mobile-navigation.is-open .mobile-navigation-panel {
+    transform: translateX(0);
+  }
+
+  .mobile-navigation-close {
+    display: grid;
+    min-height: 3rem;
+    min-width: 3rem;
+    place-items: center;
+    border: 1px solid var(--color-linha);
+    border-radius: 999px;
+    transition:
+      background-color 0.2s,
+      transform 0.2s var(--ease-saida);
+  }
+
+  .mobile-navigation-close:hover,
+  .mobile-navigation-close:focus-visible {
+    background: var(--color-superficie);
+  }
+
+  .mobile-navigation-list {
+    display: grid;
+    gap: 0.35rem;
+    padding-top: 1.25rem;
+  }
+
+  .mobile-navigation-link {
+    display: flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-linha);
+    padding: 0.75rem 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      transform 0.2s var(--ease-saida);
+  }
+
+  .mobile-navigation-link:hover,
+  .mobile-navigation-link:focus-visible {
+    background: var(--color-superficie);
+  }
+
+  .mobile-navigation-link.is-current {
+    color: var(--color-azul-forte);
+  }
+
   /* Feedback táctil perceptível mesmo sem hover: a navegação nunca depende do cursor. */
   .faixa a:active,
   .botao:active,
@@ -231,6 +342,18 @@
 @media (min-width: 1024px) {
   details.filtros::details-content {
     content-visibility: visible;
+  }
+}
+
+@media (min-width: 1280px) {
+  .botao-mobile-menu,
+  .mobile-navigation {
+    display: none;
+  }
+
+  .desktop-navigation-list {
+    display: flex;
+    gap: 0.25rem;
   }
 }
 
