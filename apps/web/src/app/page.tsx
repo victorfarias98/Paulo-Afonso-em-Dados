@@ -374,16 +374,18 @@ export default async function HomePage() {
         className="home-hero grid items-center gap-6 md:grid-cols-[1.5fr_1fr]"
       >
         <div className="min-w-0">
-          <p className="mb-3 text-sm font-medium text-azul-forte">Paulo Afonso em dados</p>
-          <h1 className="max-w-2xl text-4xl leading-[1.1] font-medium sm:text-5xl">
+          <p data-hero-reveal className="mb-3 text-sm font-medium text-azul-forte">
+            Paulo Afonso em dados
+          </p>
+          <h1 data-hero-reveal className="max-w-2xl text-4xl leading-[1.1] font-medium sm:text-5xl">
             Seu dinheiro. A sua cidade.
           </h1>
-          <p className="mt-3 max-w-prose text-suave">
+          <p data-hero-reveal className="mt-3 max-w-prose text-suave">
             Acompanhe gastos, obras e contratos. Confira os registros e cobre resultados.
           </p>
           {hasSpending && spending && year !== null ? (
             <>
-              <p className="mt-6 text-xl leading-snug sm:text-2xl">
+              <p data-hero-reveal className="mt-6 text-xl leading-snug sm:text-2xl">
                 Em {year}, a Prefeitura já pagou{" "}
                 <strong className="valor text-azul-forte">
                   R$ {paidSpoken.figure} {paidSpoken.unit}
@@ -394,18 +396,18 @@ export default async function HomePage() {
                 </strong>{" "}
                 por morador.
               </p>
-              <p className="mt-2 text-sm text-suave">
+              <p data-hero-reveal className="mt-2 text-sm text-suave">
                 Soma dos pagamentos já trazidos para o portal. Moradores: {POPULATION_SOURCE}.
               </p>
             </>
           ) : (
-            <p className="mt-5 max-w-prose text-lg text-suave sm:text-xl">
+            <p data-hero-reveal className="mt-5 max-w-prose text-lg text-suave sm:text-xl">
               Obras, contratos, compras e gastos explicados de forma simples, com a fonte oficial de
               cada número.
             </p>
           )}
         </div>
-        <div data-city-parallax className="home-city-illustration">
+        <div data-hero-reveal data-city-parallax className="home-city-illustration">
           <Image
             src="/illustrations/civic-city.webp"
             alt=""
@@ -422,7 +424,7 @@ export default async function HomePage() {
         method="get"
         action="/busca"
         role="search"
-        className="mt-7 flex max-w-2xl items-end gap-2"
+        className="mt-7 flex max-w-2xl flex-col items-stretch gap-2 sm:flex-row sm:items-end"
       >
         <label className="relative block min-w-0 flex-1">
           <span className="mb-2 block text-sm font-medium">
@@ -443,7 +445,7 @@ export default async function HomePage() {
             className="campo pl-11 placeholder:text-suave"
           />
         </label>
-        <button type="submit" className="botao px-5">
+        <button type="submit" className="botao w-full px-5 sm:w-auto">
           Buscar
         </button>
       </form>

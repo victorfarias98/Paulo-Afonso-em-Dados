@@ -20,17 +20,34 @@ export function HomeScroll({ children }: { children: ReactNode }) {
       },
       (context) => {
         if (!context.conditions?.motion) return;
+        const hero = element.querySelector<HTMLElement>(".home-hero");
+        if (hero) {
+          const heroIntro = hero.querySelectorAll<HTMLElement>("[data-hero-reveal]");
+          gsap.fromTo(
+            heroIntro,
+            { autoAlpha: 0, y: 18 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.55,
+              ease: "power3.out",
+              stagger: 0.07,
+              clearProps: "opacity,visibility,transform",
+            },
+          );
+        }
         const targets = element.querySelectorAll<HTMLElement>("[data-story-reveal]");
         targets.forEach((target) => {
           if (target.closest("details")) return;
           gsap.fromTo(
             target,
-            { y: 18 },
+            { autoAlpha: 0, y: 18 },
             {
+              autoAlpha: 1,
               y: 0,
-              duration: 0.65,
+              duration: 0.58,
               ease: "power2.out",
-              clearProps: "transform",
+              clearProps: "opacity,visibility,transform",
               scrollTrigger: { trigger: target, start: "top 92%", once: true },
             },
           );

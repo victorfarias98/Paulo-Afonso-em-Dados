@@ -199,6 +199,23 @@
   .faixa > * {
     scroll-snap-align: start;
   }
+
+  /* Feedback táctil perceptível mesmo sem hover: a navegação nunca depende do cursor. */
+  .faixa a:active,
+  .botao:active,
+  .home-citizen-actions a:active {
+    transform: scale(0.98);
+  }
+
+  .faixa a,
+  .home-citizen-actions a,
+  .home-feature,
+  .home-questions a {
+    transition:
+      transform 0.2s var(--ease-saida),
+      background-color 0.2s,
+      border-color 0.2s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -302,6 +319,10 @@
 }
 
 @media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .home-section {
     margin-top: 2.5rem;
     padding-block: 1.25rem;

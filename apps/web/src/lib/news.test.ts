@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import legislativeSnapshot from "@/data/legislative-snapshot.json";
+import legislativeSnapshot from "../data/legislative-snapshot.json";
 import { findPoliticalStory, listPoliticalStories } from "./news";
 import { parseLegislativeSnapshot } from "./legislative";
 
