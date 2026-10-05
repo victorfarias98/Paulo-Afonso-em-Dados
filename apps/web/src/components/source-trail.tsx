@@ -78,7 +78,9 @@ export function SourceTrail({
         </div>
         <div>
           <dt className="text-sm text-suave">Última conferência na fonte</dt>
-          <dd className="font-medium">{current ? formatDateTime(current.lastSeenAt) : "—"}</dd>
+          <dd className="font-medium">
+            {current ? formatDateTime(current.lastSeenAt) : "Não informado"}
+          </dd>
           {firstSeen && (
             <dd className="text-sm text-suave">Primeira coleta: {formatDateTime(firstSeen)}</dd>
           )}
@@ -87,8 +89,8 @@ export function SourceTrail({
           <dt className="text-sm text-suave">Versões registradas</dt>
           <dd className="font-medium">
             {versions.length === 1
-              ? "1 — a fonte não mudou desde a primeira coleta"
-              : `${versions.length} — a fonte alterou este registro`}
+              ? "1 versão. A fonte não mudou desde a primeira coleta."
+              : `${versions.length} versões. A fonte alterou este registro.`}
           </dd>
           {current && (
             <dd className="text-sm text-suave" title={current.payloadHash}>

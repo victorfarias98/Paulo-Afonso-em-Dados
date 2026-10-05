@@ -19,6 +19,7 @@ import { LegislativeAuthors } from "@/components/legislative-authors";
 import legislativeData from "@/data/legislative-snapshot.json";
 import { buildLegislativeSummary, parseLegislativeSnapshot } from "@/lib/legislative";
 import { HomeScroll } from "@/components/home-scroll";
+import { StoryReel, type StorySlide } from "@/components/story-reel";
 import { MONTH_NAMES } from "@/lib/expense-filters";
 import { getPaidTotal, getSpendingOverview } from "@/lib/expenses";
 import { formatDate, formatMoney, formatMoneySpoken } from "@/lib/format";
@@ -296,6 +297,34 @@ export default async function HomePage() {
   const paidInYear = `/gastos/registros?fase=pagamento&poder=prefeitura&ano=${year}`;
   const hasSpending = spending !== null && Number(spending.paid.total) > 0;
   const paidSpoken = spokenCount(spending?.paid.total ?? "0");
+  const storyTones = ["blue", "aqua", "navy", "sand"] as const;
+  const homeStories: StorySlide[] = [
+    ...recentNews.slice(0, 3).map((item, index) => ({
+      id: `news-${item.id}`,
+      eyebrow: "Dados atualizados",
+      title: item.title,
+      summary: `${item.created + item.updated} registros entraram ou mudaram na base em ${formatDate(item.date)}.`,
+      metric: String(item.created + item.updated),
+      href: item.href,
+      sourceLabel: item.sourceName,
+      sourceHref: "/fontes",
+      tone: storyTones[index % storyTones.length] ?? "blue",
+    })),
+    ...[...legislative.members]
+      .sort((left, right) => right.totalCount - left.totalCount)
+      .slice(0, 5)
+      .map((member, index) => ({
+        id: `politician-${member.id}`,
+        eyebrow: "Atuação na Câmara",
+        title: member.name,
+        summary: `${member.projectsCount} projetos e ${member.requestsCount} requerimentos encontrados no recorte oficial de ${legislative.year}.`,
+        metric: String(member.totalCount),
+        href: `/novidades/politico/${member.id}`,
+        sourceLabel: "SAPL da Câmara",
+        sourceHref: "/fontes",
+        tone: storyTones[(index + 1) % storyTones.length] ?? "navy",
+      })),
+  ];
 
   const agencyParts = spending
     ? splitOfHundred(
@@ -449,6 +478,8 @@ export default async function HomePage() {
           Buscar
         </button>
       </form>
+
+      <StoryReel stories={homeStories} />
 
       {factRows.length > 0 && (
         <Block

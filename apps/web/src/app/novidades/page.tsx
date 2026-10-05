@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { StoryReel, type StorySlide } from "@/components/story-reel";
 import legislativeData from "@/data/legislative-snapshot.json";
 import { formatDate } from "@/lib/format";
 import { listPoliticalStories, listNews, listOrganizationStories } from "@/lib/news";
@@ -34,7 +35,7 @@ function StoryCard({
       <h3 className="mt-2 text-xl font-medium group-hover:underline">{title}</h3>
       <p className="mt-2 text-sm text-suave">{text}</p>
       <span className="mt-5 inline-flex min-h-10 items-center font-medium text-azul">
-        Acompanhar história →
+        Ver registros →
       </span>
     </Link>
   );
@@ -44,6 +45,42 @@ export default async function NewsPage() {
   const snapshot = parseLegislativeSnapshot(legislativeData);
   const [news, organizations] = await Promise.all([listNews(), listOrganizationStories()]);
   const politicians = listPoliticalStories(snapshot).slice(0, 12);
+  const tones = ["blue", "aqua", "navy", "sand"] as const;
+  const stories: StorySlide[] = [
+    ...news.slice(0, 5).map((item, index) => ({
+      id: `news-${item.id}`,
+      eyebrow: "Atualização pública",
+      title: item.title,
+      summary: `${item.created + item.updated} registros entraram ou mudaram na base em ${formatDate(item.date)}.`,
+      metric: String(item.created + item.updated),
+      href: item.href,
+      sourceLabel: item.sourceName,
+      sourceHref: "/fontes",
+      tone: tones[index % tones.length] ?? "blue",
+    })),
+    ...politicians.slice(0, 5).map((person, index) => ({
+      id: `politician-${person.id}`,
+      eyebrow: "Atuação política",
+      title: person.name,
+      summary: `${person.projectsCount} projetos e ${person.totalCount} matérias nos dados publicados pela Câmara.`,
+      metric: String(person.totalCount),
+      href: person.href,
+      sourceLabel: "SAPL da Câmara",
+      sourceHref: "/fontes",
+      tone: tones[(index + 1) % tones.length] ?? "aqua",
+    })),
+    ...organizations.slice(0, 4).map((organization, index) => ({
+      id: `organization-${organization.id}`,
+      eyebrow: "Órgão público",
+      title: organization.name,
+      summary: `${organization.works} obras, ${organization.contracts} contratos e ${organization.bids} licitações associados.`,
+      metric: String(organization.works + organization.contracts + organization.bids),
+      href: organization.href,
+      sourceLabel: "Bases oficiais integradas",
+      sourceHref: "/fontes",
+      tone: tones[(index + 2) % tones.length] ?? "navy",
+    })),
+  ];
 
   return (
     <>
@@ -54,6 +91,8 @@ export default async function NewsPage() {
         O que mudou nos dados públicos, quem está apresentando projetos e quais órgãos estão
         movimentando recursos. Cada história aponta para a fonte e para os registros que a explicam.
       </p>
+
+      <StoryReel stories={stories} />
 
       <section aria-labelledby="feed" className="mt-12">
         <div className="flex items-end justify-between gap-4 border-b-2 border-tinta pb-3">

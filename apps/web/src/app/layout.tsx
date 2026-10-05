@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Suspense, type ReactNode } from "react";
 
 import { SiteNav } from "@/components/site-nav";
+import { SiteExperience } from "@/components/site-experience";
 import { PortalAnalytics } from "@/components/portal-analytics";
 import { readAnalyticsConfig } from "@/lib/analytics-config";
 
@@ -20,7 +21,7 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "sw
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: { default: "Paulo Afonso em Dados", template: "%s — Paulo Afonso em Dados" },
+  title: { default: "Paulo Afonso em Dados", template: "%s | Paulo Afonso em Dados" },
   description:
     "Obras, contratos, licitações e gastos públicos de Paulo Afonso explicados de forma simples e com fonte oficial.",
   icons: { icon: "/brand/paulo-afonso-em-dados-mark.png" },
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={geist.variable}>
       <body className="flex min-h-dvh flex-col">
+        <SiteExperience />
         <Suspense fallback={null}>
           <PortalAnalytics config={readAnalyticsConfig(process.env)} />
         </Suspense>
@@ -48,7 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </a>
         <header className="site-header">
           <div className="site-header-inner">
-            <Link href="/" className="site-brand" aria-label="Paulo Afonso em Dados — início">
+            <Link href="/" className="site-brand" aria-label="Paulo Afonso em Dados, início">
               <span className="site-brand-mark" aria-hidden="true">
                 <Image
                   src="/brand/paulo-afonso-em-dados-mark.png"

@@ -120,10 +120,10 @@ export function SiteNav() {
           <div className="mobile-navigation-heading">
             <div className="min-w-0">
               <p className="text-xs font-semibold tracking-[0.14em] text-azul-forte uppercase">
-                Explore o portal
+                Seções do portal
               </p>
               <p id="mobile-navigation-title" className="mt-1 text-xl font-semibold">
-                O que você quer acompanhar?
+                Escolha onde entrar
               </p>
             </div>
             <button
