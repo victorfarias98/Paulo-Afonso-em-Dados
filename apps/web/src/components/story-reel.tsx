@@ -36,34 +36,55 @@ export function StoryReel({ stories }: { stories: StorySlide[] }) {
   const viewer = useRef<HTMLDivElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
   const opener = useRef<HTMLButtonElement>(null);
+  const direction = useRef(1);
+  const transitioning = useRef(false);
+  const outgoingTween = useRef<gsap.core.Tween | null>(null);
+  const wasOpen = useRef(false);
   const gesture = useRef({ x: 0, y: 0, active: false });
   const story = active === null ? null : stories[active];
 
   const closeStories = useCallback(() => {
+    outgoingTween.current?.kill();
+    outgoingTween.current = null;
+    transitioning.current = false;
+    if (stage.current) gsap.killTweensOf(stage.current);
     setActive(null);
     requestAnimationFrame(() => opener.current?.focus());
   }, []);
 
   const goTo = useCallback(
     (next: number) => {
-      if (next === active) return;
+      if (next === active || next < 0 || next >= stories.length || transitioning.current) return;
       if (!stage.current) return setActive(next);
-      gsap.to(stage.current, {
+      direction.current = next > (active ?? 0) ? 1 : -1;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setActive(next);
+        return;
+      }
+      transitioning.current = true;
+      outgoingTween.current = gsap.to(stage.current, {
         autoAlpha: 0,
-        x: next > (active ?? 0) ? -28 : 28,
-        duration: 0.18,
-        ease: "power2.in",
-        onComplete: () => setActive(next),
+        xPercent: direction.current * -7,
+        scale: 0.975,
+        duration: 0.28,
+        ease: "power3.inOut",
+        onComplete: () => {
+          outgoingTween.current = null;
+          setActive(next);
+        },
       });
     },
-    [active],
+    [active, stories.length],
   );
 
   useEffect(() => {
     if (active === null) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    closeButton.current?.focus();
+    if (!wasOpen.current) {
+      closeButton.current?.focus();
+      wasOpen.current = true;
+    }
     const keydown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeStories();
       if (event.key === "ArrowRight" && active < stories.length - 1) goTo(active + 1);
@@ -90,12 +111,45 @@ export function StoryReel({ stories }: { stories: StorySlide[] }) {
   }, [active, closeStories, goTo, stories.length]);
 
   useEffect(() => {
-    if (active === null || !stage.current) return;
-    gsap.fromTo(
-      stage.current,
-      { autoAlpha: 0, x: 28, scale: 0.985 },
-      { autoAlpha: 1, x: 0, scale: 1, duration: 0.46, ease: "power3.out" },
-    );
+    if (active === null || !stage.current) {
+      wasOpen.current = false;
+      transitioning.current = false;
+      outgoingTween.current = null;
+      return;
+    }
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const context = gsap.context(() => {
+      if (reducedMotion) {
+        gsap.set(stage.current, { autoAlpha: 1, xPercent: 0, x: 0, scale: 1 });
+        transitioning.current = false;
+        return;
+      }
+      const timeline = gsap.timeline({
+        defaults: { ease: "power3.out" },
+        onComplete: () => {
+          transitioning.current = false;
+        },
+      });
+      timeline
+        .fromTo(
+          stage.current,
+          { autoAlpha: 0, xPercent: direction.current * 7, x: 0, scale: 0.975 },
+          { autoAlpha: 1, xPercent: 0, scale: 1, duration: 0.52, clearProps: "transform" },
+        )
+        .fromTo(
+          ".story-photo-foreground, .story-stage-icon",
+          { scale: 1.055 },
+          { scale: 1, duration: 0.9, ease: "power2.out" },
+          0,
+        )
+        .fromTo(
+          ".story-stage-copy > *",
+          { autoAlpha: 0, y: 16 },
+          { autoAlpha: 1, y: 0, duration: 0.42, stagger: 0.045 },
+          0.14,
+        );
+    }, stage);
+    return () => context.revert();
   }, [active]);
 
   if (stories.length === 0) return null;
@@ -200,13 +254,24 @@ export function StoryReel({ stories }: { stories: StorySlide[] }) {
           >
             <div className="story-stage-visual">
               {story.image ? (
-                <Image
-                  src={story.image}
-                  alt={story.imageAlt ?? ""}
-                  fill
-                  sizes="(max-width: 639px) 100vw, 30rem"
-                  priority
-                />
+                <>
+                  <Image
+                    className="story-photo-backdrop"
+                    src={story.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 639px) 100vw, 30rem"
+                    aria-hidden="true"
+                  />
+                  <Image
+                    className="story-photo-foreground"
+                    src={story.image}
+                    alt={story.imageAlt ?? ""}
+                    fill
+                    sizes="(max-width: 639px) 100vw, 30rem"
+                    priority
+                  />
+                </>
               ) : (
                 <div className="story-stage-icon" aria-hidden="true">
                   {story.icon === "organization" ? (

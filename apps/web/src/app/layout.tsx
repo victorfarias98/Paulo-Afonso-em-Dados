@@ -21,9 +21,41 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "sw
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: { default: "Paulo Afonso em Dados", template: "%s | Paulo Afonso em Dados" },
+  metadataBase: new URL("https://pauloafonsoemdados.baiustecnologia.com.br"),
+  title: {
+    default: "Paulo Afonso em Dados | Gastos, obras e contratos públicos",
+    template: "%s | Paulo Afonso em Dados",
+  },
   description:
-    "Obras, contratos, licitações e gastos públicos de Paulo Afonso explicados de forma simples e com fonte oficial.",
+    "Veja gastos, obras, contratos, licitações e a atuação dos vereadores de Paulo Afonso, com linguagem simples e acesso à fonte oficial.",
+  keywords: [
+    "Paulo Afonso",
+    "transparência pública",
+    "gastos públicos",
+    "obras públicas",
+    "vereadores de Paulo Afonso",
+    "contratos públicos",
+  ],
+  openGraph: {
+    title: "Paulo Afonso em Dados",
+    description: "Entenda para onde vai o dinheiro da cidade e acompanhe quem você elegeu.",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "/illustrations/civic-city.webp",
+        width: 960,
+        height: 640,
+        alt: "Ilustração de Paulo Afonso em Dados",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paulo Afonso em Dados",
+    description: "Entenda para onde vai o dinheiro da cidade e acompanhe quem você elegeu.",
+    images: ["/illustrations/civic-city.webp"],
+  },
   icons: { icon: "/brand/paulo-afonso-em-dados-mark.png" },
 };
 

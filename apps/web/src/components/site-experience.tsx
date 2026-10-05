@@ -21,6 +21,12 @@ export function SiteExperience() {
       anchors: { offset: -84 },
       autoRaf: false,
       autoToggle: true,
+      lerp: 0.085,
+      smoothWheel: true,
+      wheelMultiplier: 0.88,
+      touchMultiplier: 1,
+      syncTouch: false,
+      overscroll: true,
       respectReducedMotion: true,
       stopInertiaOnNavigate: true,
     });

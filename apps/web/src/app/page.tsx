@@ -403,42 +403,48 @@ export default async function HomePage() {
 
   return (
     <HomeScroll>
-      <section
-        aria-label="Resumo do dinheiro público"
-        className="home-hero grid items-center gap-6 md:grid-cols-[1.5fr_1fr]"
-      >
-        <div className="min-w-0">
-          <p data-hero-reveal className="mb-3 text-sm font-medium text-azul-forte">
-            Paulo Afonso em dados
+      <section aria-label="Resumo do dinheiro público" className="home-hero">
+        <div className="home-hero-copy min-w-0">
+          <p data-hero-reveal className="home-hero-kicker">
+            Dados públicos, do jeito que a cidade entende
           </p>
-          <h1 data-hero-reveal className="max-w-2xl text-4xl leading-[1.1] font-medium sm:text-5xl">
-            Seu dinheiro. A sua cidade.
+          <h1 data-hero-reveal>
+            Veja para onde vai o dinheiro de <span>Paulo Afonso.</span>
           </h1>
-          <p data-hero-reveal className="mt-3 max-w-prose text-suave">
-            Acompanhe gastos, obras e contratos. Confira os registros e cobre resultados.
+          <p data-hero-reveal className="home-hero-lead">
+            Pesquise obras, gastos, contratos e a atuação de quem você elegeu. Cada número leva até
+            a fonte oficial.
           </p>
+          <div data-hero-reveal className="home-hero-actions">
+            <Link href="#fatos" className="botao home-hero-primary">
+              Explorar os dados <ArrowRightIcon size={20} aria-hidden="true" />
+            </Link>
+            <Link href="/novidades" className="home-hero-secondary">
+              Ver o que mudou hoje
+            </Link>
+          </div>
+          <ul data-hero-reveal className="home-hero-trust" aria-label="Compromissos do portal">
+            <li>Fonte em cada dado</li>
+            <li>Acesso livre</li>
+            <li>Linguagem simples</li>
+          </ul>
           {hasSpending && spending && year !== null ? (
-            <>
-              <p data-hero-reveal className="mt-6 text-xl leading-snug sm:text-2xl">
-                Em {year}, a Prefeitura já pagou{" "}
-                <strong className="valor text-azul-forte">
-                  R$ {paidSpoken.figure} {paidSpoken.unit}
-                </strong>
-                . Equivale a cerca de{" "}
-                <strong className="valor">
-                  R$ {perResident(spending.paid.total).toLocaleString("pt-BR")}
-                </strong>{" "}
-                por morador.
-              </p>
-              <p data-hero-reveal className="mt-2 text-sm text-suave">
-                Soma dos pagamentos já trazidos para o portal. Moradores: {POPULATION_SOURCE}.
-              </p>
-            </>
+            <div data-hero-reveal className="home-hero-proof">
+              <span>Pagamentos encontrados em {year}</span>
+              <strong className="valor">
+                R$ {paidSpoken.figure} {paidSpoken.unit}
+              </strong>
+              <small>
+                Cerca de R$ {perResident(spending.paid.total).toLocaleString("pt-BR")} por morador ,
+                usando {POPULATION_SOURCE}
+              </small>
+            </div>
           ) : (
-            <p data-hero-reveal className="mt-5 max-w-prose text-lg text-suave sm:text-xl">
-              Obras, contratos, compras e gastos explicados de forma simples, com a fonte oficial de
-              cada número.
-            </p>
+            <div data-hero-reveal className="home-hero-proof">
+              <span>Informação para acompanhar a cidade</span>
+              <strong>Obras, contratos e gastos</strong>
+              <small>Dados organizados com link para a fonte oficial</small>
+            </div>
           )}
         </div>
         <div data-hero-reveal data-city-parallax className="home-city-illustration">
@@ -449,8 +455,12 @@ export default async function HomePage() {
             height={640}
             sizes="(max-width: 767px) 100vw, 38vw"
             preload
-            className="h-40 w-full rounded-xl object-cover sm:h-56 md:h-64"
+            className="home-city-image"
           />
+          <div className="home-city-caption">
+            <span>Feito para quem vive a cidade</span>
+            <strong>Entenda. Compare. Acompanhe.</strong>
+          </div>
         </div>
       </section>
 
