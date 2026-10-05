@@ -1,7 +1,14 @@
 "use client";
 
-import { ArrowLeftIcon, ArrowRightIcon, XIcon } from "@phosphor-icons/react";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  BuildingsIcon,
+  DatabaseIcon,
+  XIcon,
+} from "@phosphor-icons/react";
 import { gsap } from "gsap";
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -11,11 +18,17 @@ export interface StorySlide {
   title: string;
   summary: string;
   metric: string;
+  metricLabel: string;
+  image?: string;
+  imageAlt?: string;
+  icon?: "update" | "organization";
   href: string;
   sourceLabel: string;
   sourceHref: string;
   tone: "blue" | "navy" | "aqua" | "sand";
 }
+
+const displayText = (value: string): string => value.replace(/\s*[–—]\s*/g, ", ");
 
 export function StoryReel({ stories }: { stories: StorySlide[] }) {
   const [active, setActive] = useState<number | null>(null);
@@ -105,12 +118,18 @@ export function StoryReel({ stories }: { stories: StorySlide[] }) {
                 opener.current = event.currentTarget;
                 setActive(index);
               }}
-              aria-label={`Abrir: ${item.title}`}
+              aria-label={`Abrir: ${displayText(item.title)}`}
             >
               <span className={`story-bubble story-tone-${item.tone}`}>
-                <span>{item.metric}</span>
+                {item.image ? (
+                  <Image src={item.image} alt="" width={96} height={96} />
+                ) : item.icon === "organization" ? (
+                  <BuildingsIcon size={28} aria-hidden="true" />
+                ) : (
+                  <DatabaseIcon size={28} aria-hidden="true" />
+                )}
               </span>
-              <strong>{item.eyebrow}</strong>
+              <strong>{displayText(item.title)}</strong>
             </button>
           </li>
         ))}
@@ -122,7 +141,7 @@ export function StoryReel({ stories }: { stories: StorySlide[] }) {
           className="story-viewer"
           role="dialog"
           aria-modal="true"
-          aria-label={story.title}
+          aria-label={displayText(story.title)}
         >
           <div
             className="story-progress"
@@ -179,17 +198,36 @@ export function StoryReel({ stories }: { stories: StorySlide[] }) {
               gsap.to(stage.current, { x: 0, duration: 0.25, ease: "power3.out" });
             }}
           >
-            <div className="story-stage-art" aria-hidden="true">
-              <span>{String(active + 1).padStart(2, "0")}</span>
+            <div className="story-stage-visual">
+              {story.image ? (
+                <Image
+                  src={story.image}
+                  alt={story.imageAlt ?? ""}
+                  fill
+                  sizes="(max-width: 639px) 100vw, 30rem"
+                  priority
+                />
+              ) : (
+                <div className="story-stage-icon" aria-hidden="true">
+                  {story.icon === "organization" ? (
+                    <BuildingsIcon size={72} />
+                  ) : (
+                    <DatabaseIcon size={72} />
+                  )}
+                </div>
+              )}
             </div>
             <div className="story-stage-copy" data-lenis-prevent>
-              <p>{story.eyebrow}</p>
-              <strong>{story.metric}</strong>
-              <h3>{story.title}</h3>
-              <p>{story.summary}</p>
+              <p className="story-eyebrow">{displayText(story.eyebrow)}</p>
+              <h3>{displayText(story.title)}</h3>
+              <p className="story-summary">{displayText(story.summary)}</p>
+              <div className="story-metric">
+                <strong>{story.metric}</strong>
+                <span>{displayText(story.metricLabel)}</span>
+              </div>
               <div className="story-audit">
                 <span>De onde veio</span>
-                <Link href={story.sourceHref}>{story.sourceLabel}</Link>
+                <Link href={story.sourceHref}>{displayText(story.sourceLabel)}</Link>
               </div>
               <Link href={story.href} className="story-open-link">
                 Ver registros <ArrowRightIcon size={20} aria-hidden="true" />
