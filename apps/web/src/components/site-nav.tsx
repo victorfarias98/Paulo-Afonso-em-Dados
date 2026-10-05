@@ -26,6 +26,7 @@ const isCurrent = (pathname: string, href: string): boolean =>
  */
 export function SiteNav() {
   const pathname = usePathname();
+  const currentLabel = LINKS.find(({ href }) => isCurrent(pathname, href))?.label ?? "Menu";
   const [open, setOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   const firstLink = useRef<HTMLAnchorElement>(null);
@@ -77,8 +78,15 @@ export function SiteNav() {
         aria-controls="mobile-navigation"
         onClick={() => setOpen((current) => !current)}
       >
-        <ListIcon size={23} aria-hidden="true" />
-        <span>{open ? "Fechar" : "Menu"}</span>
+        <span className="flex items-center gap-2">
+          {open ? (
+            <XIcon size={23} aria-hidden="true" />
+          ) : (
+            <ListIcon size={23} aria-hidden="true" />
+          )}
+          <span>{open ? "Fechar menu" : "Explorar"}</span>
+        </span>
+        <span className="botao-mobile-menu-current">{currentLabel}</span>
       </button>
 
       <div

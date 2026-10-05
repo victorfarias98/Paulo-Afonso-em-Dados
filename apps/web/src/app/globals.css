@@ -203,7 +203,7 @@
   .botao-mobile-menu {
     display: inline-flex;
     min-height: 3rem;
-    min-width: 7rem;
+    width: 100%;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
@@ -216,9 +216,33 @@
       transform 0.2s var(--ease-saida);
   }
 
+  .mobile-nav-shell {
+    background: color-mix(in srgb, var(--color-fundo) 94%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-nav-shell nav {
+    border: 1px solid var(--color-linha);
+    border-radius: 1rem;
+    background: var(--color-superficie);
+    padding: 0.35rem;
+    box-shadow: 0 0.75rem 2rem color-mix(in srgb, var(--color-tinta) 9%, transparent);
+  }
+
   .botao-mobile-menu:hover,
   .botao-mobile-menu:focus-visible {
     background: var(--color-superficie);
+  }
+
+  .botao-mobile-menu-current {
+    max-width: 45%;
+    overflow: hidden;
+    color: var(--color-suave);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    font-weight: 500;
   }
 
   .botao-mobile-menu:active,

@@ -68,8 +68,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
         </header>
-        {/* No celular só a faixa de seções acompanha a rolagem; o nome do site fica no topo. */}
-        <div className="sticky top-0 z-40 border-b border-linha bg-fundo px-5 pt-2 xl:hidden">
+        {/* No celular a navegação ganha uma ilha própria, separada do cabeçalho. */}
+        <div className="mobile-nav-shell sticky top-0 z-40 px-4 pt-4 pb-4 xl:hidden">
           <SiteNav />
         </div>
 
