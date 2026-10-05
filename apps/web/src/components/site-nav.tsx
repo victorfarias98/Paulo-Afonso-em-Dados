@@ -1,20 +1,23 @@
 "use client";
 
-import { ListIcon, XIcon } from "@phosphor-icons/react";
+import { CaretDownIcon, ListIcon, XIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-const LINKS = [
+const PRIMARY_LINKS = [
   { href: "/", label: "Início" },
+  { href: "/novidades", label: "Novidades" },
   { href: "/obras", label: "Obras" },
   { href: "/gastos", label: "Gastos" },
   { href: "/contratos", label: "Contratos" },
+] as const;
+
+const SUPPORT_LINKS = [
   { href: "/licitacoes", label: "Licitações" },
   { href: "/fornecedores", label: "Quem recebe" },
-  { href: "/entenda", label: "Entenda" },
-  { href: "/fontes", label: "Fontes" },
-  { href: "/novidades", label: "Novidades" },
+  { href: "/entenda", label: "Entenda os dados" },
+  { href: "/fontes", label: "Fontes oficiais" },
 ] as const;
 
 const isCurrent = (pathname: string, href: string): boolean =>
@@ -26,11 +29,21 @@ const isCurrent = (pathname: string, href: string): boolean =>
  */
 export function SiteNav() {
   const pathname = usePathname();
-  const currentLabel = LINKS.find(({ href }) => isCurrent(pathname, href))?.label ?? "Menu";
   const [open, setOpen] = useState(false);
+  const supportIsCurrent = SUPPORT_LINKS.some(({ href }) => isCurrent(pathname, href));
   const menuButton = useRef<HTMLButtonElement>(null);
   const firstLink = useRef<HTMLAnchorElement>(null);
   const panel = useRef<HTMLDivElement>(null);
+  const moreMenu = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const closeAtDesktop = ({ matches }: MediaQueryListEvent) => {
+      if (matches) setOpen(false);
+    };
+    desktop.addEventListener("change", closeAtDesktop);
+    return () => desktop.removeEventListener("change", closeAtDesktop);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -84,15 +97,15 @@ export function SiteNav() {
           ) : (
             <ListIcon size={23} aria-hidden="true" />
           )}
-          <span>{open ? "Fechar menu" : "Explorar"}</span>
+          <span>{open ? "Fechar" : "Menu"}</span>
         </span>
-        <span className="botao-mobile-menu-current">{currentLabel}</span>
       </button>
 
       <div
         id="mobile-navigation"
         className={`mobile-navigation ${open ? "is-open" : ""}`}
         aria-hidden={!open}
+        inert={!open}
         onClick={(event) => {
           if (event.target === event.currentTarget) close();
         }}
@@ -104,12 +117,14 @@ export function SiteNav() {
           aria-modal="true"
           aria-labelledby="mobile-navigation-title"
         >
-          <div className="flex items-center justify-between border-b border-linha pb-4">
-            <div>
-              <p id="mobile-navigation-title" className="text-sm font-medium text-azul-forte">
-                Paulo Afonso em Dados
+          <div className="mobile-navigation-heading">
+            <div className="min-w-0">
+              <p className="text-xs font-semibold tracking-[0.14em] text-azul-forte uppercase">
+                Explore o portal
               </p>
-              <p className="mt-1 text-sm text-suave">Escolha para onde ir</p>
+              <p id="mobile-navigation-title" className="mt-1 text-xl font-semibold">
+                O que você quer acompanhar?
+              </p>
             </div>
             <button
               type="button"
@@ -120,8 +135,9 @@ export function SiteNav() {
               <XIcon size={24} aria-hidden="true" />
             </button>
           </div>
+          <p className="mobile-navigation-group-label">Acompanhar</p>
           <ul className="mobile-navigation-list">
-            {LINKS.map(({ href, label }, index) => {
+            {PRIMARY_LINKS.map(({ href, label }, index) => {
               const current = isCurrent(pathname, href);
               return (
                 <li key={href}>
@@ -139,11 +155,30 @@ export function SiteNav() {
               );
             })}
           </ul>
+          <p className="mobile-navigation-group-label">Entender e conferir</p>
+          <ul className="mobile-navigation-list mobile-navigation-list-secondary">
+            {SUPPORT_LINKS.map(({ href, label }) => {
+              const current = isCurrent(pathname, href);
+              return (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    aria-current={current ? "page" : undefined}
+                    onClick={close}
+                    className={`mobile-navigation-link ${current ? "is-current" : ""}`}
+                  >
+                    <span>{label}</span>
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
 
       <ul className="desktop-navigation-list">
-        {LINKS.map(({ href, label }) => {
+        {PRIMARY_LINKS.map(({ href, label }) => {
           const current = isCurrent(pathname, href);
           return (
             <li key={href}>
@@ -159,6 +194,29 @@ export function SiteNav() {
             </li>
           );
         })}
+        <li className="desktop-navigation-more">
+          <details ref={moreMenu}>
+            <summary className={supportIsCurrent ? "is-current" : undefined}>
+              Mais <CaretDownIcon size={16} aria-hidden="true" />
+            </summary>
+            <ul>
+              {SUPPORT_LINKS.map(({ href, label }) => {
+                const current = isCurrent(pathname, href);
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      aria-current={current ? "page" : undefined}
+                      onClick={() => moreMenu.current?.removeAttribute("open")}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </details>
+        </li>
       </ul>
     </nav>
   );

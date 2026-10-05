@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   title: { default: "Paulo Afonso em Dados", template: "%s — Paulo Afonso em Dados" },
   description:
     "Obras, contratos, licitações e gastos públicos de Paulo Afonso explicados de forma simples e com fonte oficial.",
+  icons: { icon: "/brand/paulo-afonso-em-dados-mark.png" },
 };
 
 export const viewport: Viewport = {
@@ -45,33 +46,32 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         >
           Ir para o conteúdo
         </a>
-        <header className="border-b border-linha bg-fundo xl:sticky xl:top-0 xl:z-40">
-          <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-4 px-5 lg:h-16">
-            <Link
-              href="/"
-              className="flex items-center gap-2.5 text-lg font-semibold tracking-tight"
-            >
-              <span className="marca" aria-hidden="true" />
-              Paulo Afonso em Dados
+        <header className="site-header">
+          <div className="site-header-inner">
+            <Link href="/" className="site-brand" aria-label="Paulo Afonso em Dados — início">
+              <span className="site-brand-mark" aria-hidden="true">
+                <Image
+                  src="/brand/paulo-afonso-em-dados-mark.png"
+                  alt=""
+                  width={384}
+                  height={384}
+                  priority
+                />
+              </span>
+              <span className="site-brand-name">
+                <span>Paulo Afonso</span>
+                <span>em Dados</span>
+              </span>
             </Link>
-            <div className="flex items-center gap-1">
-              <div className="hidden xl:block">
-                <SiteNav />
-              </div>
-              <Link
-                href="/busca"
-                aria-label="Buscar no portal"
-                className="grid size-11 place-items-center rounded-full hover:bg-superficie"
-              >
+            <div className="site-header-actions">
+              <SiteNav />
+              <Link href="/busca" aria-label="Buscar no portal" className="site-header-search">
                 <MagnifyingGlassIcon size={22} aria-hidden="true" />
+                <span className="hidden 2xl:inline">Buscar</span>
               </Link>
             </div>
           </div>
         </header>
-        {/* No celular a navegação ganha uma ilha própria, separada do cabeçalho. */}
-        <div className="mobile-nav-shell sticky top-0 z-40 px-4 pt-4 pb-4 xl:hidden">
-          <SiteNav />
-        </div>
 
         <main id="conteudo" className="mx-auto w-full max-w-6xl flex-1 px-5 py-8 sm:py-14">
           {children}

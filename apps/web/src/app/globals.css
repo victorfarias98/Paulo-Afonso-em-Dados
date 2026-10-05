@@ -4,7 +4,7 @@
  * Identidade da Baius Tecnologia, a mesma da landing page: papel creme, tinta
  * azul-marinho e um único destaque, o azul do quadrado do logo.
  * Formas: botões em pílula, blocos 12px, campos 8px.
- * Camadas: conteúdo 0, cabeçalho 40, painel de filtros 50.
+ * Camadas: conteúdo 0, cabeçalho 50, navegação móvel 60.
  */
 @theme {
   --color-fundo: #f4efe4;
@@ -53,7 +53,7 @@
   h1,
   h2,
   h3 {
-    letter-spacing: -0.04em;
+    letter-spacing: 0;
     line-height: 1.12;
     text-wrap: balance;
   }
@@ -98,17 +98,115 @@
   .valor {
     font-variant-numeric: tabular-nums;
     font-weight: 600;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     white-space: nowrap;
   }
 
-  /* O quadrado azul do "i" de baius: marca o que é dado do portal. */
-  .marca {
-    display: inline-block;
-    width: 0.5em;
-    height: 0.5em;
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-linha) 80%, transparent);
+    background: color-mix(in srgb, var(--color-fundo) 90%, transparent);
+    box-shadow: 0 0.35rem 1.5rem color-mix(in srgb, var(--color-tinta) 5%, transparent);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    backdrop-filter: blur(16px) saturate(1.2);
+  }
+
+  .site-header-inner {
+    display: flex;
+    min-height: 4.25rem;
+    width: 100%;
+    max-width: 72rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-inline: auto;
+    padding: max(0.45rem, env(safe-area-inset-top)) 0.75rem 0.45rem;
+  }
+
+  .site-brand {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.55rem;
+    border-radius: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    transition:
+      background-color 0.2s,
+      transform 0.2s var(--ease-saida);
+  }
+
+  .site-brand:hover,
+  .site-brand:focus-visible {
+    background: color-mix(in srgb, var(--color-superficie) 65%, transparent);
+  }
+
+  .site-brand:active {
+    transform: scale(0.98);
+  }
+
+  .site-brand-mark {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
     flex: none;
-    background: var(--color-azul);
+    place-items: center;
+    overflow: hidden;
+    border-radius: 0.8rem;
+    background: color-mix(in srgb, var(--color-azul) 8%, transparent);
+  }
+
+  .site-brand-mark img {
+    width: 2.55rem;
+    height: 2.55rem;
+    object-fit: contain;
+  }
+
+  .site-brand-name {
+    display: grid;
+    font-size: 0.875rem;
+    line-height: 1.05;
+  }
+
+  .site-brand-name span:last-child {
+    color: var(--color-azul-forte);
+  }
+
+  .site-brand-name span {
+    white-space: nowrap;
+  }
+
+  .site-header-actions {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .site-header-search {
+    display: inline-flex;
+    min-width: 3rem;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    border-radius: 999px;
+    padding-inline: 0.65rem;
+    font-weight: 600;
+    transition:
+      background-color 0.2s,
+      transform 0.2s var(--ease-saida);
+  }
+
+  .site-header-search:hover,
+  .site-header-search:focus-visible {
+    background: var(--color-superficie);
+  }
+
+  .site-header-search:active {
+    transform: scale(0.96);
   }
 
   .campo {
@@ -203,46 +301,22 @@
   .botao-mobile-menu {
     display: inline-flex;
     min-height: 3rem;
-    width: 100%;
+    width: auto;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     border: 1px solid var(--color-linha);
     border-radius: 999px;
-    padding: 0.55rem 1rem;
+    padding: 0.5rem 0.85rem;
     font-weight: 600;
     transition:
       background-color 0.2s,
       transform 0.2s var(--ease-saida);
   }
 
-  .mobile-nav-shell {
-    background: color-mix(in srgb, var(--color-fundo) 94%, transparent);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-  }
-
-  .mobile-nav-shell nav {
-    border: 1px solid var(--color-linha);
-    border-radius: 1rem;
-    background: var(--color-superficie);
-    padding: 0.35rem;
-    box-shadow: 0 0.75rem 2rem color-mix(in srgb, var(--color-tinta) 9%, transparent);
-  }
-
   .botao-mobile-menu:hover,
   .botao-mobile-menu:focus-visible {
     background: var(--color-superficie);
-  }
-
-  .botao-mobile-menu-current {
-    max-width: 45%;
-    overflow: hidden;
-    color: var(--color-suave);
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 0.875rem;
-    font-weight: 500;
   }
 
   .botao-mobile-menu:active,
@@ -273,7 +347,7 @@
   }
 
   .mobile-navigation-panel {
-    min-height: 100%;
+    height: 100dvh;
     width: min(100%, 28rem);
     margin-left: auto;
     overflow-y: auto;
@@ -281,6 +355,15 @@
     padding: max(1.25rem, env(safe-area-inset-top)) 1.25rem max(1.5rem, env(safe-area-inset-bottom));
     transform: translateX(1.5rem);
     transition: transform 0.25s var(--ease-saida);
+  }
+
+  .mobile-navigation-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-linha);
+    padding-bottom: 1.1rem;
   }
 
   .mobile-navigation.is-open .mobile-navigation-panel {
@@ -307,7 +390,21 @@
   .mobile-navigation-list {
     display: grid;
     gap: 0.35rem;
+  }
+
+  .mobile-navigation-group-label {
     padding-top: 1.25rem;
+    padding-bottom: 0.35rem;
+    color: var(--color-suave);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .mobile-navigation-list-secondary .mobile-navigation-link {
+    min-height: 3rem;
+    font-size: 1rem;
   }
 
   .mobile-navigation-link {
@@ -332,6 +429,76 @@
   }
 
   .mobile-navigation-link.is-current {
+    box-shadow: inset 3px 0 currentColor;
+    color: var(--color-azul-forte);
+    padding-left: 0.85rem;
+  }
+
+  .desktop-navigation-more {
+    position: relative;
+  }
+
+  .desktop-navigation-more summary {
+    display: flex;
+    min-height: 2.75rem;
+    cursor: pointer;
+    list-style: none;
+    align-items: center;
+    gap: 0.25rem;
+    border-radius: 999px;
+    padding-inline: 1rem;
+    font-weight: 500;
+  }
+
+  .desktop-navigation-more summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .desktop-navigation-more summary:hover,
+  .desktop-navigation-more summary:focus-visible,
+  .desktop-navigation-more details[open] summary {
+    background: var(--color-superficie);
+  }
+
+  .desktop-navigation-more summary.is-current {
+    background: var(--color-tinta);
+    color: var(--color-fundo);
+  }
+
+  .desktop-navigation-more details[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  .desktop-navigation-more summary svg {
+    transition: transform 0.2s var(--ease-saida);
+  }
+
+  .desktop-navigation-more ul {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 13rem;
+    border: 1px solid var(--color-linha);
+    border-radius: 0.9rem;
+    background: var(--color-fundo);
+    padding: 0.4rem;
+    box-shadow: 0 1rem 2.5rem color-mix(in srgb, var(--color-tinta) 13%, transparent);
+    z-index: 65;
+  }
+
+  .desktop-navigation-more li a {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    border-radius: 0.65rem;
+    padding-inline: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .desktop-navigation-more li a:hover,
+  .desktop-navigation-more li a:focus-visible,
+  .desktop-navigation-more li a[aria-current="page"] {
+    background: var(--color-superficie);
     color: var(--color-azul-forte);
   }
 
@@ -377,7 +544,17 @@
 
   .desktop-navigation-list {
     display: flex;
+    align-items: center;
     gap: 0.25rem;
+  }
+
+  .site-header-inner {
+    min-height: 4.75rem;
+    padding-inline: 1.25rem;
+  }
+
+  .site-brand-name {
+    font-size: 1rem;
   }
 }
 
