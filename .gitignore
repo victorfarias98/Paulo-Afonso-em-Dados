@@ -1,0 +1,23 @@
+node_modules/
+.next/
+dist/
+coverage/
+*.tsbuildinfo
+video/out/
+video/scripts/__pycache__/
+
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Dados locais do Postgres e saídas de coleta manual
+.data/
+tmp/
+
+.DS_Store
+
+# Configurações privadas das ferramentas locais
+.aws/
+.codex/
+.agents/

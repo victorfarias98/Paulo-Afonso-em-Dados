@@ -1,0 +1,299 @@
+<script type='text/javascript'>$('.DisInex1').hide();</script><script type='text/javascript'>$('.DisInex2').hide();</script><div page-name="LicLicitacaoFormExternoView" page_name="LicLicitacaoFormExternoView" id="window_1867481199" window_name="LicLicitacaoFormExternoView" role="window-wrapper"><div id="jquery_dialog_1577188911" style="overflow:auto" title="Cadastro de Licitações" widget="TWindow" name="LicLicitacaoFormExternoView" class="window_modal window_modal_header_actions">
+<div class="card panel" style="width: 100%" widget="bootstrapformbuilder" form="form_LicLicitacaoForm" id="bform_1450039041">
+<div class="card-header panel-heading">
+<div class="panel-title card-title">Cadastro de Licitações</div>
+<div class="header-actions" style="float:right"><div class="btn-group" style="display:inline-block; -moz-user-select: none; -webkit-user-select:none; user-select:none;position:static;">
+<button data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle" boundary="viewport">
+<i class="fas fa-file-export " style="; color: #FFC107;"></i>
+Exportar</button>
+<ul class="dropdown-menu pull-right dropdown-menu-right" aria-labelledby="drop2" widget="tdropdown">
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_LicLicitacaoForm', 'class=LicLicitacaoFormExternoView&amp;method=onExportPdf&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-pdf " style="; color: #e74c3c;;padding: 4px"></i>
+<span>PDF</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_LicLicitacaoForm', 'class=LicLicitacaoFormExternoView&amp;method=onExportXls&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-excel " style="; color: #4CAF50;;padding: 4px"></i>
+<span>Excel</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_LicLicitacaoForm', 'class=LicLicitacaoFormExternoView&amp;method=onExportCsv&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-csv " style="; color: #00b894;;padding: 4px"></i>
+<span>CSV</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_LicLicitacaoForm', 'class=LicLicitacaoFormExternoView&amp;method=onExportWord&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-word " style="; color: #2196F3;;padding: 4px"></i>
+<span>Word</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_LicLicitacaoForm', 'class=LicLicitacaoFormExternoView&amp;method=onCopy&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-copy " style="; color: #FFC107;;padding: 4px"></i>
+<span>Copiar</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<form class="form-horizontal" type="bootstrap" novalidate="" enctype="multipart/form-data" name="form_LicLicitacaoForm" id="form_LicLicitacaoForm" method="post"><div class="card-body panel-body" style="width: 100%">
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active nav-item"><a href="#tab_bform_1450039041_0" role="tab" data-toggle="tab" aria-expanded="true" class="nav-link active" onclick="$('[name=current_tab]').val($(this).attr('data-current_page'));" data-current_page="0"><span class="tab-name">Licitação</span>
+</a>
+</li>
+<li role="presentation" class=" nav-item"><a href="#tab_bform_1450039041_1" role="tab" data-toggle="tab" aria-expanded="true" class="nav-link " onclick="$('[name=current_tab]').val($(this).attr('data-current_page'));" data-current_page="1"><span class="tab-name">Participantes</span>
+</a>
+</li>
+<li role="presentation" class=" nav-item"><a href="#tab_bform_1450039041_2" role="tab" data-toggle="tab" aria-expanded="true" class="nav-link " onclick="$('[name=current_tab]').val($(this).attr('data-current_page'));" data-current_page="2"><span class="tab-name">Publicações</span>
+</a>
+</li>
+<li role="presentation" class=" nav-item"><a href="#tab_bform_1450039041_3" role="tab" data-toggle="tab" aria-expanded="true" class="nav-link " onclick="$('[name=current_tab]').val($(this).attr('data-current_page'));" data-current_page="3"><span class="tab-name">Arquivos</span>
+</a>
+</li>
+</ul>
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane tabpanel_form_LicLicitacaoForm active" style="padding:10px; margin-top: -1px;border: 1px solid #DDDDDD" id="tab_bform_1450039041_0">
+<div class="form-group tformrow row " style="display:none"><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="current_tab" type="hidden" style="width:" id="thidden_1847245476"/></div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class="col-sm-1 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1090731610">Código</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100px;padding-right: 10px;" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" name="id" value="2116" style="width:100%;" id="tentry_1479716253" readonly="1"/></div>
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 200px;padding-right: 10px;" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="lateral" value="" type="hidden" style="width:100%" id="thidden_1148031355"/></div>
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 200px;padding-right: 10px;" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="nome_controller" value="" type="hidden" style="width:100%" id="thidden_1074949180"/></div>
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 200px;padding-right: 10px;" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="descricao_controller" value="" type="hidden" style="width:100%" id="thidden_1376885868"/></div>
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 200px" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="id_protocolo" value="" type="hidden" style="width:100%" id="thidden_1066788867"/></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1867306024">Licitação</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="lic_modalidade" id="tcombo_1359370061" style="width:100%;;pointer-events:none" changeaction="__adianti_post_lookup('form_LicLicitacaoForm', 'class=LicLicitacaoFormExternoView&method=onSelectZero&static=1', 'tcombo_1359370061', 'callback')" onChange="__adianti_post_lookup('form_LicLicitacaoForm', 'class=LicLicitacaoFormExternoView&method=onSelectZero&static=1', 'tcombo_1359370061', 'callback')" onclick="return false;" tabindex="-1"><option value="1" selected="1"> I Pregão</option></select>
+</div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1578664568">Nº Licitação <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" required="" maxlength="50" aria-required="true" name="lic_numero" value="PE0080/2026" style="width:100%;" id="tentry_1792986361" readonly="1"/></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1956937073">Nº Processo Adm</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" maxlength="50" name="lic_processo" value="001584/000138/2026" style="width:100%;" id="tentry_1464992335" readonly="1"/></div>
+</div>
+<div class="col-sm-1 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1472730604">Tipo Disputa</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="lic_tipo_disputa" id="tcombo_1800138070" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="2" selected="1"> Eletrônico</option></select>
+</div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1223975179">Órgão</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="id_orgao" id="tcombo_1658491304" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="10" selected="1">SECRETARIA MUNICIPAL DE EDUCACAO</option></select>
+</div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1822619836">Valor Total da Licitação</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" style="text-align:right;;width:100%;" pattern="^\$?(([1-9](\d*|\d{0,2}(\.\d{3})*))|0)(,\d{1,2})?$" inputmode="numeric" data-nmask="2,." maxlength="20" name="lic_valor" value="680.786,48" id="tentry_1307346720" readonly="1"/><script type='text/javascript'>tentry_numeric_mask( 'tentry_1307346720', 2, ',', '.', false, true); </script></div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1172563000">Dt. Início Disputa <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1172908067', '99/99/9999'); </script><input class="form-control tfield tfield_disabled" widget="tdate" type="text" autocomplete="off" required="" aria-required="true" name="lic_dt_inicio" value="02/10/2026" style="width:100%;" id="tdate_1172908067" readonly="1"/><script type='text/javascript'>tdate_start( '#tdate_1172908067', 'dd/mm/yyyy', 'pt', '100%', '[]');</script><script type='text/javascript'> tdate_disable_field( 'form_LicLicitacaoForm', 'lic_dt_inicio' ); </script></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1871356670">Dt. Publicação <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1259488126', '99/99/9999'); </script><input class="form-control tfield tfield_disabled" widget="tdate" type="text" autocomplete="off" required="" aria-required="true" name="lic_dt_publicacao" value="15/09/2026" style="width:100%;" id="tdate_1259488126" readonly="1"/><script type='text/javascript'>tdate_start( '#tdate_1259488126', 'dd/mm/yyyy', 'pt', '100%', '[]');</script><script type='text/javascript'> tdate_disable_field( 'form_LicLicitacaoForm', 'lic_dt_publicacao' ); </script></div>
+</div>
+<div class="col-sm-4 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1516854957">Imprensa /Meio de Publicação <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" required="" maxlength="200" aria-required="true" name="lic_imprensa" value="DIARIO OFICIAL" style="width:100%;" id="tentry_1332670973" readonly="1"/></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1437375474">Dt. Ratificação  <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1324943354', '99/99/9999'); </script><input class="form-control tfield tfield_disabled" widget="tdate" type="text" autocomplete="off" name="lic_dt_ratificacao" value="" style="width:100%;" id="tdate_1324943354" readonly="1"/><script type='text/javascript'>tdate_start( '#tdate_1324943354', 'dd/mm/yyyy', 'pt', '100%', '[]');</script><script type='text/javascript'> tdate_disable_field( 'form_LicLicitacaoForm', 'lic_dt_ratificacao' ); </script></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1577894585">Dt. Homologação <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1784288762', '99/99/9999'); </script><input class="form-control tfield tfield_disabled" widget="tdate" type="text" autocomplete="off" name="lic_dt_homologacao" value="" style="width:100%;" id="tdate_1784288762" readonly="1"/><script type='text/javascript'>tdate_start( '#tdate_1784288762', 'dd/mm/yyyy', 'pt', '100%', '[]');</script><script type='text/javascript'> tdate_disable_field( 'form_LicLicitacaoForm', 'lic_dt_homologacao' ); </script></div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class=" col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1658789867">Tipo de Modalidade de Licitação <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" required="" aria-required="true" name="lic_modalidade_siga" id="tcombo_1658393597" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="6" selected="1">PE - PREGÃO ELETRÔNICO</option></select>
+</div>
+</div>
+<div class=" col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1922188923">Regime <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" required="" aria-required="true" name="lic_regime" id="tcombo_1547336877" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="23" selected="1">(LEI 14133/21) FORNECIMENTO E PRESTAÇÃO DE SERVIÇOS ASSOCIADOS</option></select>
+</div>
+</div>
+<div class=" col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1224432679">Fundamento Legal</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="id_fundamento" id="tcombo_1764919692" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="60" selected="1">Lei 14.133/2021</option></select>
+</div>
+</div>
+<div class=" col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1590786492">Tipo de Licitação <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" required="" aria-required="true" name="lic_tipo" id="tcombo_1139453598" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="C" selected="1"> 12 - (Lei 14133/21) Menor preço</option></select>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1386861106">Item ou Lote? <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" required="" aria-required="true" name="lic_itenlote" id="tcombo_1567339927" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="L" selected="1"> Lote</option></select>
+</div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1855491614">Parecer Prévio? <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" required="" aria-required="true" name="lic_parecer" id="tcombo_1246344164" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="S" selected="1"> SIM</option></select>
+</div>
+</div>
+<div class="col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1258290794">Status</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="lic_status" id="tcombo_1783159480" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="1" selected="1"> Publicado</option></select>
+</div>
+</div>
+<div class=" col-sm-5 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1330748757">Edital</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 89%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="id_edital" id="tcombo_1555204458" style="width:100%;;pointer-events:none" changeaction="__adianti_post_lookup('form_LicLicitacaoForm', 'class=LicLicitacaoFormExternoView&method=onObj&static=1', 'tcombo_1555204458', 'callback')" onChange="__adianti_post_lookup('form_LicLicitacaoForm', 'class=LicLicitacaoFormExternoView&method=onObj&static=1', 'tcombo_1555204458', 'callback')" onclick="return false;" tabindex="-1"><option value="296" selected="1">0080/2026 - CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA A ORGANIZAÇÃO, GESTÃO, COORDENAÇÃO E OPERACIONALIZAÇÃO INTEGRADA DO PROGRAMA DE INTERCÂMBIO EDUCACIONAL INTERNACIONAL “PAULO AFONSO PELO MUNDO – EDIÇÃO INGLATERRA 2026”, ABRANGENDO OS COMPONENTES ACADÊMICOS, LOGÍSTICOS, DOCUMENTAIS, SECURITÁRIOS, FINANCEIROS, ADMINISTRATIVOS E OPERACIONAIS NECESSÁRIOS À PREPARAÇÃO, AO DESLOCAMENTO, À PERMANÊNCIA NO EXTERIOR E AO RETORNO DOS PARTICIPANTES, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.</option></select>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class=" col-sm-6  DisInex1 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1734644069">Responsável <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 90%" wrapped-widget="tdbuniquesearch"><select class="form-control tselect" widget="tdbuniquesearch" component="multisearch" height="100%" name="id_responsavel" id="tdbmultisearch_1145594139" style="width:100%;"></select>
+<script type='text/javascript'> tdbmultisearch_start( 'tdbmultisearch_1145594139', '0', '1', 'Buscar', false, 'engine.php?class=AdiantiMultiSearchService&method=onSearch&static=1&database=ecompras&key=id&column=pes_cpf,pes_nome&model=CadPessoa&orderColumn=pes_nome asc&criteria=TzoyNjoiQWRpYW50aVxEYXRhYmFzZVxUQ3JpdGVyaWEiOjQ6e3M6Mzk6IgBBZGlhbnRpXERhdGFiYXNlXFRDcml0ZXJpYQBleHByZXNzaW9ucyI7YToxOntpOjA7TzoyNDoiQWRpYW50aVxEYXRhYmFzZVxURmlsdGVyIjo3OntzOjM0OiIAQWRpYW50aVxEYXRhYmFzZVxURmlsdGVyAHZhcmlhYmxlIjtzOjIwOiJwZXNfdGlwb19yZXNwb25zYXZlbCI7czozNDoiAEFkaWFudGlcRGF0YWJhc2VcVEZpbHRlcgBvcGVyYXRvciI7czo2OiJpcyBub3QiO3M6MzE6IgBBZGlhbnRpXERhdGFiYXNlXFRGaWx0ZXIAdmFsdWUiO047czozMjoiAEFkaWFudGlcRGF0YWJhc2VcVEZpbHRlcgB2YWx1ZTIiO047czozODoiAEFkaWFudGlcRGF0YWJhc2VcVEZpbHRlcgBwcmVwYXJlZFZhcnMiO2E6MDp7fXM6NDE6IgBBZGlhbnRpXERhdGFiYXNlXFRGaWx0ZXIAY2FzZUluc2Vuc2l0aXZlIjtiOjA7czozNjoiAEFkaWFudGlcRGF0YWJhc2VcVEZpbHRlcgBiaW5kUGFyYW1zIjtOO319czozNzoiAEFkaWFudGlcRGF0YWJhc2VcVENyaXRlcmlhAG9wZXJhdG9ycyI7YToxOntpOjA7Tjt9czozODoiAEFkaWFudGlcRGF0YWJhc2VcVENyaXRlcmlhAHByb3BlcnRpZXMiO2E6NDp7czo1OiJvcmRlciI7czowOiIiO3M6Njoib2Zmc2V0IjtpOjA7czo5OiJkaXJlY3Rpb24iO3M6MDoiIjtzOjU6Imdyb3VwIjtzOjA6IiI7fXM6NDM6IgBBZGlhbnRpXERhdGFiYXNlXFRDcml0ZXJpYQBjYXNlSW5zZW5zaXRpdmUiO2I6MDt9&operator=&mask={pes_nome} - {pes_cpf}&idsearch=1&idtextsearch=0&minlength=0', '100%', '100%px', 'c52a004aec55c317bf56e33b40210e36', function() {}, true ); </script><script type='text/javascript'> tmultisearch_disable_field( 'form_LicLicitacaoForm', 'id_responsavel', ''); </script></div>
+</div>
+<div class=" col-sm-6  DisInex2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1820953974">Ratificador <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 90%" wrapped-widget="tdbuniquesearch"><select class="form-control tselect" widget="tdbuniquesearch" component="multisearch" height="100%" name="id_ratificador" id="tdbmultisearch_1722069325" style="width:100%;"></select>
+<script type='text/javascript'> tdbmultisearch_start( 'tdbmultisearch_1722069325', '0', '1', 'Buscar', false, 'engine.php?class=AdiantiMultiSearchService&method=onSearch&static=1&database=ecompras&key=id&column=pes_cpf,pes_nome&model=CadPessoa&orderColumn=pes_nome asc&criteria=TzoyNjoiQWRpYW50aVxEYXRhYmFzZVxUQ3JpdGVyaWEiOjQ6e3M6Mzk6IgBBZGlhbnRpXERhdGFiYXNlXFRDcml0ZXJpYQBleHByZXNzaW9ucyI7YToxOntpOjA7TzoyNDoiQWRpYW50aVxEYXRhYmFzZVxURmlsdGVyIjo3OntzOjM0OiIAQWRpYW50aVxEYXRhYmFzZVxURmlsdGVyAHZhcmlhYmxlIjtzOjIwOiJwZXNfdGlwb19yZXNwb25zYXZlbCI7czozNDoiAEFkaWFudGlcRGF0YWJhc2VcVEZpbHRlcgBvcGVyYXRvciI7czo2OiJpcyBub3QiO3M6MzE6IgBBZGlhbnRpXERhdGFiYXNlXFRGaWx0ZXIAdmFsdWUiO047czozMjoiAEFkaWFudGlcRGF0YWJhc2VcVEZpbHRlcgB2YWx1ZTIiO047czozODoiAEFkaWFudGlcRGF0YWJhc2VcVEZpbHRlcgBwcmVwYXJlZFZhcnMiO2E6MDp7fXM6NDE6IgBBZGlhbnRpXERhdGFiYXNlXFRGaWx0ZXIAY2FzZUluc2Vuc2l0aXZlIjtiOjA7czozNjoiAEFkaWFudGlcRGF0YWJhc2VcVEZpbHRlcgBiaW5kUGFyYW1zIjtOO319czozNzoiAEFkaWFudGlcRGF0YWJhc2VcVENyaXRlcmlhAG9wZXJhdG9ycyI7YToxOntpOjA7Tjt9czozODoiAEFkaWFudGlcRGF0YWJhc2VcVENyaXRlcmlhAHByb3BlcnRpZXMiO2E6NDp7czo1OiJvcmRlciI7czowOiIiO3M6Njoib2Zmc2V0IjtpOjA7czo5OiJkaXJlY3Rpb24iO3M6MDoiIjtzOjU6Imdyb3VwIjtzOjA6IiI7fXM6NDM6IgBBZGlhbnRpXERhdGFiYXNlXFRDcml0ZXJpYQBjYXNlSW5zZW5zaXRpdmUiO2I6MDt9&operator=&mask={pes_nome} - {pes_cpf}&idsearch=1&idtextsearch=0&minlength=0', '100%', '100%px', 'c52a004aec55c317bf56e33b40210e36', function() {}, true ); </script><script type='text/javascript'> tmultisearch_disable_field( 'form_LicLicitacaoForm', 'id_ratificador', ''); </script></div>
+</div>
+</div>
+<div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1707386705">Objeto <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%;height: 200px" wrapped-widget="ttext"><textarea class="form-control tfield tfield_disabled" widget="ttext" required="" aria-required="true" name="lic_objeto" style="width:100%;;height:100%" id="ttext_1452478987" readonly="1" tabindex="-1">CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA A ORGANIZAÇÃO, GESTÃO, COORDENAÇÃO E OPERACIONALIZAÇÃO INTEGRADA DO PROGRAMA DE INTERCÂMBIO EDUCACIONAL INTERNACIONAL “PAULO AFONSO PELO MUNDO – EDIÇÃO INGLATERRA 2026”, ABRANGENDO OS COMPONENTES ACADÊMICOS, LOGÍSTICOS, DOCUMENTAIS, SECURITÁRIOS, FINANCEIROS, ADMINISTRATIVOS E OPERACIONAIS NECESSÁRIOS À PREPARAÇÃO, AO DESLOCAMENTO, À PERMANÊNCIA NO EXTERIOR E AO RETORNO DOS PARTICIPANTES, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.</textarea>
+</div>
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane tabpanel_form_LicLicitacaoForm " style="padding:10px; margin-top: -1px;border: 1px solid #DDDDDD" id="tab_bform_1450039041_1"><div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;;width:100%"><div class="form-horizontal builder-detail-form" style="border:none; box-shadow:none; width:100%;" widget="bootstrapformbuilder" form="detailFormLicLicitacaoFornecedorLicitacao" id="bform_1431163640"><div class="form-horizontal" type="bootstrap" novalidate="" enctype="multipart/form-data" name="detailFormLicLicitacaoFornecedorLicitacao" id="detailFormLicLicitacaoFornecedorLicitacao" method="post"><div class="card-body panel-body" style="width: 100%"><div class="tab-content"><div role="tabpanel" class="tab-pane tabpanel_detailFormLicLicitacaoFornecedorLicitacao active" style="padding:10px; margin-top: -1px;" id="tab_bform_1431163640_0">
+<div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div>
+<h4 class="tseparator" style="font-size: 18px; color: #2196F3;">Fornecedores / Participantes</h4>
+<hr style="border-bottom-color: #2196F3" class="tseparator-divisor"/></div>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row " style="display:none"><div class="col-sm-4 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;;width: 200px" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="lic_licitacao_fornecedor_licitacao_id" type="hidden" style="width:100%" id="thidden_1678247018"/></div>
+</div>
+</div>
+<div class="form-group tformrow row " style="display:none"><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="lic_licitacao_fornecedor_licitacao__row__id" type="hidden" style="width:" id="thidden_1294660298"/></div>
+</div>
+</div>
+<div class="form-group tformrow row "><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div class="table-responsive"><table class="table table-striped table-hover table-bordered" id="lic_licitacao_fornecedor_licitacao_list" type="bootstrap" style="width:100%;border-collapse:collapse">
+<thead><tr>
+<th data-column-id="058ce180dc5112d2a8c9861a6da53115" class="tdatagrid_col" style="text-align:left;user-select:none">Fornecedor</th>
+<th data-column-id="1550209479f8dcac2015ea5be8c2b45f" class="tdatagrid_col" style="text-align:left;user-select:none">Tipo do Participante</th>
+<th data-column-id="2c32a078fb3a3be8461291f59d3eb5be" class="tdatagrid_col" style="text-align:left;user-select:none">Dt. Recebimento</th>
+<th data-column-id="128bd9d345214bda8d76c116343d875d" class="tdatagrid_col" style="text-align:left;user-select:none">Habilitado</th>
+<th data-column-id="00a1085e85c1298c7878d3b3dcf0d36f" class="tdatagrid_col" style="display:none"></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane tabpanel_form_LicLicitacaoForm " style="padding:10px; margin-top: -1px;border: 1px solid #DDDDDD" id="tab_bform_1450039041_2"><div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;;width:100%"><div class="form-horizontal builder-detail-form" style="border:none; box-shadow:none; width:100%;" widget="bootstrapformbuilder" form="detailFormLicLicitacaoPublicacaoLicitacao" id="bform_1035495971"><div class="form-horizontal" type="bootstrap" novalidate="" enctype="multipart/form-data" name="detailFormLicLicitacaoPublicacaoLicitacao" id="detailFormLicLicitacaoPublicacaoLicitacao" method="post"><div class="card-body panel-body" style="width: 100%"><div class="tab-content"><div role="tabpanel" class="tab-pane tabpanel_detailFormLicLicitacaoPublicacaoLicitacao active" style="padding:10px; margin-top: -1px;" id="tab_bform_1035495971_0">
+<div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div>
+<h4 class="tseparator" style="font-size: 18px; color: #2196F3;">Publicações</h4>
+<hr style="border-bottom-color: #2196F3" class="tseparator-divisor"/></div>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row " style="display:none"><div class="col-sm-2 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;;width: 200px" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="lic_licitacao_publicacao_licitacao_id" type="hidden" style="width:100%" id="thidden_1966139512"/></div>
+</div>
+</div>
+<div class="form-group tformrow row " style="display:none"><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="lic_licitacao_publicacao_licitacao__row__id" type="hidden" style="width:" id="thidden_1905098325"/></div>
+</div>
+</div>
+<div class="form-group tformrow row "><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div class="table-responsive"><table class="table table-striped table-hover table-bordered" id="lic_licitacao_publicacao_licitacao_list" type="bootstrap" style="width:100%;border-collapse:collapse">
+<thead><tr>
+<th data-column-id="c517bed8eef7bb12c4a6034449ce0441" class="tdatagrid_col" style="text-align:left;user-select:none">Data da Publicação</th>
+<th data-column-id="4c5faccca9bfb1e7c2394741d5303913" class="tdatagrid_col" style="text-align:left;user-select:none">Hora da Publicação</th>
+<th data-column-id="319f9cf14930083475aa43a4662c7f43" class="tdatagrid_col" style="text-align:left;user-select:none">Imprensa</th>
+<th data-column-id="00a1085e85c1298c7878d3b3dcf0d36f" class="tdatagrid_col" style="display:none"></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane tabpanel_form_LicLicitacaoForm " style="padding:10px; margin-top: -1px;border: 1px solid #DDDDDD" id="tab_bform_1450039041_3">
+<div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div>
+<h4 class="tseparator" style="font-size: 18px; color: #2196F3;">Arquivos da Licitação</h4>
+<hr style="border-bottom-color: #2196F3" class="tseparator-divisor"/></div>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div id="b68384244f16a5" style="height:100%">
+<div style="text-align:center; padding:50px">
+<i class="fas fa-spinner fa-spin fa-3x"></i>
+<br>Carregando</div>
+<script type='text/javascript'>setTimeout( function() { __adianti_load_page('index.php?class=LicLicitacaoCertidaoDocListExterno&method=onShow&target_container=b68384244f16a5&register_state=false&show_loading=false&id_licitacao=2116'); }, 1 )</script></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<script type='text/javascript'>tjquerydialog_start( '#jquery_dialog_1577188911', true, true, true, $(window).width() * 0.8, 'auto', 0, 0, 2000, {   }, undefined, true, '' ); </script>
+</div>
+</div>

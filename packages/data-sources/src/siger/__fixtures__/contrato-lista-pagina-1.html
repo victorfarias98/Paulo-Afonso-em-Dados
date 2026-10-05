@@ -1,0 +1,615 @@
+<script type='text/javascript'>$('#wrapper > div:last-child').remove();</script><script type='text/javascript'>document.addEventListener('contextmenu', event => event.preventDefault());</script><div page-name="CadContratoListExterno" page_name="CadContratoListExterno"><div style="width: 100%">
+<div style="clear:both"><div id="div_breadcrumbs"><ol class="tbreadcrumb">
+<li class="home"><a generator="adianti" href="engine.php" title="Home"></a>
+</li>
+<li><a><span>Contratos / Atas</span>
+</a>
+</li>
+<li><a><span>Contratos Externo</span>
+</a>
+</li>
+</ol>
+</div>
+</div>
+<div style="clear:both"><style>
+            .transparencia-header {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                background: linear-gradient(135deg, #1a5fb4 0%, #2d78d6 100%);
+                color: #ffffff;
+                border-radius: 10px;
+                padding: 16px 20px;
+                margin-bottom: 16px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            }
+            .transparencia-header .icon {
+                font-size: 28px;
+                opacity: 0.9;
+            }
+            .transparencia-header .titulo {
+                font-size: 17px;
+                font-weight: 600;
+                margin: 0;
+            }
+            .transparencia-header .subtitulo {
+                font-size: 13px;
+                opacity: 0.92;
+                margin: 2px 0 0 0;
+            }
+            .transparencia-footer {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                background: #f4f6f8;
+                border: 1px solid #e1e6ea;
+                border-radius: 10px;
+                padding: 14px 18px;
+                margin-top: 16px;
+                font-size: 12.5px;
+                color: #55636e;
+            }
+            .transparencia-footer i {
+                color: #1a5fb4;
+                margin-top: 2px;
+            }
+            #form_CadContratoListExterno, .datagrid-container {
+                border-radius: 10px !important;
+                overflow: hidden;
+                box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+            }
+            .datagrid-container table thead tr th {
+                background-color: #f0f4f9 !important;
+                color: #223244 !important;
+                font-weight: 600 !important;
+                border-bottom: 2px solid #d7e0ea !important;
+            }
+            .datagrid-container table tbody tr:hover {
+                background-color: #f5f9ff !important;
+            }
+            .datagrid-container table tbody tr:nth-child(even) {
+                background-color: #fafbfc;
+            }
+            .badge-transparencia {
+                display: inline-block;
+                padding: 4px 10px;
+                border-radius: 20px;
+                font-size: 11.5px;
+                font-weight: 600;
+                white-space: nowrap;
+            }
+            .badge-transparencia i { font-size: 6px; vertical-align: middle; margin-right: 4px; }
+            .badge-modalidade {
+                background-color: #e7f0fd;
+                color: #1a5fb4;
+                border: 1px solid #bcd6f7;
+            }
+            .badge-publicado {
+                background-color: #eef1f5;
+                color: #445266;
+                border: 1px solid #d6dce4;
+            }
+            .badge-homologado {
+                background-color: #e6f7ed;
+                color: #1c8a4b;
+                border: 1px solid #b9e6cb;
+            }
+            .badge-fracassada {
+                background-color: #f1f2f4;
+                color: #5a6672;
+                border: 1px solid #dde1e5;
+            }
+            .badge-indefinido {
+                background-color: #f1f2f4;
+                color: #5a6672;
+                border: 1px solid #dde1e5;
+            }
+        </style>
+</div>
+<div style="clear:both"><div class="transparencia-header">
+<i class="fas fa-file-contract icon"></i>
+<div>
+<p class="titulo">Portal da Transparência — Contratos e Atas</p>
+<p class="subtitulo">Publicação em cumprimento à Lei nº 14.133/2021 e à Lei de Acesso à Informação (Lei nº 12.527/2011).</p>
+</div>
+</div>
+</div>
+<div style="clear:both"><div class="card panel" style="width: 100%" widget="bootstrapformbuilder" form="form_CadContratoListExterno" id="bform_1341917572">
+<div class="card-header panel-heading">
+<div class="panel-title card-title">CONTRATOS</div>
+<div class="header-actions" style="float:right"><button id="tbutton_form_CadContratoListExterno_show_hide" name="form_CadContratoListExterno_show_hide" class="btn btn-default" onclick="Adianti.waitMessage = 'Carregando';$('[name=form_CadContratoListExterno]').slideToggle('fast'); $(this).toggleClass( 'active' );__adianti_post_data('form_CadContratoListExterno', 'class=CadContratoListExterno&amp;method=onExpandForm&amp;static=1&amp;static=1');return false;" aria-label="<b class=&quot;text-primary&quot;>Expandir Busca</b>"><span>
+<i class="fas fa-expand " style="; color: #000000;;padding-right:4px"></i>
+<b class="text-primary">Expandir Busca</b></span>
+</button>
+</div>
+</div>
+<form class="form-horizontal" type="bootstrap" novalidate="" enctype="multipart/form-data" name="form_CadContratoListExterno" id="form_CadContratoListExterno" method="post">
+<div class="card-body panel-body" style="width: 100%"><div class="tab-content"><div role="tabpanel" class="tab-pane tabpanel_form_CadContratoListExterno active" style="padding:10px; margin-top: -1px;" id="tab_bform_1341917572_0">
+<div class="form-group tformrow row ">
+<div class="col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1117095423">Nº Contrato/ATA</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield" widget="tentry" type="text" maxlength="50" name="con_numero" value="" style="width:100%;" id="tentry_1502430039"/></div>
+</div>
+<div class="col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1753788930">Nº Licitação</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield" widget="tentry" type="text" maxlength="50" name="con_licitacao" value="" style="width:100%;" id="tentry_1878616676"/></div>
+</div>
+<div class=" col-sm-4 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1615882659">Modalidade</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select widget="tcombo" class="form-control " name="con_modalidade" id="tcombo_1392794115" style="width:100%;" role="tcombosearch"></select>
+<script type='text/javascript'>tcombo_enable_search('#tcombo_1392794115', 'Selecionar')</script></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1880822317">Ata?</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select widget="tcombo" class="form-control " name="con_tipo" id="tcombo_1498224895" style="width:100%;" role="tcombosearch"></select>
+<script type='text/javascript'>tcombo_enable_search('#tcombo_1498224895', 'Selecionar')</script></div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class="col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1056539656">Contratado</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select widget="tcombo" class="form-control " name="id_fornecedor" id="tcombo_1032289051" style="width:100%;" role="tcombosearch"></select>
+<script type='text/javascript'>tcombo_enable_search('#tcombo_1032289051', 'Selecionar')</script></div>
+</div>
+<div class="col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1521801227">Objeto</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%;height: 70px" wrapped-widget="ttext"><textarea class="form-control tfield" widget="ttext" name="con_objeto" style="width:100%;;height:100%" id="ttext_1202976672"></textarea>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class=" col-sm-4 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1508911759">Período de Data de Assinatura</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 150px;padding-right: 10px;" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1124588652', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="data_ini_ass" value="" style="width:100%;" id="tdate_1124588652"/><script type='text/javascript'>tdate_start( '#tdate_1124588652', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;padding-right: 10px;"><label style="font-size: 14px;" id="tlabel_1317367082">Até</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 160px" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1973693399', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="data_fim_ass" value="" style="width:100%;" id="tdate_1973693399"/><script type='text/javascript'>tdate_start( '#tdate_1973693399', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+</div>
+<div class=" col-sm-4 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1091414614">Período de Data de Término</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 140px;padding-right: 10px;" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1079969020', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="data_ini" value="" style="width:100%;" id="tdate_1079969020"/><script type='text/javascript'>tdate_start( '#tdate_1079969020', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;padding-right: 10px;"><label style="font-size: 14px;" id="tlabel_1057101620">Até</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 140px" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1801305330', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="data_fim" value="" style="width:100%;" id="tdate_1801305330"/><script type='text/javascript'>tdate_start( '#tdate_1801305330', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+</div>
+<div class=" col-sm-4 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1557408317">Período de Data de Inicio Execução</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 140px;padding-right: 10px;" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1420804287', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="data_ini_exec" value="" style="width:100%;" id="tdate_1420804287"/><script type='text/javascript'>tdate_start( '#tdate_1420804287', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;padding-right: 10px;"><label style="font-size: 14px;" id="tlabel_1133183249">Até</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 140px" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1321314039', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="data_fim_exec" value="" style="width:100%;" id="tdate_1321314039"/><script type='text/javascript'>tdate_start( '#tdate_1321314039', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class="col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1851224058">Tipo Contrato</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select widget="tcombo" class="form-control " name="con_tipo_contrato" id="tcombo_1477229061" style="width:100%;" role="tcombosearch"></select>
+<script type='text/javascript'>tcombo_enable_search('#tcombo_1477229061', 'Selecionar')</script></div>
+</div>
+<div class="col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1547198429">Unidade</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select widget="tcombo" class="form-control " name="id_secretaria" id="tcombo_1994037400" style="width:100%;" role="tcombosearch"></select>
+<script type='text/javascript'>tcombo_enable_search('#tcombo_1994037400', 'Selecionar')</script></div>
+</div>
+<div class=" col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;padding-right: 10px;"><label style="font-size: 14px;" id="tlabel_1252692346">Fiscal de Contrato</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield" widget="tentry" type="text" name="con_fiscal" value="" style="width:100%;" id="tentry_1922796263"/></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel-footer card-footer" style="width: 100%">
+<button id="tbutton_btn_buscar" name="btn_buscar" class="btn btn-primary" onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_CadContratoListExterno', 'class=CadContratoListExterno&amp;method=onSearch');return false;" aria-label="Buscar"><span>
+<i class="fas fa-search " style="; color: #ffffff;;padding-right:4px"></i>
+Buscar</span>
+</button>
+<button id="tbutton_btn_limpar" name="btn_limpar" class="btn btn-default btn-sm" onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_CadContratoListExterno', 'class=CadContratoListExterno&amp;method=onClear');return false;" aria-label="Limpar"><span>
+<i class="fas fa-eraser " style="; color: #FF5722;;padding-right:4px"></i>
+Limpar</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<div style="clear:both"><div class="card panel" datagrid="datagrid-container">
+<div class="card-header panel-heading" style="display:none">
+<div class="card-title panel-title"><div style="width: 100%"></div>
+</div>
+<div class="header-actions"></div>
+</div>
+<div class="card-body panel-body table-responsive"><form onsubmit="return false" enctype="multipart/form-data" name="datagrid_form_CadContratoListExterno" id="datagrid_form_CadContratoListExterno" method="post">
+<div class=" datagrid-header-actions " style="justify-content: space-between;">
+<div class=" datagrid-header-actions-left-actions "></div>
+<div class=" datagrid-header-actions-left-actions "><div class="btn-group" style="display:inline-block; -moz-user-select: none; -webkit-user-select:none; user-select:none;position:static;">
+<button data-toggle="dropdown" class="btn btn-default waves-effect dropdown-toggle" boundary="viewport">
+<i class="fas fa-file-export " style="; color: #2d3436;"></i>
+Exportar</button>
+<ul class="dropdown-menu pull-right dropdown-menu-right" aria-labelledby="drop2" widget="tdropdown">
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_CadContratoListExterno', 'class=CadContratoListExterno&amp;method=onExportCsv&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-csv " style="; color: #00b894;;padding: 4px"></i>
+<span>CSV</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_CadContratoListExterno', 'class=CadContratoListExterno&amp;method=onExportXls&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-excel " style="; color: #4CAF50;;padding: 4px"></i>
+<span>XLS</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_CadContratoListExterno', 'class=CadContratoListExterno&amp;method=onExportPdf&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-pdf " style="; color: #e74c3c;;padding: 4px"></i>
+<span>PDF</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_CadContratoListExterno', 'class=CadContratoListExterno&amp;method=onExportXml&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-code " style="; color: #95a5a6;;padding: 4px"></i>
+<span>XML</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="table table-striped table-hover" id="CadContratoListExterno_datagrid" type="bootstrap" style="width: 100%;border-collapse:collapse">
+<thead><tr>
+<th class="tdatagrid_action" style="padding:0" width="28px"><span style="min-width:calc(28px - 2px);display:block"></span></th>
+<th data-column-id="3d7e71897a78dabbbd289d312adb8253" class="tdatagrid_col" style="text-align:left;user-select:none">Nº Contrato</th>
+<th data-column-id="fb1a027c2f1865977b101c13a6f3a1b1" class="tdatagrid_col" style="text-align:left;user-select:none">Tipo</th>
+<th data-column-id="ec69a8e9dd1b6a5d0cf0fbf56fdbdcb5" class="tdatagrid_col" style="text-align:left;user-select:none">Modalidade</th>
+<th data-column-id="8e70e169bd97489569c8bdc523632168" class="tdatagrid_col" style="text-align:left;user-select:none">Licitação</th>
+<th data-column-id="2aeb159aaeb0640dd80d04038a9aea7b" class="tdatagrid_col" style="text-align:left;user-select:none">Contratado</th>
+<th data-column-id="c352e78000339a0d25d31f88b3e473ec" class="tdatagrid_col" style="text-align:left;user-select:none">Assinatura</th>
+<th data-column-id="fad2be8defd564d66a7fdfd8a1c60f91" class="tdatagrid_col" style="text-align:left;user-select:none">Vencimento</th>
+<th data-column-id="fad2be8defd564d66a7fdfd8a1c60f91" class="tdatagrid_col" style="text-align:center;user-select:none" width="110px">Situação</th>
+<th data-column-id="13e056fa76df6fea07d4e4f6d86f5372" class="tdatagrid_col" style="text-align:left;user-select:none">Fiscal do Contrato</th>
+</tr>
+</thead>
+<tbody>
+<tr id="row_624">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=624&amp;id=624" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=624&id=624" generator="adianti">TERMO DE COLABORACAO 01/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=624&id=624" generator="adianti"><span class="badge-transparencia badge-modalidade">CONTRATO</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=624&id=624" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=624&id=624" generator="adianti">TC0001/2025 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=624&id=624" generator="adianti">CASA DE REPOUSO SÃO VICENTE DE PAULO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=624&id=624" generator="adianti">03/02/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=624&id=624" generator="adianti">03/02/2026</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=624&id=624" generator="adianti" width="110px"><span class="badge-transparencia badge-fracassada"><i class="fas fa-circle"></i> Vencido</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=624&id=624" generator="adianti"></td>
+</tr>
+<tr id="row_421">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=421&amp;id=421" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=421&id=421" generator="adianti">TC - 01/2024</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=421&id=421" generator="adianti"><span class="badge-transparencia badge-modalidade">CONTRATO</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=421&id=421" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=421&id=421" generator="adianti">TC00001/2024 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=421&id=421" generator="adianti">CASA DE REPOUSO SÃO VICENTE DE PAULO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=421&id=421" generator="adianti">02/02/2024</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=421&id=421" generator="adianti">02/02/2025</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=421&id=421" generator="adianti" width="110px"><span class="badge-transparencia badge-fracassada"><i class="fas fa-circle"></i> Vencido</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=421&id=421" generator="adianti"></td>
+</tr>
+<tr id="row_4120">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=4120&amp;id=4120" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4120&id=4120" generator="adianti">ATA-0119/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4120&id=4120" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4120&id=4120" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4120&id=4120" generator="adianti">PE90056/2026 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4120&id=4120" generator="adianti">ITALBRAS INDUSTRIA E COMERCIO DE MOVEIS DE ACO LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4120&id=4120" generator="adianti">17/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4120&id=4120" generator="adianti">17/09/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4120&id=4120" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4120&id=4120" generator="adianti"></td>
+</tr>
+<tr id="row_4121">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=4121&amp;id=4121" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4121&id=4121" generator="adianti">ATA-0117/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4121&id=4121" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4121&id=4121" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4121&id=4121" generator="adianti">PE90056/2026 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4121&id=4121" generator="adianti">DISTRIBUIDORA DE PRODUTOS AGRESTE MERIDIONAL LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4121&id=4121" generator="adianti">17/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4121&id=4121" generator="adianti">19/09/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4121&id=4121" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4121&id=4121" generator="adianti"></td>
+</tr>
+<tr id="row_4116">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=4116&amp;id=4116" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4116&id=4116" generator="adianti">ATA-0116/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4116&id=4116" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4116&id=4116" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4116&id=4116" generator="adianti">PE90056/2026 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4116&id=4116" generator="adianti">GILDENEI PEREIRA LIMA LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4116&id=4116" generator="adianti">17/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4116&id=4116" generator="adianti">17/09/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4116&id=4116" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4116&id=4116" generator="adianti"></td>
+</tr>
+<tr id="row_4112">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=4112&amp;id=4112" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4112&id=4112" generator="adianti">ATA-0115/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4112&id=4112" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4112&id=4112" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4112&id=4112" generator="adianti">PE90056/2026 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4112&id=4112" generator="adianti">MOVEMOBILE INDUSTRIA E COMERCIO DE MOVEIS LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4112&id=4112" generator="adianti">18/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4112&id=4112" generator="adianti">18/09/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4112&id=4112" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4112&id=4112" generator="adianti"></td>
+</tr>
+<tr id="row_4127">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=4127&amp;id=4127" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4127&id=4127" generator="adianti">ATA-0114/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4127&id=4127" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4127&id=4127" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4127&id=4127" generator="adianti">PE90056/2026 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4127&id=4127" generator="adianti">AMOEDO SAPUCAIA COMERCIO DE MAQUINAS LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4127&id=4127" generator="adianti">17/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4127&id=4127" generator="adianti">17/09/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4127&id=4127" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4127&id=4127" generator="adianti"></td>
+</tr>
+<tr id="row_4118">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=4118&amp;id=4118" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4118&id=4118" generator="adianti">ATA-0113/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4118&id=4118" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4118&id=4118" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4118&id=4118" generator="adianti">PE90056/2026 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4118&id=4118" generator="adianti">JWR MOVEIS LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4118&id=4118" generator="adianti">17/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4118&id=4118" generator="adianti">17/09/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4118&id=4118" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4118&id=4118" generator="adianti"></td>
+</tr>
+<tr id="row_4143">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=4143&amp;id=4143" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4143&id=4143" generator="adianti">ATA-0112/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4143&id=4143" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4143&id=4143" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4143&id=4143" generator="adianti">PE90001/2026 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4143&id=4143" generator="adianti">CHAMA COMERCIAL LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4143&id=4143" generator="adianti">11/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4143&id=4143" generator="adianti">11/09/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4143&id=4143" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4143&id=4143" generator="adianti"></td>
+</tr>
+<tr id="row_4114">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=4114&amp;id=4114" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4114&id=4114" generator="adianti">ATA-0109/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4114&id=4114" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4114&id=4114" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4114&id=4114" generator="adianti">PE90015/2026 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4114&id=4114" generator="adianti">REED7 COMERCIAL LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4114&id=4114" generator="adianti">11/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4114&id=4114" generator="adianti">11/09/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4114&id=4114" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=4114&id=4114" generator="adianti"></td>
+</tr>
+<tr id="row_3939">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3939&amp;id=3939" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3939&id=3939" generator="adianti">ATA-0091/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3939&id=3939" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3939&id=3939" generator="adianti">PERP - PREGÃO ELETRÔNICO REGISTRO DE PREÇOS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3939&id=3939" generator="adianti">PE90055/2026 - PERP</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3939&id=3939" generator="adianti">JLM DISTRIBUIDORA COMERCIO E SERVICOS EI</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3939&id=3939" generator="adianti">10/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3939&id=3939" generator="adianti">10/08/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3939&id=3939" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3939&id=3939" generator="adianti"></td>
+</tr>
+<tr id="row_3935">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3935&amp;id=3935" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3935&id=3935" generator="adianti">ATA-0090/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3935&id=3935" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3935&id=3935" generator="adianti">PERP - PREGÃO ELETRÔNICO REGISTRO DE PREÇOS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3935&id=3935" generator="adianti">PE90021/2026 - PERP</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3935&id=3935" generator="adianti">ZOOM IMPRESSAO DIGITAL - INDUSTRIA GRAFICA E TEXTIL LTDA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3935&id=3935" generator="adianti">10/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3935&id=3935" generator="adianti">10/08/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3935&id=3935" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3935&id=3935" generator="adianti"></td>
+</tr>
+<tr id="row_3849">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3849&amp;id=3849" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3849&id=3849" generator="adianti">ATA-0089/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3849&id=3849" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3849&id=3849" generator="adianti">PERP - PREGÃO ELETRÔNICO REGISTRO DE PREÇOS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3849&id=3849" generator="adianti">PE90054/2026 - PERP</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3849&id=3849" generator="adianti">SIDNEY RAFAEL DE SOUZA CAVALCANTE SILVA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3849&id=3849" generator="adianti">06/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3849&id=3849" generator="adianti">06/08/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3849&id=3849" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3849&id=3849" generator="adianti"></td>
+</tr>
+<tr id="row_3859">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3859&amp;id=3859" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3859&id=3859" generator="adianti">ATA-0088/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3859&id=3859" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3859&id=3859" generator="adianti">PERP - PREGÃO ELETRÔNICO REGISTRO DE PREÇOS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3859&id=3859" generator="adianti">PE90054/2026 - PERP</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3859&id=3859" generator="adianti">ANTONIO ROBERIO SOUZA DE ABREU E CIA LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3859&id=3859" generator="adianti">06/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3859&id=3859" generator="adianti">06/08/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3859&id=3859" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3859&id=3859" generator="adianti"></td>
+</tr>
+<tr id="row_3753">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3753&amp;id=3753" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3753&id=3753" generator="adianti">ATA-0083/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3753&id=3753" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3753&id=3753" generator="adianti">PE - PREGÃO ELETRÔNICO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3753&id=3753" generator="adianti">PE90027/2026 - PE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3753&id=3753" generator="adianti">DISTRILEV COMERCIO E INDUSTRIA LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3753&id=3753" generator="adianti">15/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3753&id=3753" generator="adianti">15/07/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3753&id=3753" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3753&id=3753" generator="adianti"></td>
+</tr>
+<tr id="row_3957">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3957&amp;id=3957" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3957&id=3957" generator="adianti">ATA-0081/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3957&id=3957" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3957&id=3957" generator="adianti">PERP - PREGÃO ELETRÔNICO REGISTRO DE PREÇOS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3957&id=3957" generator="adianti">PE90036/2026 - PERP</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3957&id=3957" generator="adianti">TRAJO COMERCIO E SERVICOS LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3957&id=3957" generator="adianti">07/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3957&id=3957" generator="adianti">07/08/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3957&id=3957" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3957&id=3957" generator="adianti"></td>
+</tr>
+<tr id="row_3955">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3955&amp;id=3955" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3955&id=3955" generator="adianti">ATA-0080/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3955&id=3955" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3955&id=3955" generator="adianti">PERP - PREGÃO ELETRÔNICO REGISTRO DE PREÇOS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3955&id=3955" generator="adianti">PE90036/2026 - PERP</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3955&id=3955" generator="adianti">MAF COMERCIO DE EQUIPAMENTOS LTDA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3955&id=3955" generator="adianti">07/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3955&id=3955" generator="adianti">07/08/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3955&id=3955" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3955&id=3955" generator="adianti"></td>
+</tr>
+<tr id="row_3958">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3958&amp;id=3958" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3958&id=3958" generator="adianti">ATA-0079/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3958&id=3958" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3958&id=3958" generator="adianti">PERP - PREGÃO ELETRÔNICO REGISTRO DE PREÇOS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3958&id=3958" generator="adianti">PE90036/2026 - PERP</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3958&id=3958" generator="adianti">JESSICA ALVES COMERCIAL LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3958&id=3958" generator="adianti">07/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3958&id=3958" generator="adianti">07/08/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3958&id=3958" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3958&id=3958" generator="adianti"></td>
+</tr>
+<tr id="row_3975">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3975&amp;id=3975" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3975&id=3975" generator="adianti">ATA-0072/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3975&id=3975" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3975&id=3975" generator="adianti">(Lei 14133/21) Pregão Eletrônico</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3975&id=3975" generator="adianti">PE90020/2026 - P</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3975&id=3975" generator="adianti">NEW STOCK COMERCIO DE MOVEIS E ELETRO LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3975&id=3975" generator="adianti">03/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3975&id=3975" generator="adianti">03/08/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3975&id=3975" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3975&id=3975" generator="adianti"></td>
+</tr>
+<tr id="row_3973">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadContratoFormExterno&amp;method=onEdit&amp;key=3973&amp;id=3973" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3973&id=3973" generator="adianti">ATA-0071/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3973&id=3973" generator="adianti"><span class="badge-transparencia badge-publicado">ATA</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3973&id=3973" generator="adianti">(Lei 14133/21) Pregão Eletrônico</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3973&id=3973" generator="adianti">PE90020/2026 - P</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3973&id=3973" generator="adianti">B9 BEBEDOUROS INDUSTRIA E COMERCIO LTDA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3973&id=3973" generator="adianti">03/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3973&id=3973" generator="adianti">03/08/2027</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3973&id=3973" generator="adianti" width="110px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Vigente</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadContratoFormExterno&method=onEdit&key=3973&id=3973" generator="adianti"></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+<div class="card-footer panel-footer"><div class="tpagenavigation_resume">1 a 20 de 1.339 registros</div>
+<nav class="tpagenavigation" align="center"><ul class="pagination" style="display:inline-flex;">
+<li class="active page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=0&limit=20&direction=desc&page=1&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>1</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=20&limit=20&direction=desc&page=2&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>2</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=40&limit=20&direction=desc&page=3&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>3</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=60&limit=20&direction=desc&page=4&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>4</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=80&limit=20&direction=desc&page=5&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>5</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=100&limit=20&direction=desc&page=6&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>6</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=120&limit=20&direction=desc&page=7&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>7</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=140&limit=20&direction=desc&page=8&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>8</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=160&limit=20&direction=desc&page=9&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>9</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadContratoListExterno&method=onReload&offset=180&limit=20&direction=desc&page=10&first_page=1&order=con_numero" generator="adianti" class="page-link"><span>10</span>
+</a>
+</li>
+<li><a aria-label="Next" class="page-link" href="index.php?class=CadContratoListExterno&method=onReload&offset=200&limit=20&direction=desc&page=11&first_page=11&order=con_numero" generator="adianti"><span><span class="fa fa-angle-right"></span>
+</span>
+</a>
+</li>
+<li><a aria-label="Next" class="page-link" href="index.php?class=CadContratoListExterno&method=onReload&offset=1320&limit=20&direction=desc&page=67&first_page=61&order=con_numero" generator="adianti"><span><span class="fa fa-angle-double-right"></span>
+</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div style="clear:both"><div class="transparencia-footer">
+<i class="fas fa-info-circle"></i>
+<span>Os dados desta listagem podem ser exportados nos formatos CSV, XLS, PDF e XML para consulta, análise e reuso, conforme os princípios de transparência ativa e dados abertos. Em caso de divergência ou dúvida sobre algum processo, procure a Ouvidoria ou o setor de Licitações do órgão.</span>
+</div>
+</div>
+</div>
+</div>

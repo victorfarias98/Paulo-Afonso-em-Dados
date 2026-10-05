@@ -1,0 +1,62 @@
+name: paulo-afonso-em-dados
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-pad}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env}
+      POSTGRES_DB: ${POSTGRES_DB:-paulo_afonso_em_dados}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - pad_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  web:
+    build:
+      context: .
+      target: development
+    init: true
+    ports:
+      - "127.0.0.1:${BAIUS_PAD_PORT:-3104}:3104"
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-pad}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-paulo_afonso_em_dados}
+      TEST_DATABASE_URL: postgres://${POSTGRES_USER:-pad}:${POSTGRES_PASSWORD}@postgres:5432/pad_test
+      ADMIN_USER: ${ADMIN_USER:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      POSTHOG_PROJECT_TOKEN: ${POSTHOG_PROJECT_TOKEN:-}
+      POSTHOG_HOST: ${POSTHOG_HOST:-https://us.i.posthog.com}
+      POSTHOG_ENABLED: ${POSTHOG_ENABLED:-false}
+      COLLECTOR_USER_AGENT: ${COLLECTOR_USER_AGENT:-PauloAfonsoEmDados/0.1 (+contato@baiustecnologia.com.br)}
+      COLLECTOR_MIN_INTERVAL_MS: ${COLLECTOR_MIN_INTERVAL_MS:-2500}
+      WORKER_DAILY_AT: ${WORKER_DAILY_AT:-05:00}
+      WATCHPACK_POLLING: "true"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - .:/app
+      - pad_node_modules:/app/node_modules
+      - pad_web_node_modules:/app/apps/web/node_modules
+      - pad_worker_node_modules:/app/apps/worker/node_modules
+      - pad_database_node_modules:/app/packages/database/node_modules
+      - pad_sources_node_modules:/app/packages/data-sources/node_modules
+      - pad_domain_node_modules:/app/packages/domain/node_modules
+      - pad_next_cache:/app/apps/web/.next
+
+volumes:
+  # Mesmo nome anterior: a padronização não troca o volume do banco existente.
+  pad_pgdata:
+  pad_node_modules:
+  pad_web_node_modules:
+  pad_worker_node_modules:
+  pad_database_node_modules:
+  pad_sources_node_modules:
+  pad_domain_node_modules:
+  pad_next_cache:

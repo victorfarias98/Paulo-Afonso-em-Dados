@@ -1,0 +1,30 @@
+{
+  "name": "@pad/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@pad/database": "workspace:*",
+    "@pad/domain": "workspace:*",
+    "@phosphor-icons/react": "^2.1.10",
+    "drizzle-orm": "^0.45.3",
+    "gsap": "^3.15.0",
+    "next": "^16.3.8",
+    "posthog-js": "1.436.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3"
+  }
+}

@@ -1,0 +1,461 @@
+<script type='text/javascript'>$('#wrapper > div:last-child').remove();</script><div page-name="CadObrasListExterno" page_name="CadObrasListExterno"><div style="width: 100%">
+<div style="clear:both"><div id="div_breadcrumbs"><ol class="tbreadcrumb">
+<li class="home"><a generator="adianti" href="engine.php" title="Home"></a>
+</li>
+<li><a><span>Obras</span>
+</a>
+</li>
+<li><a><span>Lista Cadastro de Obras Externo</span>
+</a>
+</li>
+</ol>
+</div>
+</div>
+<div style="clear:both"><style>
+            .transparencia-header {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                background: linear-gradient(135deg, #1a5fb4 0%, #2d78d6 100%);
+                color: #ffffff;
+                border-radius: 10px;
+                padding: 16px 20px;
+                margin-bottom: 16px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            }
+            .transparencia-header .icon {
+                font-size: 28px;
+                opacity: 0.9;
+            }
+            .transparencia-header .titulo {
+                font-size: 17px;
+                font-weight: 600;
+                margin: 0;
+            }
+            .transparencia-header .subtitulo {
+                font-size: 13px;
+                opacity: 0.92;
+                margin: 2px 0 0 0;
+            }
+            .transparencia-footer {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                background: #f4f6f8;
+                border: 1px solid #e1e6ea;
+                border-radius: 10px;
+                padding: 14px 18px;
+                margin-top: 16px;
+                font-size: 12.5px;
+                color: #55636e;
+            }
+            .transparencia-footer i {
+                color: #1a5fb4;
+                margin-top: 2px;
+            }
+            #form_CadObrasList, .datagrid-container {
+                border-radius: 10px !important;
+                overflow: hidden;
+                box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+            }
+            .datagrid-container table thead tr th {
+                background-color: #f0f4f9 !important;
+                color: #223244 !important;
+                font-weight: 600 !important;
+                border-bottom: 2px solid #d7e0ea !important;
+            }
+            .datagrid-container table tbody tr:hover {
+                background-color: #f5f9ff !important;
+            }
+            .datagrid-container table tbody tr:nth-child(even) {
+                background-color: #fafbfc;
+            }
+            .badge-transparencia {
+                display: inline-block;
+                padding: 4px 10px;
+                border-radius: 20px;
+                font-size: 11.5px;
+                font-weight: 600;
+                white-space: nowrap;
+            }
+            .badge-transparencia i { font-size: 6px; vertical-align: middle; margin-right: 4px; }
+            .badge-andamento {
+                background-color: #e7f0fd;
+                color: #1a5fb4;
+                border: 1px solid #bcd6f7;
+            }
+            .badge-nao-iniciada {
+                background-color: #f1f2f4;
+                color: #5a6672;
+                border: 1px solid #dde1e5;
+            }
+            .badge-paralisada {
+                background-color: #fdecea;
+                color: #c0392b;
+                border: 1px solid #f5c6c0;
+            }
+            .badge-fiscalizacao {
+                background-color: #fdf3e3;
+                color: #a06a00;
+                border: 1px solid #f3ddab;
+            }
+            .badge-concluida {
+                background-color: #e6f7ed;
+                color: #1c8a4b;
+                border: 1px solid #b9e6cb;
+            }
+            .badge-provisorio {
+                background-color: #eef0fd;
+                color: #4a4fc4;
+                border: 1px solid #c9cdf5;
+            }
+            .badge-indefinido {
+                background-color: #f1f2f4;
+                color: #5a6672;
+                border: 1px solid #dde1e5;
+            }
+        </style>
+</div>
+<div style="clear:both"><div class="transparencia-header">
+<i class="fas fa-helmet-safety icon"></i>
+<div>
+<p class="titulo">Portal da Transparência — Obras Públicas</p>
+<p class="subtitulo">Publicação em cumprimento à Lei nº 14.133/2021 e à Lei de Acesso à Informação (Lei nº 12.527/2011).</p>
+</div>
+</div>
+</div>
+<div style="clear:both"><div class="card panel" style="width: 100%" widget="bootstrapformbuilder" form="form_CadObrasList" id="bform_1430182025">
+<div class="card-header panel-heading">
+<div class="panel-title card-title">Obras</div>
+<div class="header-actions" style="float:right"><button id="tbutton_form_CadObrasList_show_hide" name="form_CadObrasList_show_hide" class="btn btn-default" onclick="Adianti.waitMessage = 'Carregando';$('[name=form_CadObrasList]').slideToggle('fast'); $(this).toggleClass( 'active' );__adianti_post_data('form_CadObrasList', 'class=CadObrasListExterno&amp;method=onExpandForm&amp;static=1&amp;static=1');return false;" aria-label="<b class=&quot;text-primary&quot;>Expandir Busca</b>"><span>
+<i class="fas fa-expand " style="; color: #000000;;padding-right:4px"></i>
+<b class="text-primary">Expandir Busca</b></span>
+</button>
+</div>
+</div>
+<form class="form-horizontal" type="bootstrap" novalidate="" enctype="multipart/form-data" name="form_CadObrasList" id="form_CadObrasList" method="post">
+<div class="card-body panel-body" style="width: 100%"><div class="tab-content"><div role="tabpanel" class="tab-pane tabpanel_form_CadObrasList active" style="padding:10px; margin-top: -1px;" id="tab_bform_1430182025_0"><div class="form-group tformrow row ">
+<div class=" col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1705974442">Número</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield" widget="tentry" type="text" maxlength="50" name="ob_numero" value="" style="width:100%;" id="tentry_1667871412"/></div>
+</div>
+<div class=" col-sm-10 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1562766344">Descrição</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield" widget="tentry" type="text" maxlength="150" name="ob_descricao" value="" style="width:100%;" id="tentry_1873415452"/></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel-footer card-footer" style="width: 100%">
+<button id="tbutton_btn_buscar" name="btn_buscar" class="btn btn-primary" onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_CadObrasList', 'class=CadObrasListExterno&amp;method=onSearch');return false;" aria-label="Buscar"><span>
+<i class="fas fa-search " style="; color: #ffffff;;padding-right:4px"></i>
+Buscar</span>
+</button>
+<button id="tbutton_btn_limpar" name="btn_limpar" class="btn btn-default btn-sm" onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_CadObrasList', 'class=CadObrasListExterno&amp;method=onClear');return false;" aria-label="Limpar"><span>
+<i class="fas fa-eraser " style="; color: #F44336;;padding-right:4px"></i>
+Limpar</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<div style="clear:both"><div class="card panel" datagrid="datagrid-container">
+<div class="card-header panel-heading" style="display:none">
+<div class="card-title panel-title"><div style="width: 100%"></div>
+</div>
+<div class="header-actions"></div>
+</div>
+<div class="card-body panel-body table-responsive"><form onsubmit="return false" enctype="multipart/form-data" name="datagrid_form_CadObrasList" id="datagrid_form_CadObrasList" method="post">
+<div class=" datagrid-header-actions " style="justify-content: space-between;">
+<div class=" datagrid-header-actions-left-actions "></div>
+<div class=" datagrid-header-actions-left-actions "><div class="btn-group" style="display:inline-block; -moz-user-select: none; -webkit-user-select:none; user-select:none;position:static;">
+<button data-toggle="dropdown" class="btn btn-default waves-effect dropdown-toggle" boundary="viewport">
+<i class="fas fa-file-export " style="; color: #2d3436;"></i>
+Exportar</button>
+<ul class="dropdown-menu pull-right dropdown-menu-right" aria-labelledby="drop2" widget="tdropdown">
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_CadObrasList', 'class=CadObrasListExterno&amp;method=onExportCsv&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-csv " style="; color: #00b894;;padding: 4px"></i>
+<span>CSV</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_CadObrasList', 'class=CadObrasListExterno&amp;method=onExportXls&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-excel " style="; color: #4CAF50;;padding: 4px"></i>
+<span>XLS</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_CadObrasList', 'class=CadObrasListExterno&amp;method=onExportPdf&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-pdf " style="; color: #e74c3c;;padding: 4px"></i>
+<span>PDF</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_CadObrasList', 'class=CadObrasListExterno&amp;method=onExportXml&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-code " style="; color: #95a5a6;;padding: 4px"></i>
+<span>XML</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="table table-striped table-hover" id="CadObrasListExterno_datagrid" type="bootstrap" style="width: 100%;border-collapse:collapse">
+<thead><tr>
+<th class="tdatagrid_action" style="padding:0" width="28px"><span style="min-width:calc(28px - 2px);display:block"></span></th>
+<th data-column-id="82e90f98bc1e56b705efc4a09afcef07" class="tdatagrid_col" style="text-align:left;user-select:none">Número</th>
+<th data-column-id="079b13122057a5be49b26d4b23298e27" class="tdatagrid_col" style="text-align:left;user-select:none">Descrição</th>
+<th data-column-id="6e55f9b56fb26d31303094c8ec96fa87" class="tdatagrid_col" style="text-align:left;user-select:none">Data Inicio</th>
+<th data-column-id="a3d94f08c9ce167f4a4c198ae2bcc9c4" class="tdatagrid_col" style="text-align:left;user-select:none">Valor</th>
+<th data-column-id="56e5ee18103d54dff61c13ff9821c196" class="tdatagrid_col" style="text-align:center;user-select:none">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr id="row_36">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=36&amp;id=36" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=36&id=36" generator="adianti">406</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=36&id=36" generator="adianti">CONSTRUÇÃO DE ESCOLA PADRÃO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=36&id=36" generator="adianti">24/04/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=36&id=36" generator="adianti">R$ 10.796.000,00</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=36&id=36" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_35">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=35&amp;id=35" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=35&id=35" generator="adianti">405</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=35&id=35" generator="adianti">MANUTENÇÃO DE ESGOTO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=35&id=35" generator="adianti">07/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=35&id=35" generator="adianti">R$ 1.650.808,06</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=35&id=35" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_34">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=34&amp;id=34" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=34&id=34" generator="adianti">404</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=34&id=34" generator="adianti">CONSTR. DE PRAÇA BTN I</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=34&id=34" generator="adianti">09/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=34&id=34" generator="adianti">R$ 407.950,00</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=34&id=34" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_33">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=33&amp;id=33" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=33&id=33" generator="adianti">403</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=33&id=33" generator="adianti">CONST. DE BASE PRA ESTÁTUA DE SÃO FRANCISCO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=33&id=33" generator="adianti">09/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=33&id=33" generator="adianti">R$ 440.000,00</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=33&id=33" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_32">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=32&amp;id=32" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=32&id=32" generator="adianti">402</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=32&id=32" generator="adianti">MANUTENÇÃO DE CEMITÉRIOS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=32&id=32" generator="adianti">05/03/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=32&id=32" generator="adianti">R$ 1.361.250,10</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=32&id=32" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_31">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=31&amp;id=31" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=31&id=31" generator="adianti">401</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=31&id=31" generator="adianti">UBS CARDEAL BRANDÃO VILELA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=31&id=31" generator="adianti">16/04/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=31&id=31" generator="adianti">R$ 960.745,75</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=31&id=31" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_30">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=30&amp;id=30" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=30&id=30" generator="adianti">400</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=30&id=30" generator="adianti">PAV. EM ESTRADAS VICINAIS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=30&id=30" generator="adianti">22/03/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=30&id=30" generator="adianti">R$ 1.872.632,81</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=30&id=30" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_28">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=28&amp;id=28" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=28&id=28" generator="adianti">398</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=28&id=28" generator="adianti">CONCLUSÃO CRECHE FNDE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=28&id=28" generator="adianti">27/01/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=28&id=28" generator="adianti">R$ 4.387.524,18</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=28&id=28" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_27">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=27&amp;id=27" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=27&id=27" generator="adianti">397</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=27&id=27" generator="adianti">MANUTENÇÃO E COBERTURA DE CANAIS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=27&id=27" generator="adianti">23/03/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=27&id=27" generator="adianti">R$ 1.128.592,53</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=27&id=27" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_26">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=26&amp;id=26" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=26&id=26" generator="adianti">391</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=26&id=26" generator="adianti">ESCOLAS DA ZONA RURAL</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=26&id=26" generator="adianti">10/06/2024</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=26&id=26" generator="adianti">R$ 1.064.577,31</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=26&id=26" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_25">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=25&amp;id=25" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=25&id=25" generator="adianti">358</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=25&id=25" generator="adianti">ESCOLA RIVADALVA DE CARVALHO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=25&id=25" generator="adianti">26/06/2023</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=25&id=25" generator="adianti">R$ 1.095.295,64</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=25&id=25" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_24">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=24&amp;id=24" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=24&id=24" generator="adianti">394</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=24&id=24" generator="adianti">ESPAÇO COMUNITÁRIO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=24&id=24" generator="adianti">29/08/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=24&id=24" generator="adianti">R$ 1.700.000,00</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=24&id=24" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_23">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=23&amp;id=23" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=23&id=23" generator="adianti">393</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=23&id=23" generator="adianti">MANUTENÇÃO DE ESTRADAS VICINAIS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=23&id=23" generator="adianti">22/10/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=23&id=23" generator="adianti">R$ 5.099.499,95</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=23&id=23" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_22">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=22&amp;id=22" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=22&id=22" generator="adianti">392</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=22&id=22" generator="adianti">MANUTENÇÃO DE PRAÇAS PÚBLICAS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=22&id=22" generator="adianti">08/12/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=22&id=22" generator="adianti">R$ 1.499.092,90</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=22&id=22" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_21">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=21&amp;id=21" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=21&id=21" generator="adianti">390</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=21&id=21" generator="adianti">CER IV  ( 2ª ETAPA)</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=21&id=21" generator="adianti">22/07/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=21&id=21" generator="adianti">R$ 8.437.721,42</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=21&id=21" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_20">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=20&amp;id=20" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=20&id=20" generator="adianti">389</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=20&id=20" generator="adianti">MANUTENÇÃO DE PARALELO</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=20&id=20" generator="adianti">03/10/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=20&id=20" generator="adianti">R$ 742.843,77</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=20&id=20" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_19">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=19&amp;id=19" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=19&id=19" generator="adianti">388</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=19&id=19" generator="adianti">MANUTENÇÃO DE QUADRAS</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=19&id=19" generator="adianti">02/10/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=19&id=19" generator="adianti">R$ 996.449,83</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=19&id=19" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_18">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=18&amp;id=18" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=18&id=18" generator="adianti">387</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=18&id=18" generator="adianti">COBERTURA DE QUADRA  E CAMPO DE FUTEBOL</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=18&id=18" generator="adianti">10/12/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=18&id=18" generator="adianti">R$ 1.478.270,60</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=18&id=18" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_17">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=17&amp;id=17" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=17&id=17" generator="adianti">385</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=17&id=17" generator="adianti">MANUT. DE PRÉDIOS DA INFRAESTRUTURA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=17&id=17" generator="adianti"></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=17&id=17" generator="adianti">R$ 1.058.164,07</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=17&id=17" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+<tr id="row_16">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=CadObrasFormExterno&amp;method=onEdit&amp;key=16&amp;id=16" generator="adianti"><i class="fas fa-eye " style="; color: #478fca;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=16&id=16" generator="adianti">383</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=16&id=16" generator="adianti">manutenção de rede de esgoto</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=16&id=16" generator="adianti">16/07/2025</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=CadObrasFormExterno&method=onEdit&key=16&id=16" generator="adianti">R$ 640.728,23</td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=CadObrasFormExterno&method=onEdit&key=16&id=16" generator="adianti"><span class="badge-transparencia badge-andamento"><i class="fas fa-circle"></i> Em Andamento</span></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+<div class="card-footer panel-footer"><div class="tpagenavigation_resume">1 a 20 de 35 registros</div>
+<nav class="tpagenavigation" align="center"><ul class="pagination" style="display:inline-flex;">
+<li class="active page-item"><a href="index.php?class=CadObrasListExterno&method=onReload&offset=0&limit=20&direction=desc&page=1&first_page=1&order=id" generator="adianti" class="page-link"><span>1</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=CadObrasListExterno&method=onReload&offset=20&limit=20&direction=desc&page=2&first_page=1&order=id" generator="adianti" class="page-link"><span>2</span>
+</a>
+</li>
+<li class="off page-item"><a class="page-link"><span>3</span>
+</a>
+</li>
+<li class="off page-item"><a class="page-link"><span>4</span>
+</a>
+</li>
+<li class="off page-item"><a class="page-link"><span>5</span>
+</a>
+</li>
+<li class="off page-item"><a class="page-link"><span>6</span>
+</a>
+</li>
+<li class="off page-item"><a class="page-link"><span>7</span>
+</a>
+</li>
+<li class="off page-item"><a class="page-link"><span>8</span>
+</a>
+</li>
+<li class="off page-item"><a class="page-link"><span>9</span>
+</a>
+</li>
+<li class="off page-item"><a class="page-link"><span>10</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div style="clear:both"><div class="transparencia-footer">
+<i class="fas fa-info-circle"></i>
+<span>Os dados desta listagem podem ser exportados nos formatos CSV, XLS, PDF e XML para consulta, análise e reuso, conforme os princípios de transparência ativa e dados abertos. Em caso de divergência ou dúvida sobre alguma obra, procure a Ouvidoria ou o setor de Obras do órgão.</span>
+</div>
+</div>
+</div>
+</div>

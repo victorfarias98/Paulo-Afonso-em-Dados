@@ -1,0 +1,28 @@
+{
+  "name": "paulo-afonso-em-dados-video",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.tsx",
+    "render": "node scripts/captions.mjs && node scripts/render.mjs",
+    "preview": "node scripts/render.mjs --stills",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test src/story.test.mjs"
+  },
+  "dependencies": {
+    "remotion": "4.0.533",
+    "@remotion/cli": "4.0.533",
+    "@remotion/bundler": "4.0.533",
+    "@remotion/renderer": "4.0.533",
+    "@remotion/media": "4.0.533",
+    "@remotion/gsap": "4.0.533",
+    "gsap": "3.15.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/react": "19.2.14",
+    "@types/node": "26.6.4"
+  }
+}

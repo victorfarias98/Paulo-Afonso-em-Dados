@@ -1,0 +1,567 @@
+<script type='text/javascript'>$('#wrapper > div:last-child').remove();</script><script type='text/javascript'>document.addEventListener('contextmenu', event => event.preventDefault());</script><div page-name="LicLicitacaoListExterno" page_name="LicLicitacaoListExterno"><div style="width: 100%">
+<div style="clear:both"><div id="div_breadcrumbs"><ol class="tbreadcrumb">
+<li class="home"><a generator="adianti" href="engine.php" title="Home"></a>
+</li>
+<li><a><span>Licitações e Processos</span>
+</a>
+</li>
+<li><a><span>Licitações Externo</span>
+</a>
+</li>
+</ol>
+</div>
+</div>
+<div style="clear:both"><style>
+            .transparencia-header {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                background: linear-gradient(135deg, #1a5fb4 0%, #2d78d6 100%);
+                color: #ffffff;
+                border-radius: 10px;
+                padding: 16px 20px;
+                margin-bottom: 16px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            }
+            .transparencia-header .icon {
+                font-size: 28px;
+                opacity: 0.9;
+            }
+            .transparencia-header .titulo {
+                font-size: 17px;
+                font-weight: 600;
+                margin: 0;
+            }
+            .transparencia-header .subtitulo {
+                font-size: 13px;
+                opacity: 0.92;
+                margin: 2px 0 0 0;
+            }
+            .transparencia-footer {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                background: #f4f6f8;
+                border: 1px solid #e1e6ea;
+                border-radius: 10px;
+                padding: 14px 18px;
+                margin-top: 16px;
+                font-size: 12.5px;
+                color: #55636e;
+            }
+            .transparencia-footer i {
+                color: #1a5fb4;
+                margin-top: 2px;
+            }
+            #form_LicLicitacaoList, .datagrid-container {
+                border-radius: 10px !important;
+                overflow: hidden;
+                box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+            }
+            .datagrid-container table thead tr th {
+                background-color: #f0f4f9 !important;
+                color: #223244 !important;
+                font-weight: 600 !important;
+                border-bottom: 2px solid #d7e0ea !important;
+            }
+            .datagrid-container table tbody tr:hover {
+                background-color: #f5f9ff !important;
+            }
+            .datagrid-container table tbody tr:nth-child(even) {
+                background-color: #fafbfc;
+            }
+            .badge-transparencia {
+                display: inline-block;
+                padding: 4px 10px;
+                border-radius: 20px;
+                font-size: 11.5px;
+                font-weight: 600;
+                white-space: nowrap;
+            }
+            .badge-transparencia i { font-size: 6px; vertical-align: middle; margin-right: 4px; }
+            .badge-modalidade {
+                background-color: #e7f0fd;
+                color: #1a5fb4;
+                border: 1px solid #bcd6f7;
+            }
+            .badge-publicado {
+                background-color: #e7f0fd;
+                color: #1a5fb4;
+                border: 1px solid #bcd6f7;
+            }
+            .badge-aberto {
+                background-color: #e7f0fd;
+                color: #1a5fb4;
+                border: 1px solid #bcd6f7;
+            }
+            .badge-julgamento {
+                background-color: #fdf3e3;
+                color: #a06a00;
+                border: 1px solid #f3ddab;
+            }
+            .badge-homologado {
+                background-color: #e6f7ed;
+                color: #1c8a4b;
+                border: 1px solid #b9e6cb;
+            }
+            .badge-revogado {
+                background-color: #fdecea;
+                color: #c0392b;
+                border: 1px solid #f5c6c0;
+            }
+            .badge-alteracao {
+                background-color: #fdf3e3;
+                color: #a06a00;
+                border: 1px solid #f3ddab;
+            }
+            .badge-fracassada {
+                background-color: #f1f2f4;
+                color: #5a6672;
+                border: 1px solid #dde1e5;
+            }
+            .badge-indefinido {
+                background-color: #f1f2f4;
+                color: #5a6672;
+                border: 1px solid #dde1e5;
+            }
+        </style>
+</div>
+<div style="clear:both"><div class="transparencia-header">
+<i class="fas fa-gavel icon"></i>
+<div>
+<p class="titulo">Portal da Transparência — Licitações</p>
+<p class="subtitulo">Publicação em cumprimento à Lei nº 14.133/2021 e à Lei de Acesso à Informação (Lei nº 12.527/2011).</p>
+</div>
+</div>
+</div>
+<div style="clear:both"><div class="card panel" style="width: 100%" widget="bootstrapformbuilder" form="form_LicLicitacaoList" id="bform_1849834483">
+<div class="card-header panel-heading">
+<div class="panel-title card-title">Listagem de licitações</div>
+<div class="header-actions" style="float:right"><button id="tbutton_form_LicLicitacaoList_show_hide" name="form_LicLicitacaoList_show_hide" class="btn btn-default" onclick="Adianti.waitMessage = 'Carregando';$('[name=form_LicLicitacaoList]').slideToggle('fast'); $(this).toggleClass( 'active' );__adianti_post_data('form_LicLicitacaoList', 'class=LicLicitacaoListExterno&amp;method=onExpandForm&amp;static=1&amp;static=1');return false;" aria-label="<b class=&quot;text-primary&quot;>Expandir Busca</b>"><span>
+<i class="fas fa-expand " style="; color: #000000;;padding-right:4px"></i>
+<b class="text-primary">Expandir Busca</b></span>
+</button>
+</div>
+</div>
+<form class="form-horizontal" type="bootstrap" novalidate="" enctype="multipart/form-data" name="form_LicLicitacaoList" id="form_LicLicitacaoList" method="post">
+<div class="card-body panel-body" style="width: 100%"><div class="tab-content"><div role="tabpanel" class="tab-pane tabpanel_form_LicLicitacaoList active" style="padding:10px; margin-top: -1px;" id="tab_bform_1849834483_0">
+<div class="form-group tformrow row ">
+<div class=" col-sm-4 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1976943235">Unidade Gestora</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tdbuniquesearch"><select class="form-control tselect" widget="tdbuniquesearch" component="multisearch" height="100%" name="id_orgao" id="tdbmultisearch_1972686330" style="width:100%;"></select>
+<script type='text/javascript'> tdbmultisearch_start( 'tdbmultisearch_1972686330', '0', '1', 'Buscar', false, 'engine.php?class=AdiantiMultiSearchService&method=onSearch&static=1&database=ecompras&key=id&column=org_nome,id&model=OrcOrgao&orderColumn=id asc&criteria=TzoyNjoiQWRpYW50aVxEYXRhYmFzZVxUQ3JpdGVyaWEiOjQ6e3M6Mzk6IgBBZGlhbnRpXERhdGFiYXNlXFRDcml0ZXJpYQBleHByZXNzaW9ucyI7YTowOnt9czozNzoiAEFkaWFudGlcRGF0YWJhc2VcVENyaXRlcmlhAG9wZXJhdG9ycyI7YTowOnt9czozODoiAEFkaWFudGlcRGF0YWJhc2VcVENyaXRlcmlhAHByb3BlcnRpZXMiO2E6NDp7czo1OiJvcmRlciI7czowOiIiO3M6Njoib2Zmc2V0IjtpOjA7czo5OiJkaXJlY3Rpb24iO3M6MDoiIjtzOjU6Imdyb3VwIjtzOjA6IiI7fXM6NDM6IgBBZGlhbnRpXERhdGFiYXNlXFRDcml0ZXJpYQBjYXNlSW5zZW5zaXRpdmUiO2I6MDt9&operator=&mask={id} - {org_nome}&idsearch=1&idtextsearch=0&minlength=0', '100%', '100%px', '7d5b5c3ea0b686db42ecca753b82fee8', function() {}, true ); </script></div>
+</div>
+<div class=" col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1914609492">Período de Homologação Inicial</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 90%" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1040173853', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="hom_ini" value="" style="width:100%;" id="tdate_1040173853"/><script type='text/javascript'>tdate_start( '#tdate_1040173853', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+</div>
+<div class=" col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1800062080">Período de Homologação Final</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 90%" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1974305444', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="hom_fim" value="" style="width:100%;" id="tdate_1974305444"/><script type='text/javascript'>tdate_start( '#tdate_1974305444', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1620958880">Período de Publicação Inicial</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 90%" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1246402153', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="pub_ini" value="" style="width:100%;" id="tdate_1246402153"/><script type='text/javascript'>tdate_start( '#tdate_1246402153', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1918489159">Período de Publicação Final</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 90%" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1186826228', '99/99/9999'); </script><input class="form-control tfield" widget="tdate" type="text" autocomplete="off" name="pub_fim" value="" style="width:100%;" id="tdate_1186826228"/><script type='text/javascript'>tdate_start( '#tdate_1186826228', 'dd/mm/yyyy', 'pt', '100%', '[]');</script></div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class="col-sm-4 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1005845597">Modalidade</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select widget="tcombo" class="form-control " name="lic_modalidade_siga" id="tcombo_1236736117" style="width:100%;" role="tcombosearch"></select>
+<script type='text/javascript'>tcombo_enable_search('#tcombo_1236736117', 'Selecionar')</script></div>
+</div>
+<div class=" col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1209008992">Status</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select widget="tcombo" class="form-control " name="lic_status" id="tcombo_1041788638" style="width:100%;" role="tcombosearch"></select>
+<script type='text/javascript'>tcombo_enable_search('#tcombo_1041788638', 'Selecionar')</script></div>
+</div>
+<div class=" col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1172909589">Nº Licitação</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield" widget="tentry" type="text" maxlength="50" name="lic_numero" value="" style="width:100%;" id="tentry_1116451492"/></div>
+</div>
+<div class=" col-sm-4 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;padding-right: 10px;"><label style="font-size: 14px;" id="tlabel_1978280353">Objeto</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield" widget="tentry" type="text" name="lic_objeto" value="" style="width:100%;" id="tentry_1634670344"/></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel-footer card-footer" style="width: 100%">
+<button id="tbutton_btn_buscar" name="btn_buscar" class="btn btn-primary" onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_LicLicitacaoList', 'class=LicLicitacaoListExterno&amp;method=onSearch');return false;" aria-label="Buscar"><span>
+<i class="fas fa-search " style="; color: #ffffff;;padding-right:4px"></i>
+Buscar</span>
+</button>
+<button id="tbutton_btn_limpar_filtros" name="btn_limpar_filtros" class="btn btn-default btn-sm" onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_LicLicitacaoList', 'class=LicLicitacaoListExterno&amp;method=onClear');return false;" aria-label="Limpar Filtros"><span>
+<i class="fas fa-eraser " style="; color: #F44336;;padding-right:4px"></i>
+Limpar Filtros</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<div style="clear:both"><div class="card panel" datagrid="datagrid-container">
+<div class="card-header panel-heading" style="display:none">
+<div class="card-title panel-title"><div style="width: 100%"></div>
+</div>
+<div class="header-actions"></div>
+</div>
+<div class="card-body panel-body table-responsive"><form onsubmit="return false" enctype="multipart/form-data" name="datagrid_form_LicLicitacaoList" id="datagrid_form_LicLicitacaoList" method="post">
+<div class=" datagrid-header-actions " style="justify-content: space-between;">
+<div class=" datagrid-header-actions-left-actions "></div>
+<div class=" datagrid-header-actions-left-actions "><div class="btn-group" style="display:inline-block; -moz-user-select: none; -webkit-user-select:none; user-select:none;position:static;">
+<button data-toggle="dropdown" class="btn btn-default waves-effect dropdown-toggle" boundary="viewport">
+<i class="fas fa-file-export " style="; color: #2d3436;"></i>
+Exportar</button>
+<ul class="dropdown-menu pull-right dropdown-menu-right" aria-labelledby="drop2" widget="tdropdown">
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_LicLicitacaoList', 'class=LicLicitacaoListExterno&amp;method=onExportCsv&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-csv " style="; color: #00b894;;padding: 4px"></i>
+<span>CSV</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_LicLicitacaoList', 'class=LicLicitacaoListExterno&amp;method=onExportXls&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-excel " style="; color: #4CAF50;;padding: 4px"></i>
+<span>XLS</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_LicLicitacaoList', 'class=LicLicitacaoListExterno&amp;method=onExportPdf&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-pdf " style="; color: #e74c3c;;padding: 4px"></i>
+<span>PDF</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('datagrid_form_LicLicitacaoList', 'class=LicLicitacaoListExterno&amp;method=onExportXml&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-code " style="; color: #95a5a6;;padding: 4px"></i>
+<span>XML</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<table class="table table-striped table-hover" id="LicLicitacaoListExterno_datagrid" type="bootstrap" style="width: 100%;border-collapse:collapse">
+<thead><tr>
+<th class="tdatagrid_action" style="padding:0" width="28px"><span style="min-width:calc(28px - 2px);display:block"></span></th>
+<th data-column-id="7b72c94c23a7e8bb3f094cc541fc7d5a" class="tdatagrid_col" style="text-align:left;user-select:none;cursor:pointer;" href="index.php?class=LicLicitacaoListExterno&amp;method=onReload&amp;order=lic_numero&amp;direction=asc" generator="adianti">Nº Licitação</th>
+<th data-column-id="df53f323ae508e7111ebed0b2ad45509" class="tdatagrid_col" style="text-align:left;user-select:none;cursor:pointer;" href="index.php?class=LicLicitacaoListExterno&amp;method=onReload&amp;order=sort_edital_fk_edi_modalidade_mod_nome&amp;direction=asc" generator="adianti">Modalidade</th>
+<th data-column-id="b2df714ff43edcb63e8b940794f135af" class="tdatagrid_col" style="text-align:center;user-select:none" width="120px">Status</th>
+<th data-column-id="596ed803eebde4a78e55f6b8a5161a2b" class="tdatagrid_col" style="text-align:left;user-select:none;cursor:pointer;" href="index.php?class=LicLicitacaoListExterno&amp;method=onReload&amp;order=lic_dt_publicacao&amp;direction=asc" generator="adianti">Publicação</th>
+<th data-column-id="b360c09ce7e9739b5e25e20b537cf6fc" class="tdatagrid_col" style="text-align:left;user-select:none;cursor:pointer;" href="index.php?class=LicLicitacaoListExterno&amp;method=onReload&amp;order=lic_dt_inicio&amp;direction=asc" generator="adianti">Sessão</th>
+<th data-column-id="97fb512ef7d22ebd3050f3276f552b82" class="tdatagrid_col" style="text-align:left;user-select:none;cursor:pointer;" href="index.php?class=LicLicitacaoListExterno&amp;method=onReload&amp;order=lic_objeto&amp;direction=asc" generator="adianti">Objeto</th>
+<th data-column-id="1e852a9a8749183ac76dd6b8e7fe9466" class="tdatagrid_col" style="text-align:left;user-select:none;cursor:pointer;" href="index.php?class=LicLicitacaoListExterno&amp;method=onReload&amp;order=lic_valor&amp;direction=asc" generator="adianti">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr id="row_2116">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2116&amp;id=2116" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2116&id=2116" generator="adianti">PE0080/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2116&id=2116" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2116&id=2116" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2116&id=2116" generator="adianti">15/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2116&id=2116" generator="adianti">02/10/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2116&id=2116" generator="adianti">CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA A ORGANIZAÇÃO, GESTÃO, COORDENAÇÃO E OPERACIONALIZAÇÃO INTEGRADA DO PROGRAMA DE INTERCÂMBIO EDUCACIONAL INTERNACIONAL “PAULO AFONSO PELO MUNDO – EDIÇÃO INGLATERRA 2026”, ABRANGENDO OS COMPONENTES ACADÊMICOS, LOGÍSTICOS, DOCUMENTAIS, SECURITÁRIOS, FINANCEIROS, ADMINISTRATIVOS E OPERACIONAIS NECESSÁRIOS À PREPARAÇÃO, AO DESLOCAMENTO, À PERMANÊNCIA NO EXTERIOR E AO RETORNO DOS PARTICIPANTES, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2116&id=2116" generator="adianti">R$ 680.786,48</td>
+</tr>
+<tr id="row_2113">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2113&amp;id=2113" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2113&id=2113" generator="adianti">PE0085/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2113&id=2113" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2113&id=2113" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2113&id=2113" generator="adianti">10/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2113&id=2113" generator="adianti">29/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2113&id=2113" generator="adianti">REGISTRO DE PREÇOS PARA CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SOLUÇÃO INTEGRADA DE SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA, COM SUBSTITUIÇÃO DE BOMBAS SUBMERSAS E DE CAPTAÇÃO, INCLUINDO OBRIGATORIAMENTE O FORNECIMENTO DE PEÇAS E ACESSÓRIOS ORIGINAIS OU GENUÍNOS, VISANDO A RESPONSABILIDADE TÉCNICA INTEGRAL PELO FUNCIONAMENTO DOS EQUIPAMENTOS DAS UNIDADES DE CAPTAÇÃO DO MUNICÍPIO DE PAULO AFONSO- BA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2113&id=2113" generator="adianti">R$ 758.712,86</td>
+</tr>
+<tr id="row_2112">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2112&amp;id=2112" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2112&id=2112" generator="adianti">PE0066/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2112&id=2112" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2112&id=2112" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2112&id=2112" generator="adianti">11/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2112&id=2112" generator="adianti">29/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2112&id=2112" generator="adianti">REGISTRO DE PREÇOS PARA FUTURA E EVENTUAL CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA FORNECIMENTO DE EXTINTORES DE INCÊNDIO E PRESTAÇÃO DE SERVIÇOS CORRELATOS, COMPREENDENDO A RECARGA, MANUTENÇÃO PREVENTIVA E CORRETIVA, INSPEÇÃO TÉCNICA DOS EQUIPAMENTOS, INCLUSIVE SUBSTITUIÇÃO DE COMPONENTES, QUANDO NECESSÁRIO, DESTINADOS À MANUTENÇÃO DAS CONDIÇÕES DE SEGURANÇA CONTRA INCÊNDIO NAS UNIDADES DO MUNICÍPIO DE PAULO AFONSO/BA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2112&id=2112" generator="adianti">R$ 148.280,70</td>
+</tr>
+<tr id="row_2111">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2111&amp;id=2111" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2111&id=2111" generator="adianti">PE0087/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2111&id=2111" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2111&id=2111" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2111&id=2111" generator="adianti">11/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2111&id=2111" generator="adianti">30/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2111&id=2111" generator="adianti">FORNECIMENTO CONTÍNUO DE MATERIAIS DE LAVANDERIA HOSPITALAR, COMPREENDENDO INSUMOS QUÍMICOS, PRODUTOS SANEANTES, EQUIPAMENTOS DE PROTEÇÃO INDIVIDUAL (EPIS) E MATERIAIS AUXILIARES, DESTINADOS AO ATENDIMENTO DAS DEMANDAS DA SECRETARIA MUNICIPAL DE SAÚDE, GARANTINDO A HIGIENIZAÇÃO EFICIENTE, SEGURA E EM CONFORMIDADE COM AS NORMAS SANITÁRIAS DOS ENXOVAIS HOSPITALARES DAS UNIDADES DE SAÚDE DO MUNICÍPIO DE PAULO AFONSO/BA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2111&id=2111" generator="adianti">R$ 726.316,00</td>
+</tr>
+<tr id="row_2106">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2106&amp;id=2106" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2106&id=2106" generator="adianti">PE0075/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2106&id=2106" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2106&id=2106" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2106&id=2106" generator="adianti">01/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2106&id=2106" generator="adianti">18/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2106&id=2106" generator="adianti">REGISTRO DE PREÇOS PARA CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA O FORNECIMENTO DE MATERIAIS, EQUIPAMENTOS E INSUMOS NECESSÁRIOS À INSTALAÇÃO DE 30 (TRINTA) POÇOS ARTESIANOS, INCLUINDO TUBOS DE REVESTIMENTO, FILTROS, BOMBAS SUBMERSAS, PAINÉIS DE CONTROLE, CABOS ELÉTRICOS, CONEXÕES HIDRÁULICAS, MATERIAIS DE VEDAÇÃO, BEM COMO DEMAIS COMPONENTES INDISPENSÁVEIS À COMPLETA IMPLANTAÇÃO E FUNCIONAMENTO DOS SISTEMAS DE CAPTAÇÃO DE ÁGUA SUBTERRÂNEA NA ZONA RURAL DO MUNICÍPIO DE PAULO AFONSO - BA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2106&id=2106" generator="adianti">R$ 1.013.085,10</td>
+</tr>
+<tr id="row_2103">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2103&amp;id=2103" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2103&id=2103" generator="adianti">CR0013/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2103&id=2103" generator="adianti"><span class="badge-transparencia badge-modalidade">(Lei 14133/21) Credenciamento</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2103&id=2103" generator="adianti" width="120px"><span class="badge-transparencia badge-alteracao"><i class="fas fa-circle"></i> Em Alteração</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2103&id=2103" generator="adianti">31/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2103&id=2103" generator="adianti">02/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2103&id=2103" generator="adianti">CREDENCIAMENTO DE PESSOAS FÍSICAS E JURÍDICAS DO SETOR CULTURAL, RESIDENTES OU SEDIADAS NO MUNICÍPIO DE PAULO AFONSO/BA E NOS DEMAIS MUNICÍPIOS DA REGIÃO, PARA A PRESTAÇÃO DE SERVIÇOS ARTÍSTICOS E CULTURAIS DESTINADOS A COMPOR A PROGRAMAÇÃO DE EVENTOS, PROJETOS E AÇÕES PROMOVIDOS OU APOIADOS PELA PREFEITURA MUNICIPAL DE PAULO AFONSO/BA, POR INTERMÉDIO DA SECRETARIA MUNICIPAL DE CULTURA E ESPORTE – SECULTE</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2103&id=2103" generator="adianti">R$ 351.500,00</td>
+</tr>
+<tr id="row_2101">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2101&amp;id=2101" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2101&id=2101" generator="adianti">PE0071/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2101&id=2101" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2101&id=2101" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2101&id=2101" generator="adianti">28/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2101&id=2101" generator="adianti">17/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2101&id=2101" generator="adianti">NECESSIDADE DE AMPLIAÇÃO, RENOVAÇÃO E FORTALECIMENTO DA FROTA DE VEÍCULOS DESTINADOS AO TRANSPORTE DE PACIENTES (AMBULÂNCIAS), CONSIDERANDO O DESGASTE OPERACIONAL DA FROTA ATUALMENTE UTILIZADA, O AUMENTO DA DEMANDA ASSISTENCIAL E A NECESSIDADE DE ASSEGURAR MAIOR DISPONIBILIDADE, SEGURANÇA, CONTINUIDADE E EFICIÊNCIA NA PRESTAÇÃO DOS SERVIÇOS PÚBLICOS DE SAÚDE.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2101&id=2101" generator="adianti">R$ 931.780,00</td>
+</tr>
+<tr id="row_2100">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2100&amp;id=2100" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2100&id=2100" generator="adianti">PE0079/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2100&id=2100" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2100&id=2100" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2100&id=2100" generator="adianti">26/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2100&id=2100" generator="adianti">16/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2100&id=2100" generator="adianti">CONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE TRANSPORTE ESCOLAR TERRESTRE PARA ALUNOS DA EDUCAÇÃO BÁSICA DA REDE PÚBLICA MUNICIPAL DE PAULO AFONSO/BA, MEDIANTE DISPONIBILIZAÇÃO DE VEÍCULO E CONDUTOR DEVIDAMENTE REGULARIZADOS, PARA ATENDIMENTO DAS 60 (SESSENTA) ROTAS, CONFORME ITINERÁRIOS, QUANTITATIVOS E CONDIÇÕES ESTABELECIDOS NO TERMO DE REFERÊNCIA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2100&id=2100" generator="adianti">R$ 6.544.727,20</td>
+</tr>
+<tr id="row_2099">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2099&amp;id=2099" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2099&id=2099" generator="adianti">PE0078/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2099&id=2099" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2099&id=2099" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2099&id=2099" generator="adianti">26/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2099&id=2099" generator="adianti">15/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2099&id=2099" generator="adianti">PRESTAÇÃO DE SERVIÇOS CONTÍNUOS DE TRANSPORTE TERRESTRE DE PROFISSIONAIS DA EDUCAÇÃO, COM DISPONIBILIZAÇÃO DE VEÍCULO E CONDUTOR DEVIDAMENTE REGULARIZADOS, PARA ATENDER COORDENADORES, PROFESSORES E DIRETORES DA REDE MUNICIPAL DE ENSINO DE PAULO AFONSO/BA, CONFORME AS ROTAS, QUANTITATIVOS E DEMAIS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2099&id=2099" generator="adianti">R$ 2.476.760,00</td>
+</tr>
+<tr id="row_2098">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2098&amp;id=2098" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2098&id=2098" generator="adianti">PE0077/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2098&id=2098" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2098&id=2098" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2098&id=2098" generator="adianti">26/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2098&id=2098" generator="adianti">14/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2098&id=2098" generator="adianti">CONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE TRANSPORTE ESCOLAR TERRESTRE PARA ALUNOS DO ENSINO MÉDIO DA REDE PÚBLICA ESTADUAL, RESIDENTES NO MUNICÍPIO DE PAULO AFONSO/BA, MEDIANTE DISPONIBILIZAÇÃO DE VEÍCULO E CONDUTOR DEVIDAMENTE REGULARIZADOS, PARA ATENDIMENTO DAS 19 (DEZENOVE) ROTAS, CONFORME ITINERÁRIOS, QUANTITATIVOS E CONDIÇÕES ESTABELECIDOS NO TERMO DE REFERÊNCIA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2098&id=2098" generator="adianti">R$ 3.332.010,00</td>
+</tr>
+<tr id="row_2097">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2097&amp;id=2097" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2097&id=2097" generator="adianti">PE0070/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2097&id=2097" generator="adianti"><span class="badge-transparencia badge-modalidade">(Lei 14133/21) Pregão Eletrônico</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2097&id=2097" generator="adianti" width="120px"><span class="badge-transparencia badge-alteracao"><i class="fas fa-circle"></i> Em Alteração</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2097&id=2097" generator="adianti">25/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2097&id=2097" generator="adianti">10/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2097&id=2097" generator="adianti">REGISTROS DE PREÇOS PARA FUTURA E EVENTUAL AQUISIÇÃO DE EQUIPAMENTOS, MATERIAIS PERMANENTES E MATERIAIS DE CONSUMO DESTINADOS À ESTRUTURAÇÃO, MODERNIZAÇÃO E MANUTENÇÃO DA CADEIA DE FRIO DA SECRETARIA MUNICIPAL DE SAÚDE, VISANDO GARANTIR O ADEQUADO ARMAZENAMENTO, CONSERVAÇÃO, TRANSPORTE, MONITORAMENTO E CONTROLE DE TEMPERATURA DOS IMUNOBIOLÓGICOS, ASSEGURANDO A CONTINUIDADE E A QUALIDADE DAS AÇÕES DE IMUNIZAÇÃO, EM ATENDIMENTO ÀS NECESSIDADES DA REDE MUNICIPAL DE SAÚDE, CONTEMPLANDO AS UNIDADES DA VIGILÂNCIA EM SAÚDE, ATENÇÃO PRIMÁRIA À SAÚDE, PRONTO-SOCORRO INFANTIL E ATENÇÃO ESPECIALIZADA DO MUNICÍPIO DE PAULO AFONSO/BA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2097&id=2097" generator="adianti">R$ 1.132.723,56</td>
+</tr>
+<tr id="row_2096">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2096&amp;id=2096" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2096&id=2096" generator="adianti">PE0068/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2096&id=2096" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2096&id=2096" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2096&id=2096" generator="adianti">25/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2096&id=2096" generator="adianti">10/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2096&id=2096" generator="adianti">REGISTRO DE PREÇOS PARA FUTURA E EVENTUAL AQUISIÇÃO DE PAPEL HIGIÊNICO FOLHA DUPLA E SACOS PLÁSTICOS PARA ACONDICIONAMENTO DE RESÍDUOS COMUNS (30 LITROS), DESTINADOS AO ABASTECIMENTO DAS UNIDADES VINCULADAS À SECRETARIA MUNICIPAL DE SAÚDE DE PAULO AFONSO/BA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2096&id=2096" generator="adianti">R$ 472.500,00</td>
+</tr>
+<tr id="row_2094">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2094&amp;id=2094" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2094&id=2094" generator="adianti">PE90062/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2094&id=2094" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2094&id=2094" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2094&id=2094" generator="adianti">20/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2094&id=2094" generator="adianti">04/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2094&id=2094" generator="adianti">FORMAÇÃO DE REGISTRO DE PREÇO PARA FUTURA E EVENTUAL CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NO FORNECIMENTO DE LIXEIRAS EM MADEIRA PLÁSTICA DE 67 LITROS E SUPORTES TAMBÉM EM MADEIRA PLÁSTICA PARA ATENDER AS NECESSIDADES DA SEMMASP.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2094&id=2094" generator="adianti">R$ 1.669.766,00</td>
+</tr>
+<tr id="row_2092">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2092&amp;id=2092" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2092&id=2092" generator="adianti">LE0001/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2092&id=2092" generator="adianti"><span class="badge-transparencia badge-modalidade">(Lei 14133/21) Leilão</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2092&id=2092" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2092&id=2092" generator="adianti">19/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2092&id=2092" generator="adianti">11/09/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2092&id=2092" generator="adianti">LEILÃO PÚBLICO POR MEIO ELETRÔNICO PARA ALIENAÇÃO DE BENS MÓVEIS INSERVÍVEIS PERTENCENTES AO PATRIMÔNIO DA
+PREFEITURA MUNICIPAL DE PAULO AFONSO/BA, CONFORME A DESCRIÇÃO E PREÇOS MÍNIMOS DESCRITOS NO LAUDO DE
+AVALIAÇÃO DO BENS MÓVEIS
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2092&id=2092" generator="adianti">R$ 435.700,00</td>
+</tr>
+<tr id="row_2080">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2080&amp;id=2080" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2080&id=2080" generator="adianti">CR0012/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2080&id=2080" generator="adianti"><span class="badge-transparencia badge-modalidade">(Lei 14133/21) Credenciamento</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2080&id=2080" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2080&id=2080" generator="adianti">31/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2080&id=2080" generator="adianti">05/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2080&id=2080" generator="adianti">CREDENCIAMENTO DE PESSOAS JURÍDICAS PARA A PRESTAÇÃO DE SERVIÇOS MÉDICOS AMBULATORIAIS E HOSPITALARES DE MÉDIA E ALTA COMPLEXIDADE AOS USUÁRIOS DO SISTEMA ÚNICO DE SAÚDE – SUS, NO MUNICÍPIO DE PAULO AFONSO.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2080&id=2080" generator="adianti">R$ 73.680.866,85</td>
+</tr>
+<tr id="row_2077">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2077&amp;id=2077" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2077&id=2077" generator="adianti">CE0007/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2077&id=2077" generator="adianti"><span class="badge-transparencia badge-modalidade">(Lei 14133/21) Concorrência</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2077&id=2077" generator="adianti" width="120px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Homologado e Adjudicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2077&id=2077" generator="adianti">24/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2077&id=2077" generator="adianti">12/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2077&id=2077" generator="adianti">CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA EXECUÇÃO DE OBRA DE CONSTRUÇÃO DE CRECHE PRÉ-ESCOLA TIPO PADRÃO FNDE NO MUNICÍPIO DE PAULO
+AFONSO/BA, CONFORME PROJETOS, ESPECIFICAÇÕES TÉCNICAS, QUANTIDADES ESTIMADAS E CONDIÇÕES DEFINIDAS NESTE TERMO DE REFERÊNCIA, COM VISTAS À
+AMPLIAÇÃO DA REDE FÍSICA MUNICIPAL DE EDUCAÇÃO INFANTIL DESTINADA AO ATENDIMENTO DE CRIANÇAS DE 0 (ZERO) A 3 (TRÊS) ANOS.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2077&id=2077" generator="adianti">R$ 6.369.688,45</td>
+</tr>
+<tr id="row_2076">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2076&amp;id=2076" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2076&id=2076" generator="adianti">PE0069/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2076&id=2076" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2076&id=2076" generator="adianti" width="120px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Homologado e Adjudicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2076&id=2076" generator="adianti">22/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2076&id=2076" generator="adianti">19/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2076&id=2076" generator="adianti">CONCESSÃO DE USO DE ÁREA PÚBLICA LOCALIZADA NO PERÍMETRO DO EVENTO COPA VELA 2026, NO MUNICÍPIO DE PAULO AFONSO/BA, PARA INSTALAÇÃO, MONTAGEM, OPERAÇÃO COMERCIAL E DESMONTAGEM DE CAMAROTE, COM O FIM DE VIABILIZAR AO PARTICULAR A EXPLORAÇÃO ECONÔMICA DOS ESPAÇOS DURANTE O EVENTO, NAS DATAS PREVISTAS DE 04 A 06 DE SETEMBRO DE 2026, OBSERVADAS AS REGRAS DE PADRONIZAÇÃO VISUAL E COMERCIAL IMPOSTAS PELA PREFEITURA E A OBRIGATORIEDADE DE RESPEITO À MARCA DA PATROCINADORA OFICIAL DE BEBIDAS, CONFORME CONDIÇÕES E ESPECIFICAÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2076&id=2076" generator="adianti">R$ 34.230,00</td>
+</tr>
+<tr id="row_2075">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2075&amp;id=2075" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2075&id=2075" generator="adianti">PE90060/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2075&id=2075" generator="adianti"><span class="badge-transparencia badge-modalidade">PE - PREGÃO ELETRÔNICO</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2075&id=2075" generator="adianti" width="120px"><span class="badge-transparencia badge-publicado"><i class="fas fa-circle"></i> Publicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2075&id=2075" generator="adianti">21/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2075&id=2075" generator="adianti">07/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2075&id=2075" generator="adianti">REGISTRO DE PREÇOS PARA FUTURA E EVENTUAL CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA A AQUISIÇÃO DE ELETRODOMÉSTICOS E ELETROPORTÁTEIS, DESTINADOS À ESTRUTURAÇÃO, MODERNIZAÇÃO E APOIO ÀS ATIVIDADES ADMINISTRATIVAS E OPERACIONAIS DAS UNIDADES VINCULADAS À SECRETARIA MUNICIPAL DE SAÚDE, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2075&id=2075" generator="adianti">R$ 423.724,47</td>
+</tr>
+<tr id="row_2072">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2072&amp;id=2072" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2072&id=2072" generator="adianti">PE90058/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2072&id=2072" generator="adianti"><span class="badge-transparencia badge-modalidade">PERP - PREGÃO ELETRÔNICO REGISTRO DE PREÇOS</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2072&id=2072" generator="adianti" width="120px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Homologado e Adjudicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2072&id=2072" generator="adianti">17/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2072&id=2072" generator="adianti">05/08/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2072&id=2072" generator="adianti">REGISTRO DE PREÇOS PARA FUTURA E EVENTUAL CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA AQUISIÇÃO DE EQUIPAMENTOS, INSUMOS E MATERIAIS DESTINADOS ÀS AÇÕES DE VIGILÂNCIA EPIDEMIOLÓGICA, CONTROLE VETORIAL E ZOONOSES, INCLUINDO ITENS DE APOIO ÀS ATIVIDADES DE CAMPO, MONITORAMENTO, INVESTIGAÇÃO E CONTROLE DE AGRAVOS À SAÚDE, COM VISTAS AO ATENDIMENTO DAS DEMANDAS OPERACIONAIS DA SECRETARIA MUNICIPAL DE SAÚDE DO MUNICÍPIO DE PAULO AFONSO/BA.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2072&id=2072" generator="adianti">R$ 90.362,12</td>
+</tr>
+<tr id="row_2066">
+<td style="min-width:28px" class="tdatagrid_cell action"><a href="index.php?class=LicLicitacaoFormExternoView&amp;method=onEdit&amp;key=2066&amp;id=2066" generator="adianti"><i class="fas fa-eye " style="; color: #478FCA;" title="Visualizar"></i>
+</a>
+</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2066&id=2066" generator="adianti">CR0005/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2066&id=2066" generator="adianti"><span class="badge-transparencia badge-modalidade">(Lei 14133/21) Credenciamento</span></td>
+<td class="tdatagrid_cell" align="center" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2066&id=2066" generator="adianti" width="120px"><span class="badge-transparencia badge-homologado"><i class="fas fa-circle"></i> Homologado e Adjudicado</span></td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2066&id=2066" generator="adianti">16/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2066&id=2066" generator="adianti">21/07/2026</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2066&id=2066" generator="adianti">CREDENCIAMENTO DE EMPRESAS ESPECIALIZADAS PARA A PRESTAÇÃO DE SERVIÇOS DE MANUTENÇÃO DE INFRAESTRUTURA URBANA E RURAL, CONSERVAÇÃO VIÁRIA, LIMPEZA DE CANAIS E TERRAPLENAGEM MECANIZADA NO MUNICÍPIO DE PAULO AFONSO-BA, CONTEMPLANDO A DISPONIBILIZAÇÃO SOB DEMANDA DE MAQUINÁRIO PESADO (LINHA AMARELA) E VEÍCULOS DE CARGA PARA ATENDIMENTO DAS NECESSIDADES DA SECRETARIA MUNICIPAL DE INFRAESTRUTURA E PLANEJAMENTO URBANO, SECRETARIA DE ADMINISTRAÇÃO MUNICIPAL E SECRETARIA MUNICIPAL DE DESENVOLVIMENTO RURAL.</td>
+<td class="tdatagrid_cell" align="left" href="index.php?class=LicLicitacaoFormExternoView&method=onEdit&key=2066&id=2066" generator="adianti">R$ 5.389.871,52</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+<div class="card-footer panel-footer"><div class="tpagenavigation_resume">1 a 20 de 631 registros</div>
+<nav class="tpagenavigation" align="center"><ul class="pagination" style="display:inline-flex;">
+<li class="active page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=0&limit=20&direction=desc&page=1&first_page=1&order=id" generator="adianti" class="page-link"><span>1</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=20&limit=20&direction=desc&page=2&first_page=1&order=id" generator="adianti" class="page-link"><span>2</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=40&limit=20&direction=desc&page=3&first_page=1&order=id" generator="adianti" class="page-link"><span>3</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=60&limit=20&direction=desc&page=4&first_page=1&order=id" generator="adianti" class="page-link"><span>4</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=80&limit=20&direction=desc&page=5&first_page=1&order=id" generator="adianti" class="page-link"><span>5</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=100&limit=20&direction=desc&page=6&first_page=1&order=id" generator="adianti" class="page-link"><span>6</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=120&limit=20&direction=desc&page=7&first_page=1&order=id" generator="adianti" class="page-link"><span>7</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=140&limit=20&direction=desc&page=8&first_page=1&order=id" generator="adianti" class="page-link"><span>8</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=160&limit=20&direction=desc&page=9&first_page=1&order=id" generator="adianti" class="page-link"><span>9</span>
+</a>
+</li>
+<li class="page-item"><a href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=180&limit=20&direction=desc&page=10&first_page=1&order=id" generator="adianti" class="page-link"><span>10</span>
+</a>
+</li>
+<li><a aria-label="Next" class="page-link" href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=200&limit=20&direction=desc&page=11&first_page=11&order=id" generator="adianti"><span><span class="fa fa-angle-right"></span>
+</span>
+</a>
+</li>
+<li><a aria-label="Next" class="page-link" href="index.php?class=LicLicitacaoListExterno&method=onReload&offset=620&limit=20&direction=desc&page=32&first_page=31&order=id" generator="adianti"><span><span class="fa fa-angle-double-right"></span>
+</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div style="clear:both"><div class="transparencia-footer">
+<i class="fas fa-info-circle"></i>
+<span>Os dados desta listagem podem ser exportados nos formatos CSV, XLS, PDF e XML para consulta, análise e reuso, conforme os princípios de transparência ativa e dados abertos. Em caso de divergência ou dúvida sobre algum processo, procure a Ouvidoria ou o setor de Licitações do órgão.</span>
+</div>
+</div>
+</div>
+</div>

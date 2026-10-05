@@ -1,0 +1,63 @@
+# Compatibilidade: banco local ou teste das imagens de produção.
+# Desenvolvimento Baius: use make / compose.yaml. Não use este arquivo no Coolify.
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-pad}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env}
+      POSTGRES_DB: ${POSTGRES_DB:-paulo_afonso_em_dados}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - pad_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-pad} -d ${POSTGRES_DB:-paulo_afonso_em_dados}",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Portal e coleta ficam atrás do perfil "app": `docker compose --profile app up -d`.
+  # Sem o perfil, sobe só o banco, que é o que o desenvolvimento local usa.
+  web:
+    profiles: ["app"]
+    build:
+      context: .
+      target: production
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-pad}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-paulo_afonso_em_dados}
+      ADMIN_USER: ${ADMIN_USER:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      POSTHOG_PROJECT_TOKEN: ${POSTHOG_PROJECT_TOKEN:-}
+      POSTHOG_HOST: ${POSTHOG_HOST:-https://us.i.posthog.com}
+      POSTHOG_ENABLED: ${POSTHOG_ENABLED:-true}
+    ports:
+      - "127.0.0.1:${WEB_PORT:-3104}:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  worker:
+    profiles: ["app"]
+    build:
+      context: .
+      target: production-worker
+    init: true
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-pad}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-paulo_afonso_em_dados}
+      COLLECTOR_USER_AGENT: ${COLLECTOR_USER_AGENT}
+      COLLECTOR_MIN_INTERVAL_MS: ${COLLECTOR_MIN_INTERVAL_MS:-2500}
+      WORKER_DAILY_AT: ${WORKER_DAILY_AT:-05:00}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pad_pgdata:

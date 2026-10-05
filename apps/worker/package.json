@@ -1,0 +1,16 @@
+{
+  "name": "@pad/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "start": "tsx --env-file-if-exists=../../.env src/cli.ts"
+  },
+  "dependencies": {
+    "@pad/data-sources": "workspace:*",
+    "@pad/database": "workspace:*",
+    "@pad/domain": "workspace:*",
+    "drizzle-orm": "^0.45.3"
+  }
+}

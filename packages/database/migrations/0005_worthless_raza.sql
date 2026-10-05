@@ -1,0 +1,1 @@
+ALTER TABLE "bids" ADD COLUMN "homologated_value" numeric(16, 2);

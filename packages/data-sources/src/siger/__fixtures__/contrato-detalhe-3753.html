@@ -1,0 +1,302 @@
+<script type='text/javascript'>$('li[role=presentation]').eq(4).hide();</script><div page-name="CadContratoFormExterno" page_name="CadContratoFormExterno" id="window_1742841815" window_name="CadContratoFormExterno" role="window-wrapper"><div id="jquery_dialog_1377122135" style="overflow:auto" title="Cadastro de Contratos" widget="TWindow" name="CadContratoFormExterno" class="window_modal window_modal_header_actions">
+<div class="card panel" style="width: 100%" widget="bootstrapformbuilder" form="form_CadContratoForm" id="bform_1763057121">
+<div class="card-header panel-heading">
+<div class="panel-title card-title">Cadastro de Contratos</div>
+<div class="header-actions" style="float:right"><div class="btn-group" style="display:inline-block; -moz-user-select: none; -webkit-user-select:none; user-select:none;position:static;">
+<button data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle" boundary="viewport">
+<i class="fas fa-file-export " style="; color: #FFC107;"></i>
+Exportar</button>
+<ul class="dropdown-menu pull-right dropdown-menu-right" aria-labelledby="drop2" widget="tdropdown">
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_CadContratoForm', 'class=CadContratoFormExterno&amp;method=onExportPdf&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-pdf " style="; color: #e74c3c;;padding: 4px"></i>
+<span>PDF</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_CadContratoForm', 'class=CadContratoFormExterno&amp;method=onExportXls&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-excel " style="; color: #4CAF50;;padding: 4px"></i>
+<span>Excel</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_CadContratoForm', 'class=CadContratoFormExterno&amp;method=onExportCsv&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="fas fa-file-csv " style="; color: #00b894;;padding: 4px"></i>
+<span>CSV</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_CadContratoForm', 'class=CadContratoFormExterno&amp;method=onExportWord&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-file-word " style="; color: #2196F3;;padding: 4px"></i>
+<span>Word</span>
+</a>
+</li>
+<li><a onclick="Adianti.waitMessage = 'Carregando';__adianti_post_data('form_CadContratoForm', 'class=CadContratoFormExterno&amp;method=onCopy&amp;static=1&amp;static=1');return false;" style="cursor: pointer">
+<i class="far fa-copy " style="; color: #FFC107;;padding: 4px"></i>
+<span>Copiar</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<form class="form-horizontal" type="bootstrap" novalidate="" enctype="multipart/form-data" name="form_CadContratoForm" id="form_CadContratoForm" method="post"><div class="card-body panel-body" style="width: 100%">
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active nav-item"><a href="#tab_bform_1763057121_0" role="tab" data-toggle="tab" aria-expanded="true" class="nav-link active" onclick="$('[name=current_tab]').val($(this).attr('data-current_page'));" data-current_page="0"><span class="tab-name"><b>Dados do Contrato</b></span>
+</a>
+</li>
+<li role="presentation" class=" nav-item"><a href="#tab_bform_1763057121_1" role="tab" data-toggle="tab" aria-expanded="true" class="nav-link " onclick="$('[name=current_tab]').val($(this).attr('data-current_page'));" data-current_page="1"><span class="tab-name">Aditivos</span>
+</a>
+</li>
+<li role="presentation" class=" nav-item"><a href="#tab_bform_1763057121_2" role="tab" data-toggle="tab" aria-expanded="true" class="nav-link " onclick="$('[name=current_tab]').val($(this).attr('data-current_page'));" data-current_page="2"><span class="tab-name">Secretarias</span>
+</a>
+</li>
+<li role="presentation" class=" nav-item"><a href="#tab_bform_1763057121_3" role="tab" data-toggle="tab" aria-expanded="true" class="nav-link " onclick="$('[name=current_tab]').val($(this).attr('data-current_page'));" data-current_page="3"><span class="tab-name">Dotações</span>
+</a>
+</li>
+</ul>
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane tabpanel_form_CadContratoForm active" style="padding:10px; margin-top: -1px;border: 1px solid #DDDDDD" id="tab_bform_1763057121_0">
+<div class="form-group tformrow row " style="display:none"><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="current_tab" type="hidden" style="width:" id="thidden_1359510904"/></div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1542912949">Código</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100px" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" name="id" value="3753" style="width:100%;" id="tentry_1976384605" readonly="1"/></div>
+</div>
+<div class=" col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1102606955">Competência</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" maxlength="4" name="con_competencia" value="2026" style="width:100%;" id="tentry_1291569436" readonly="1"/></div>
+</div>
+<div class=" col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1949990407">Data de Cadastro</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 110px;padding-right: 10px;" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1738477154', '99/99/9999'); </script><input class="form-control tfield tfield_disabled" widget="tdate" type="text" autocomplete="off" name="con_dt_cadastro" value="20/07/2026" style="width:100%;" id="tdate_1738477154" readonly="1"/><script type='text/javascript'>tdate_start( '#tdate_1738477154', 'dd/mm/yyyy', 'pt', '100%', '[]');</script><script type='text/javascript'> tdate_disable_field( 'form_CadContratoForm', 'con_dt_cadastro' ); </script></div>
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 200px" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="con_limite" value="289431.03" type="hidden" style="width:100%" id="thidden_1379577003"/></div>
+</div>
+<div class="col-sm-3 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1244007558">Status</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="con_status" id="tcombo_1660801032" style="width:100%;;pointer-events:none" changeaction="__adianti_post_lookup('form_CadContratoForm', 'class=CadContratoFormExterno&method=OnChangeStatus&static=1', 'tcombo_1660801032', 'callback')" onChange="__adianti_post_lookup('form_CadContratoForm', 'class=CadContratoFormExterno&method=OnChangeStatus&static=1', 'tcombo_1660801032', 'callback')" onclick="return false;" tabindex="-1"><option value="N" selected="1"> NORMAL</option></select>
+</div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1159692153">Valor Inicial</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" style="text-align:right;;width:100%;" pattern="^\$?(([1-9](\d*|\d{0,2}(\.\d{3})*))|0)(,\d{1,2})?$" inputmode="numeric" data-nmask="2,." name="con_valor" value="454.404,56" id="tentry_1934290333" readonly="1"/><script type='text/javascript'>tentry_numeric_mask( 'tentry_1934290333', 2, ',', '.', false, false); </script></div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class=" col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1695641831">Tipo Contrato</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="con_tipo_contrato" id="tcombo_1147602544" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="23" selected="1"> 23 - Aquisição e fornecimento de bens de consumo)</option></select>
+</div>
+</div>
+<div class=" col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1612916502">Tipo de Controle <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" required="" aria-required="true" name="con_situacao" id="tcombo_1978301409" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="V" selected="1"> Normal</option></select>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1757329757">Nº do Contrato</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" maxlength="50" name="con_numero" value="ATA-0083/2026" style="width:100%;" id="tentry_1507329381" readonly="1"/></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1963489141">Nº da Licitação <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" required="" maxlength="50" aria-required="true" name="con_licitacao" value="PE90027/2026" style="width:100%;" id="tentry_1409036666" readonly="1"/></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1022199840">N° do Processo</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tentry"><input class="form-control tfield tfield_disabled" widget="tentry" type="text" maxlength="45" name="con_processo" value="001347/000128/2026" style="width:100%;" id="tentry_1577193411" readonly="1"/></div>
+</div>
+<div class="col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1429911137">Nº Aditivo</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="con_aditivo" id="tcombo_1610310969" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"></select>
+</div>
+</div>
+<div class=" col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1324025244">Data de Assinatura</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 130px" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1594481259', '99/99/9999'); </script><input class="form-control tfield tfield_disabled" widget="tdate" type="text" autocomplete="off" required="" aria-required="true" name="con_dt_ini" value="15/07/2026" style="width:100%;" id="tdate_1594481259" readonly="1"/><script type='text/javascript'>tdate_start( '#tdate_1594481259', 'dd/mm/yyyy', 'pt', '100%', '[]');</script><script type='text/javascript'> tdate_disable_field( 'form_CadContratoForm', 'con_dt_ini' ); </script></div>
+</div>
+<div class=" col-sm-2 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1627802810">Data de Vencimento</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 130px" wrapped-widget="tdate"><script type='text/javascript'>tentry_new_mask( 'tdate_1192871953', '99/99/9999'); </script><input class="form-control tfield tfield_disabled" widget="tdate" type="text" autocomplete="off" required="" aria-required="true" name="con_dt_fim" value="15/07/2027" style="width:100%;" id="tdate_1192871953" readonly="1"/><script type='text/javascript'>tdate_start( '#tdate_1192871953', 'dd/mm/yyyy', 'pt', '100%', '[]');</script><script type='text/javascript'> tdate_disable_field( 'form_CadContratoForm', 'con_dt_fim' ); </script></div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class=" col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1485233299">Contratado</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" required="" aria-required="true" name="id_fornecedor" id="tcombo_1852634182" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="91006" selected="1">10.780.363/0001-40 - DISTRILEV COMERCIO E INDUSTRIA LTDA</option></select>
+</div>
+</div>
+<div class=" col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;padding-right: 10px;"><label style="font-size: 14px;" id="tlabel_1169228395">Modalidade <span style="color: #F44336;">*</span></label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" required="" aria-required="true" name="con_modalidade" id="tcombo_1562128686" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="6" selected="1">PE - PREGÃO ELETRÔNICO</option></select>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row ">
+<div class=" col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1763243276">Fiscal do Contrato </label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="con_fiscal" id="tcombo_1929853544" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"></select>
+</div>
+</div>
+<div class=" col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1738239911">Fiscal do Contrato  </label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%" wrapped-widget="tcombo"><select class="tcombo tcombo_disabled" widget="tcombo" name="con_gestor" id="tcombo_1445903455" style="width:100%;;pointer-events:none" onclick="return false;" tabindex="-1"><option value="518" selected="1">THAMIRYS FREITAS BRASIL</option></select>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row "><div class=" col-sm-6 fb-field-container " style="min-height:26px">
+<div class="fb-inline-field-container " style="display: inline-block;vertical-align:top;float:left;width: 100%;padding-right: 10px;"><label style="font-size: 14px;width: 100%;" id="tlabel_1808613645">Objeto</label>
+</div>
+<div class="fb-inline-field-container form-line" style="display: inline-block;vertical-align:top;float:left;width: 100%;height: 120px" wrapped-widget="ttext"><textarea class="form-control tfield tfield_disabled" widget="ttext" name="con_objeto" style="width:100%;;height:100%" id="ttext_1393005003" readonly="1" tabindex="-1">FORMAÇÃO DE REGISTRO DE PREÇOS PARA FUTURA E EVENTUAL AQUISIÇÃO DE GÊNEROS ALIMENTÍCIOS DESTINADOS À PREPARAÇÃO DA MERENDA ESCOLAR NAS UNIDADES DE ENSINO VINCULADAS À SECRETARIA MUNICIPAL DE EDUCAÇÃO.</textarea>
+</div>
+</div>
+</div>
+<div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div id="b65f1e671d67f4" style="height:100%">
+<div style="text-align:center; padding:50px">
+<i class="fas fa-spinner fa-spin fa-3x"></i>
+<br>Carregando</div>
+<script type='text/javascript'>setTimeout( function() { __adianti_load_page('index.php?class=CadContratoDocListExterno&method=onShow&key=3753&id=3753&target_container=b65f1e671d67f4&register_state=false&show_loading=false'); }, 1 )</script></div>
+</div>
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane tabpanel_form_CadContratoForm " style="padding:10px; margin-top: -1px;border: 1px solid #DDDDDD" id="tab_bform_1763057121_1"><div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div id="b68365c3ab274a" style="height:100%">
+<div style="text-align:center; padding:50px">
+<i class="fas fa-spinner fa-spin fa-3x"></i>
+<br>Carregando</div>
+<script type='text/javascript'>setTimeout( function() { __adianti_load_page('index.php?class=VwAditivosListExterno&method=onShow&target_container=b68365c3ab274a&register_state=false&show_loading=false&idcont=3753'); }, 1 )</script></div>
+</div>
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane tabpanel_form_CadContratoForm " style="padding:10px; margin-top: -1px;border: 1px solid #DDDDDD" id="tab_bform_1763057121_2"><div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;;width:100%"><div class="form-horizontal builder-detail-form" style="border:none; box-shadow:none; width:100%;" widget="bootstrapformbuilder" form="detailFormCadContratoSecretariaContrato" id="bform_1304583695"><div class="form-horizontal" type="bootstrap" novalidate="" enctype="multipart/form-data" name="detailFormCadContratoSecretariaContrato" id="detailFormCadContratoSecretariaContrato" method="post"><div class="card-body panel-body" style="width: 100%"><div class="tab-content"><div role="tabpanel" class="tab-pane tabpanel_detailFormCadContratoSecretariaContrato active" style="padding:10px; margin-top: -1px;" id="tab_bform_1304583695_0">
+<div class="form-group tformrow row ">
+<div class="col-sm-4 col-lg-2 fb-field-container  col-form-label control-label" style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><label style="font-size: 14px;" id="tlabel_1972705099">  </label>
+</div>
+</div>
+<div class="col-sm-8 col-lg-10 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;;width: 200px" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="cad_contrato_secretaria_contrato_id" type="hidden" style="width:100%" id="thidden_1611146831"/></div>
+</div>
+</div>
+<div class="form-group tformrow row " style="display:none"><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="cad_contrato_secretaria_contrato__row__id" type="hidden" style="width:" id="thidden_1945115237"/></div>
+</div>
+</div>
+<div class="form-group tformrow row "><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div class="table-responsive"><table class="table table-striped table-hover table-bordered" id="cad_contrato_secretaria_contrato_list" type="bootstrap" style="width:100%;border-collapse:collapse">
+<thead><tr>
+<th data-column-id="b9df904df7eb1613332dc743864c3089" class="tdatagrid_col" style="text-align:left;user-select:none">Secretaria</th>
+<th data-column-id="00a1085e85c1298c7878d3b3dcf0d36f" class="tdatagrid_col" style="display:none"></th>
+</tr>
+</thead>
+<tbody>
+<tr id="b6ac2b2d62cc83">
+<td class="tdatagrid_cell" align="left">
+SECRETARIA MUNICIPAL DE EDUCACAO<input class="tfield" widget="thidden" data-hidden-field="true" name="cad_contrato_secretaria_contrato_list_secretaria->sec_nome[]" value="SECRETARIA MUNICIPAL DE EDUCACAO" type="hidden" style="width:" id="thidden_1553428991"/></td>
+<td class="tdatagrid_cell" align="center" style="display:none">
+Tzo4OiJzdGRDbGFzcyI6Nzp7czoyOiJpZCI7czo1OiI3Nzk3NSI7czoxMToiaWRfY29udHJhdG8iO3M6NDoiMzc1MyI7czoxMzoiaWRfc2VjcmV0YXJpYSI7czo0OiIzMDc3IjtzOjEyOiJjb3NfcHJvY2Vzc28iO047czo3OiJjb3NfYW5vIjtOO3M6MTE6Il9fZGlzcGxheV9fIjtPOjg6InN0ZENsYXNzIjoxOntzOjI6ImlkIjtzOjU6Ijc3OTc1Ijt9czo5OiJfX3Jvd19faWQiO3M6MTQ6ImI2YWMyYjJkNjJjYzgzIjt9<input class="tfield" widget="thidden" data-hidden-field="true" name="cad_contrato_secretaria_contrato_list___row__data[]" value="Tzo4OiJzdGRDbGFzcyI6Nzp7czoyOiJpZCI7czo1OiI3Nzk3NSI7czoxMToiaWRfY29udHJhdG8iO3M6NDoiMzc1MyI7czoxMzoiaWRfc2VjcmV0YXJpYSI7czo0OiIzMDc3IjtzOjEyOiJjb3NfcHJvY2Vzc28iO047czo3OiJjb3NfYW5vIjtOO3M6MTE6Il9fZGlzcGxheV9fIjtPOjg6InN0ZENsYXNzIjoxOntzOjI6ImlkIjtzOjU6Ijc3OTc1Ijt9czo5OiJfX3Jvd19faWQiO3M6MTQ6ImI2YWMyYjJkNjJjYzgzIjt9" type="hidden" style="width:" id="thidden_1257622067"/></td>
+</tr>
+<tr id="b6ac2b2d62cdb7">
+<td class="tdatagrid_cell" align="left">
+FUNDO MUNICIPAL DE EDUCACAO<input class="tfield" widget="thidden" data-hidden-field="true" name="cad_contrato_secretaria_contrato_list_secretaria->sec_nome[]" value="FUNDO MUNICIPAL DE EDUCACAO" type="hidden" style="width:" id="thidden_1660174511"/></td>
+<td class="tdatagrid_cell" align="center" style="display:none">
+Tzo4OiJzdGRDbGFzcyI6Nzp7czoyOiJpZCI7czo1OiI3Nzk3NyI7czoxMToiaWRfY29udHJhdG8iO3M6NDoiMzc1MyI7czoxMzoiaWRfc2VjcmV0YXJpYSI7czo0OiIxMDAxIjtzOjEyOiJjb3NfcHJvY2Vzc28iO047czo3OiJjb3NfYW5vIjtOO3M6MTE6Il9fZGlzcGxheV9fIjtPOjg6InN0ZENsYXNzIjoxOntzOjI6ImlkIjtzOjU6Ijc3OTc3Ijt9czo5OiJfX3Jvd19faWQiO3M6MTQ6ImI2YWMyYjJkNjJjZGI3Ijt9<input class="tfield" widget="thidden" data-hidden-field="true" name="cad_contrato_secretaria_contrato_list___row__data[]" value="Tzo4OiJzdGRDbGFzcyI6Nzp7czoyOiJpZCI7czo1OiI3Nzk3NyI7czoxMToiaWRfY29udHJhdG8iO3M6NDoiMzc1MyI7czoxMzoiaWRfc2VjcmV0YXJpYSI7czo0OiIxMDAxIjtzOjEyOiJjb3NfcHJvY2Vzc28iO047czo3OiJjb3NfYW5vIjtOO3M6MTE6Il9fZGlzcGxheV9fIjtPOjg6InN0ZENsYXNzIjoxOntzOjI6ImlkIjtzOjU6Ijc3OTc3Ijt9czo5OiJfX3Jvd19faWQiO3M6MTQ6ImI2YWMyYjJkNjJjZGI3Ijt9" type="hidden" style="width:" id="thidden_1783492121"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane tabpanel_form_CadContratoForm " style="padding:10px; margin-top: -1px;border: 1px solid #DDDDDD" id="tab_bform_1763057121_3"><div class="form-group tformrow row "><div class=" col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;;width:100%"><div class="form-horizontal builder-detail-form" style="border:none; box-shadow:none; width:100%;" widget="bootstrapformbuilder" form="detailFormCadContratoDotacaoContrato" id="bform_1142139396"><div class="form-horizontal" type="bootstrap" novalidate="" enctype="multipart/form-data" name="detailFormCadContratoDotacaoContrato" id="detailFormCadContratoDotacaoContrato" method="post"><div class="card-body panel-body" style="width: 100%"><div class="tab-content"><div role="tabpanel" class="tab-pane tabpanel_detailFormCadContratoDotacaoContrato active" style="padding:10px; margin-top: -1px;" id="tab_bform_1142139396_0">
+<div class="form-group tformrow row " style="display:none">
+<div class="col-sm-6 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;;width: 200px" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="cad_contrato_dotacao_contrato_id" type="hidden" style="width:100%" id="thidden_1805286779"/></div>
+</div>
+<div class="col-sm-6 fb-field-container " style="min-height:26px"></div>
+</div>
+<div class="form-group tformrow row " style="display:none"><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;" wrapped-widget="thidden"><input class="form-control tfield" widget="thidden" name="cad_contrato_dotacao_contrato__row__id" type="hidden" style="width:" id="thidden_1045306655"/></div>
+</div>
+</div>
+<div class="form-group tformrow row "><div class="col-sm-12 fb-field-container " style="min-height:26px"><div class="fb-inline-field-container " style="display: inherit;vertical-align:top;"><div class="table-responsive"><table class="table table-striped table-hover table-bordered" id="cad_contrato_dotacao_contrato_list" type="bootstrap" style="width:100%;border-collapse:collapse">
+<thead><tr>
+<th data-column-id="d04d8448eb3c9323dbd5272c8de54689" class="tdatagrid_col" style="text-align:left;user-select:none">Dotacao</th>
+<th data-column-id="00a1085e85c1298c7878d3b3dcf0d36f" class="tdatagrid_col" style="display:none"></th>
+</tr>
+</thead>
+<tbody>
+<tr id="b6ac2b2d62a95b">
+<td class="tdatagrid_cell" align="left">
+<label style="white-space: pre-line;" id="tlabel_1081791087">10 - SECRETARIA MUNICIPAL DE EDUCACAO
+1001 - FUNDO MUNICIPAL DE EDUCACAO
+2018 - MANUTENCAO DOS  RECURSOS  DO PNAE
+33903000 - Material de Consumo - FONTE - 1552
+--------------------------------------------------------------------------------</label>
+<input class="tfield" widget="thidden" data-hidden-field="true" name="cad_contrato_dotacao_contrato_list_{formataDotacao}[]" value="<label style=&quot;white-space: pre-line;&quot; id=&quot;tlabel_1081791087&quot;>10 - SECRETARIA MUNICIPAL DE EDUCACAO
+1001 - FUNDO MUNICIPAL DE EDUCACAO
+2018 - MANUTENCAO DOS  RECURSOS  DO PNAE
+33903000 - Material de Consumo - FONTE - 1552
+--------------------------------------------------------------------------------</label>
+" type="hidden" style="width:" id="thidden_1084883570"/></td>
+<td class="tdatagrid_cell" align="center" style="display:none">
+Tzo4OiJzdGRDbGFzcyI6Nzp7czoyOiJpZCI7czo0OiI0NzI1IjtzOjExOiJpZF9jb250cmF0byI7czo0OiIzNzUzIjtzOjEwOiJpZF9kb3RhY2FvIjtzOjY6IjEzMDY5NiI7czo5OiJjZG9fdmFsb3IiO3M6NDoiMC4wMCI7czo3OiJjZG9fYW5vIjtzOjQ6IjIwMjYiO3M6MTE6Il9fZGlzcGxheV9fIjtPOjg6InN0ZENsYXNzIjoxOntzOjI6ImlkIjtzOjQ6IjQ3MjUiO31zOjk6Il9fcm93X19pZCI7czoxNDoiYjZhYzJiMmQ2MmE5NWIiO30=<input class="tfield" widget="thidden" data-hidden-field="true" name="cad_contrato_dotacao_contrato_list___row__data[]" value="Tzo4OiJzdGRDbGFzcyI6Nzp7czoyOiJpZCI7czo0OiI0NzI1IjtzOjExOiJpZF9jb250cmF0byI7czo0OiIzNzUzIjtzOjEwOiJpZF9kb3RhY2FvIjtzOjY6IjEzMDY5NiI7czo5OiJjZG9fdmFsb3IiO3M6NDoiMC4wMCI7czo3OiJjZG9fYW5vIjtzOjQ6IjIwMjYiO3M6MTE6Il9fZGlzcGxheV9fIjtPOjg6InN0ZENsYXNzIjoxOntzOjI6ImlkIjtzOjQ6IjQ3MjUiO31zOjk6Il9fcm93X19pZCI7czoxNDoiYjZhYzJiMmQ2MmE5NWIiO30=" type="hidden" style="width:" id="thidden_1844154178"/></td>
+</tr>
+<tr id="b6ac2b2d62c4c2">
+<td class="tdatagrid_cell" align="left">
+<label style="white-space: pre-line;" id="tlabel_1987443213">10 - SECRETARIA MUNICIPAL DE EDUCACAO
+1001 - FUNDO MUNICIPAL DE EDUCACAO
+2018 - MANUTENCAO DOS  RECURSOS  DO PNAE
+33903000 - Material de Consumo - FONTE - 1500
+--------------------------------------------------------------------------------</label>
+<input class="tfield" widget="thidden" data-hidden-field="true" name="cad_contrato_dotacao_contrato_list_{formataDotacao}[]" value="<label style=&quot;white-space: pre-line;&quot; id=&quot;tlabel_1987443213&quot;>10 - SECRETARIA MUNICIPAL DE EDUCACAO
+1001 - FUNDO MUNICIPAL DE EDUCACAO
+2018 - MANUTENCAO DOS  RECURSOS  DO PNAE
+33903000 - Material de Consumo - FONTE - 1500
+--------------------------------------------------------------------------------</label>
+" type="hidden" style="width:" id="thidden_1153450377"/></td>
+<td class="tdatagrid_cell" align="center" style="display:none">
+Tzo4OiJzdGRDbGFzcyI6Nzp7czoyOiJpZCI7czo0OiI0NzcxIjtzOjExOiJpZF9jb250cmF0byI7czo0OiIzNzUzIjtzOjEwOiJpZF9kb3RhY2FvIjtzOjY6IjEzMDY5NCI7czo5OiJjZG9fdmFsb3IiO3M6NDoiMC4wMCI7czo3OiJjZG9fYW5vIjtOO3M6MTE6Il9fZGlzcGxheV9fIjtPOjg6InN0ZENsYXNzIjoxOntzOjI6ImlkIjtzOjQ6IjQ3NzEiO31zOjk6Il9fcm93X19pZCI7czoxNDoiYjZhYzJiMmQ2MmM0YzIiO30=<input class="tfield" widget="thidden" data-hidden-field="true" name="cad_contrato_dotacao_contrato_list___row__data[]" value="Tzo4OiJzdGRDbGFzcyI6Nzp7czoyOiJpZCI7czo0OiI0NzcxIjtzOjExOiJpZF9jb250cmF0byI7czo0OiIzNzUzIjtzOjEwOiJpZF9kb3RhY2FvIjtzOjY6IjEzMDY5NCI7czo5OiJjZG9fdmFsb3IiO3M6NDoiMC4wMCI7czo3OiJjZG9fYW5vIjtOO3M6MTE6Il9fZGlzcGxheV9fIjtPOjg6InN0ZENsYXNzIjoxOntzOjI6ImlkIjtzOjQ6IjQ3NzEiO31zOjk6Il9fcm93X19pZCI7czoxNDoiYjZhYzJiMmQ2MmM0YzIiO30=" type="hidden" style="width:" id="thidden_1193694657"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<script type='text/javascript'>tjquerydialog_start( '#jquery_dialog_1377122135', true, true, true, $(window).width() * 0.8, 'auto', 0, 0, 2000, {   }, undefined, true, '' ); </script>
+</div>
+</div>

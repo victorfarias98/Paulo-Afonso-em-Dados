@@ -1,0 +1,349 @@
+@import "tailwindcss";
+
+/*
+ * Identidade da Baius Tecnologia, a mesma da landing page: papel creme, tinta
+ * azul-marinho e um único destaque, o azul do quadrado do logo.
+ * Formas: botões em pílula, blocos 12px, campos 8px.
+ * Camadas: conteúdo 0, cabeçalho 40, painel de filtros 50.
+ */
+@theme {
+  --color-fundo: #f4efe4;
+  --color-superficie: #eae4d8;
+  --color-tinta: #182d40;
+  --color-suave: #53606a;
+  --color-linha: #d0cabe;
+  --color-azul: #226da9;
+  --color-azul-forte: #195787;
+  --color-alerta: #a2372a;
+
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-saida: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fundo: #111b24;
+    --color-superficie: #1a2834;
+    --color-tinta: #e9eff4;
+    --color-suave: #adbdc9;
+    --color-linha: #354550;
+    --color-azul: #82beeb;
+    --color-azul-forte: #a9d3f2;
+    --color-alerta: #f0907f;
+  }
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-fundo);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.04em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-azul);
+    color: var(--color-fundo);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-azul);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* No iOS, campo com fonte menor que 16px faz a página dar zoom ao focar. */
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+}
+
+@layer components {
+  .link {
+    color: var(--color-azul-forte);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  .link:hover {
+    color: var(--color-azul);
+    text-decoration-thickness: 2px;
+  }
+
+  /* Dinheiro público: sempre nos mesmos algarismos alinhados e em peso forte. */
+  .valor {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+
+  /* O quadrado azul do "i" de baius: marca o que é dado do portal. */
+  .marca {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    flex: none;
+    background: var(--color-azul);
+  }
+
+  .campo {
+    width: 100%;
+    min-height: 3rem;
+    border: 1px solid var(--color-linha);
+    border-radius: 0.5rem;
+    background: var(--color-fundo);
+    color: var(--color-tinta);
+    padding: 0.6rem 0.85rem;
+  }
+
+  .campo:hover {
+    border-color: var(--color-suave);
+  }
+
+  .campo:focus-visible {
+    border-color: var(--color-azul);
+    outline-offset: 1px;
+  }
+
+  .botao {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    background: var(--color-azul);
+    color: var(--color-fundo);
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s,
+      transform 0.2s var(--ease-saida);
+  }
+
+  .botao:hover {
+    background: var(--color-azul-forte);
+  }
+
+  .botao:active {
+    transform: scale(0.98);
+  }
+
+  /* Pílula de filtro: alvo de toque de 44px, estado ativo preenchido. */
+  .pilula {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid var(--color-linha);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition:
+      border-color 0.2s,
+      background-color 0.2s;
+  }
+
+  .pilula:hover {
+    border-color: var(--color-tinta);
+  }
+
+  .pilula[aria-current="true"],
+  .pilula[aria-current="page"] {
+    border-color: var(--color-tinta);
+    background: var(--color-tinta);
+    color: var(--color-fundo);
+  }
+
+  /* Faixa que rola de lado no celular sem mostrar barra de rolagem. */
+  .faixa {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .faixa::-webkit-scrollbar {
+    display: none;
+  }
+
+  .faixa > * {
+    scroll-snap-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Em telas largas o painel de filtros fica sempre aberto, mesmo sem JavaScript. */
+@media (min-width: 1024px) {
+  details.filtros::details-content {
+    content-visibility: visible;
+  }
+}
+
+/* Home: a civic reading journey. Tints stay in the existing palette in both modes. */
+.home-story {
+  --home-tint: color-mix(in srgb, var(--color-azul) 7%, var(--color-fundo));
+}
+
+.home-reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--color-azul);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 41;
+  pointer-events: none;
+}
+
+.home-hero {
+  padding-block: 0.5rem 1rem;
+}
+
+.home-section {
+  position: relative;
+  padding-block: 2rem;
+}
+
+.home-section:has(#fatos),
+.home-section:has(#caminho),
+.home-section:has(#participar) {
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border-radius: 0.75rem;
+  background: var(--home-tint);
+}
+
+.home-section:has(#obra) {
+  border-top: 2px solid var(--color-azul);
+}
+
+.home-section:has(#mandato) {
+  border-top: 1px solid var(--color-linha);
+}
+
+.home-questions a {
+  border-bottom: 1px solid var(--color-linha);
+  background: transparent;
+  border-radius: 0;
+  padding-block: 1.5rem;
+}
+
+.home-questions a:hover {
+  background: var(--home-tint);
+}
+
+.home-story details > summary {
+  min-height: 3rem;
+  cursor: pointer;
+  padding-block: 0.75rem;
+  font-weight: 600;
+  color: var(--color-azul-forte);
+}
+
+@media (min-width: 1024px) {
+  .home-section:has(#caminho) {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    column-gap: 4rem;
+    align-items: start;
+  }
+  .home-section:has(#caminho) > h2 {
+    grid-column: 1;
+    grid-row: 1;
+    position: sticky;
+    top: 6rem;
+  }
+  .home-section:has(#caminho) > p {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .home-section:has(#caminho) > div {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-section {
+    margin-top: 2.5rem;
+    padding-block: 1.25rem;
+  }
+  .home-story .valor {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-reading-progress {
+    display: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.home-details .home-section {
+  margin-top: 1.5rem;
+  padding-block: 0.5rem;
+}
+
+.home-citizen-actions > a {
+  background: var(--color-fundo);
+}
+
+@media (min-width: 768px) {
+  .home-citizen-actions {
+    grid-template-columns: 1.3fr 1fr 1fr;
+  }
+  .home-citizen-actions > a:first-child {
+    border-color: var(--color-azul);
+  }
+}
+
+.legislative-member {
+  border-top: 1px solid var(--color-linha);
+  padding-block: 1.25rem;
+}
+
+.home-section:has(#autores) {
+  border-top: 2px solid var(--color-azul);
+}
