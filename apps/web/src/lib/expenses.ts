@@ -1,5 +1,5 @@
 import { agencies, payments, suppliers } from "@pad/database/schema";
-import { and, desc, eq, isNull, type SQL, sql } from "drizzle-orm";
+import { and, desc, eq, isNotNull, isNull, type SQL, sql } from "drizzle-orm";
 
 import { getDb } from "./db";
 import {
@@ -44,19 +44,50 @@ export interface Total {
 export interface ExpenseListRow {
   id: string;
   externalId: string;
+  number: string | null;
   date: string | null;
   value: string | null;
   description: string | null;
   expenseElement: string | null;
+  legalBasis: string | null;
+  bidReference: string | null;
+  commitmentNumber: string | null;
+  sourceUrl: string | null;
   contractId: string | null;
   agencyName: string | null;
   supplierName: string | null;
+}
+
+export interface PaymentObjectRow {
+  id: string;
+  date: string | null;
+  value: string;
+  supplierName: string | null;
+  agencyName: string | null;
+  description: string | null;
+  expenseElement: string | null;
+  contractId: string | null;
+}
+
+export interface MonthlySignal {
+  month: number;
+  total: string;
+  previousTotal: string | null;
+  change: string | null;
+}
+
+export interface SpendingIntelligence {
+  topSupplierShare: number | null;
+  topSupplierName: string | null;
+  monthlySignal: MonthlySignal | null;
+  largestPayments: PaymentObjectRow[];
 }
 
 /** Pagamento líquido: valor pago menos anulações. */
 const paidNet = sql`(coalesce(${payments.value}, 0) - coalesce(${payments.cancelledValue}, 0))`;
 const paidTotal = sql<string>`coalesce(sum(${paidNet}), 0)::text`;
 const byPaidDesc = sql`sum(${paidNet}) desc nulls last`;
+const PAYROLL_PREFIX = "FOLHA DE PAGAMENTO%";
 
 async function rowsOf<T>(query: SQL): Promise<T[]> {
   return (await getDb().execute(query)) as unknown as T[];
@@ -103,7 +134,17 @@ export async function getSpendingOverview(year: number, branch: ExpenseBranch) {
   );
   const month = sql<number>`extract(month from ${payments.paymentDate})::int`;
 
-  const [committed, liquidated, paid, byAgency, byMonth, topSuppliers, byElement] = await Promise.all([
+  const [
+    committed,
+    liquidated,
+    paid,
+    byAgency,
+    byMonth,
+    topSuppliers,
+    byElement,
+    linkedToContracts,
+    largestPayments,
+  ] = await Promise.all([
     sumOf("empenho", year, branch),
     sumOf("liquidacao", year, branch),
     sumOf("pagamento", year, branch),
@@ -114,7 +155,12 @@ export async function getSpendingOverview(year: number, branch: ExpenseBranch) {
       .where(paidInYear)
       .groupBy(agencies.id, agencies.name)
       .orderBy(byPaidDesc),
-    db.select({ month, total: paidTotal }).from(payments).where(paidInYear).groupBy(month).orderBy(month),
+    db
+      .select({ month, total: paidTotal })
+      .from(payments)
+      .where(paidInYear)
+      .groupBy(month)
+      .orderBy(month),
     // Somente empresas: pessoas físicas não entram em lista de maiores recebedores.
     db
       .select({ id: suppliers.id, name: suppliers.legalName, total: paidTotal })
@@ -131,12 +177,105 @@ export async function getSpendingOverview(year: number, branch: ExpenseBranch) {
       .groupBy(payments.expenseElement)
       .orderBy(byPaidDesc)
       .limit(TOP_LIMIT),
+    db
+      .select({ total: paidTotal, count: sql<number>`count(*)::int` })
+      .from(payments)
+      .where(and(paidInYear, isNotNull(payments.contractId))),
+    db
+      .select({
+        id: payments.id,
+        date: sql<string>`to_char(${payments.paymentDate}, 'YYYY-MM-DD')`,
+        value: sql<string>`${paidNet}::text`,
+        supplierName: suppliers.legalName,
+        agencyName: agencies.name,
+        description: payments.description,
+        expenseElement: payments.expenseElement,
+        contractId: payments.contractId,
+      })
+      .from(payments)
+      .innerJoin(suppliers, eq(suppliers.id, payments.supplierId))
+      .leftJoin(agencies, eq(agencies.id, payments.agencyId))
+      .where(
+        and(
+          paidInYear,
+          eq(suppliers.documentType, "cnpj"),
+          sql`${suppliers.legalName} not ilike ${PAYROLL_PREFIX}`,
+          sql`${paidNet} > 0`,
+        ),
+      )
+      .orderBy(sql`${paidNet} desc nulls last`, desc(payments.paymentDate), desc(payments.id))
+      .limit(6),
   ]);
 
-  return { committed, liquidated, paid, byAgency, byMonth, topSuppliers, byElement };
+  return {
+    committed,
+    liquidated,
+    paid,
+    byAgency,
+    byMonth,
+    topSuppliers,
+    byElement,
+    linkedToContracts: linkedToContracts[0] ?? { total: "0", count: 0 },
+    intelligence: buildSpendingIntelligence({
+      paidTotal: paid.total,
+      byMonth,
+      topSuppliers,
+      largestPayments,
+    }),
+  };
 }
 
 export type SpendingOverview = Awaited<ReturnType<typeof getSpendingOverview>>;
+
+interface BuildSpendingIntelligenceInput {
+  paidTotal: string;
+  byMonth: Array<{ month: number; total: string }>;
+  topSuppliers: Array<{ name: string; total: string }>;
+  largestPayments: PaymentObjectRow[];
+}
+
+/** O mês mais relevante é o que mais mudou em valor absoluto contra o mês anterior importado. */
+export function largestMonthlySignal(
+  rows: Array<{ month: number; total: string }>,
+): MonthlySignal | null {
+  const ordered = [...rows].sort((a, b) => a.month - b.month);
+  if (ordered.length === 0) return null;
+  if (ordered.length === 1) {
+    const only = ordered[0]!;
+    return { month: only.month, total: only.total, previousTotal: null, change: null };
+  }
+
+  return (
+    ordered
+      .slice(1)
+      .map((row, index) => {
+        const previous = ordered[index]!;
+        const change = Number(row.total) - Number(previous.total);
+        return {
+          month: row.month,
+          total: row.total,
+          previousTotal: previous.total,
+          change: change.toFixed(2),
+        };
+      })
+      .sort((a, b) => Math.abs(Number(b.change)) - Math.abs(Number(a.change)))[0] ?? null
+  );
+}
+
+export function buildSpendingIntelligence(
+  input: BuildSpendingIntelligenceInput,
+): SpendingIntelligence {
+  const [topSupplier] = input.topSuppliers;
+  const paid = Number(input.paidTotal);
+
+  return {
+    topSupplierShare:
+      topSupplier && paid > 0 ? Math.round((Number(topSupplier.total) / paid) * 1000) / 10 : null,
+    topSupplierName: topSupplier?.name ?? null,
+    monthlySignal: largestMonthlySignal(input.byMonth),
+    largestPayments: input.largestPayments,
+  };
+}
 
 function buildWhere(filters: ExpenseFilters): SQL {
   const date = sql.identifier(PHASES[filters.phase].date);
@@ -171,8 +310,10 @@ export async function listExpenses(filters: ExpenseFilters) {
 
   const [rows, [totals]] = await Promise.all([
     rowsOf<ExpenseListRow>(sql`
-      select e.id, e.external_id as "externalId", to_char(e.${dateColumn}, 'YYYY-MM-DD') as date,
+      select e.id, e.external_id as "externalId", e.number, to_char(e.${dateColumn}, 'YYYY-MM-DD') as date,
              ${net}::text as value, e.description, e.expense_element as "expenseElement",
+             e.legal_basis as "legalBasis", e.bid_reference as "bidReference",
+             e.commitment_number as "commitmentNumber", e.source_url as "sourceUrl",
              e.contract_id as "contractId", a.name as "agencyName", s.legal_name as "supplierName"
       ${from}
       order by e.${dateColumn} desc nulls last, e.id

@@ -33,16 +33,16 @@ O fluxo comum está em `apps/worker/src/pipeline/run-import.ts`. As despesas tê
 
 ## Regras de integridade
 
-| Situação | O que acontece |
-|----------|----------------|
-| Conteúdo igual ao da última coleta | Nenhuma versão nova; só `last_seen_at` avança |
-| Conteúdo mudou | Nova linha em `raw_records`; a entidade é atualizada |
-| Registro não pôde ser interpretado | O bruto fica como `failed`, com o erro; a coleta segue e termina como `partial` |
-| Registro sumiu de uma varredura completa | `source_missing_since` recebe a data; nada é apagado |
-| Varredura trouxe menos de 50% da anterior | Situação `suspect`; **ninguém** é marcado como ausente |
-| Varredura parcial (`--max-pages`) | Não marca ausentes |
-| Mês de despesa voltou vazio | Não marca ausentes |
-| Mesmo identificador duas vezes na mesma coleta | Erro; nada é sobrescrito |
+| Situação                                       | O que acontece                                                                  |
+| ---------------------------------------------- | ------------------------------------------------------------------------------- |
+| Conteúdo igual ao da última coleta             | Nenhuma versão nova; só `last_seen_at` avança                                   |
+| Conteúdo mudou                                 | Nova linha em `raw_records`; a entidade é atualizada                            |
+| Registro não pôde ser interpretado             | O bruto fica como `failed`, com o erro; a coleta segue e termina como `partial` |
+| Registro sumiu de uma varredura completa       | `source_missing_since` recebe a data; nada é apagado                            |
+| Varredura trouxe menos de 50% da anterior      | Situação `suspect`; **ninguém** é marcado como ausente                          |
+| Varredura parcial (`--max-pages`)              | Não marca ausentes                                                              |
+| Mês de despesa voltou vazio                    | Não marca ausentes                                                              |
+| Mesmo identificador duas vezes na mesma coleta | Erro; nada é sobrescrito                                                        |
 
 Registros fora da listagem mas citados por outro registro (os termos aditivos e contratos que as
 obras citam) são buscados pelo id a cada coleta de contratos e nunca são marcados como ausentes
@@ -56,6 +56,12 @@ detalhes: primeiro os nunca importados, depois os conferidos há mais tempo), co
 licitações da Câmara, e empenhos, liquidações e pagamentos do mês atual e do anterior, primeiro
 da Prefeitura e depois da Câmara. A falha de uma coleta não impede
 as seguintes.
+
+A leitura inteligente dos gastos usa os dados já normalizados de despesas: descrição publicada,
+tipo de gasto, base legal, licitação/dispensa, empenho de origem, fonte oficial, órgão, credor e
+vínculo com contrato quando a regra encontra correspondência única. Itens de contratação do PNCP
+ficam como próxima etapa de coleta, porque exigem importar contratação, itens e resultados por
+`numeroControlePncpCompra` antes de exibir quantidade, unidade e valor unitário como dado oficial.
 
 Entre uma coleta diária e outra, o worker consulta a cada minuto a fila `collection_requests`,
 onde o admin registra pedidos de coleta, e executa um pedido por vez. Um pedido que estava em

@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-
 function Filters({
   filters,
   years,
@@ -45,7 +44,12 @@ function Filters({
     <FilterBar
       action="/gastos/registros"
       fields={[
-        { kind: "search", name: "q", label: "Buscar por quem recebeu ou pelo motivo", value: filters.q },
+        {
+          kind: "search",
+          name: "q",
+          label: "Buscar por quem recebeu ou pelo motivo",
+          value: filters.q,
+        },
         {
           kind: "select",
           name: "fase",
@@ -106,22 +110,66 @@ function ExpenseRow({ row }: { row: ExpenseListRow }) {
     <li className="grid gap-x-6 gap-y-1 border-b border-linha py-4 md:grid-cols-[6.5rem_minmax(0,1fr)_10rem]">
       <p className="text-suave tabular-nums">{formatDate(row.date)}</p>
       <div>
-        <p className="font-semibold">{row.supplierName ? plainName(row.supplierName) : "Recebedor não informado"}</p>
+        <p className="font-semibold">
+          {row.supplierName ? plainName(row.supplierName) : "Recebedor não informado"}
+        </p>
         <p className="text-sm text-suave">
           {row.agencyName ? plainName(row.agencyName) : "Secretaria não informada"}
           {row.expenseElement && <span className="block">{row.expenseElement}</span>}
         </p>
-        {row.description && (
-          <p className="mt-1 line-clamp-2 text-sm">{row.description}</p>
-        )}
-        <p className="mt-1 text-sm text-suave">
-          Registro {row.externalId} na fonte
+        {row.description && <p className="mt-1 line-clamp-2 text-sm">{row.description}</p>}
+        <p className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+          <span
+            className={
+              row.contractId ? "bg-azul px-2 py-1 text-white" : "bg-superficie px-2 py-1 text-suave"
+            }
+          >
+            {row.contractId ? "Contrato identificado" : "Contrato ainda não ligado"}
+          </span>
           {row.contractId && (
-            <Link href={`/contratos/${row.contractId}`} className="link ml-3">
-              Contrato relacionado
+            <Link href={`/contratos/${row.contractId}`} className="link">
+              Abrir contrato
             </Link>
           )}
         </p>
+        <details className="mt-3 border-t border-linha pt-2 text-sm">
+          <summary className="cursor-pointer font-medium text-azul-forte">
+            Entender este registro
+          </summary>
+          <dl className="mt-3 grid gap-3 sm:grid-cols-2">
+            <div>
+              <dt className="text-suave">O que a fonte descreve</dt>
+              <dd>{row.description ?? "Não informado"}</dd>
+            </div>
+            <div>
+              <dt className="text-suave">Tipo de gasto</dt>
+              <dd>{row.expenseElement ?? "Não informado"}</dd>
+            </div>
+            <div>
+              <dt className="text-suave">Empenho de origem</dt>
+              <dd>{row.commitmentNumber ?? row.number ?? "Este vínculo não foi informado"}</dd>
+            </div>
+            <div>
+              <dt className="text-suave">Licitação, dispensa ou inexigibilidade</dt>
+              <dd>{row.bidReference ?? "Não informada"}</dd>
+            </div>
+            <div>
+              <dt className="text-suave">Base legal</dt>
+              <dd>{row.legalBasis ?? "Não informada"}</dd>
+            </div>
+            <div>
+              <dt className="text-suave">Identificador na fonte</dt>
+              <dd>{row.externalId}</dd>
+            </div>
+          </dl>
+          {row.sourceUrl ? (
+            <a href={row.sourceUrl} rel="noopener noreferrer" className="link mt-3 inline-block">
+              Conferir na fonte oficial
+            </a>
+          ) : (
+            <p className="mt-3 text-suave">Fonte oficial registrada sem URL direta.</p>
+          )}
+        </details>
       </div>
       <p className="font-display text-lg font-semibold tabular-nums md:text-right">
         {formatMoney(row.value)}
@@ -146,7 +194,10 @@ export default async function ExpenseRecordsPage({
     <>
       <AnalyticsResults section="gastos" query={filters.q} count={count} />
       <p>
-        <Link href={filters.branch === "camara" ? "/gastos?poder=camara" : "/gastos"} className="link">
+        <Link
+          href={filters.branch === "camara" ? "/gastos?poder=camara" : "/gastos"}
+          className="link"
+        >
           Gastos {filters.branch ? BRANCHES[filters.branch].of : "da Prefeitura e da Câmara"}
         </Link>
       </p>
@@ -202,8 +253,9 @@ export default async function ExpenseRecordsPage({
             </span>
           ),
         )}{" "}
-        no Município Online. Para conferir um registro, escolha lá a mesma etapa, ano e mês. Vínculos com contratos
-        são feitos por nós quando a licitação e quem recebeu apontam para um único contrato.
+        no Município Online. Para conferir um registro, escolha lá a mesma etapa, ano e mês.
+        Vínculos com contratos são feitos por nós quando a licitação e quem recebeu apontam para um
+        único contrato.
       </p>
     </>
   );

@@ -134,8 +134,28 @@ Código IBGE do município confirmado na resposta: **2924009**.
 ### 4.3 Limitações e pendências
 
 - Cobre apenas contratações sob a Lei 14.133/2021 e apenas o que o Município publicou.
-- Semântica exata de `dataInicial`/`dataFinal` (publicação × assinatura): **confirmar no manual** antes do importer.
-- Endpoints de contratações (`/v1/contratacoes/publicacao`), atas, termos/aditivos, itens e documentos: existem na documentação, **NÃO VERIFICADOS** aqui.
+- O Manual de Integração do PNCP v. 2.6 informa que o ambiente de produção dos serviços é
+  `https://pncp.gov.br/api/pncp`, e que o portal de consultas é público. APIs de manutenção
+  exigem autenticação, mas consultas públicas não exigem credenciais.
+- Itens de uma contratação podem ser consultados no endpoint documentado:
+  `GET /v1/orgaos/{cnpj}/compras/{ano}/{sequencial}/itens`. A chave vem do próprio controle PNCP
+  da compra. Em um controle no formato `CNPJ-1-SEQUENCIAL/ANO`, o CNPJ identifica o órgão, o ano
+  fica após a barra e o sequencial identifica a compra. Esse endpoint é o caminho para enriquecer licitações e contratos com itens,
+  quantidades, unidade de medida, valor unitário e descrição do item.
+- Uma contratação individual pode ser consultada em
+  `GET /v1/orgaos/{cnpj}/compras/{ano}/{sequencial}`. O retorno documentado inclui
+  `numeroControlePNCP`, `numeroCompra`, `processo`, `modalidadeNome`, `situacaoCompraNome`,
+  `objetoCompra`, `valorTotalEstimado`, `valorTotalHomologado`, `dataPublicacaoPncp`,
+  `dataAtualizacao`, `sequencialCompra`, `orgaoEntidade` e `unidadeOrgao`.
+- Resultados de itens ficam vinculados por
+  `GET /v1/orgaos/{cnpj}/compras/{ano}/{sequencial}/itens/{numeroItem}/resultados`, segundo o
+  manual. Esse dado permite saber fornecedor/arrematante, quantidade homologada, valor unitário
+  homologado e valor total homologado quando publicado.
+- A API de consulta de contratos já verificada traz `numeroControlePncpCompra`. Esse campo deve
+  ser usado como vínculo de alta confiança contrato → contratação → itens, antes de qualquer
+  heurística por número de processo ou objeto.
+- Semântica exata de `dataInicial`/`dataFinal` na API de consulta de contratos:
+  **confirmar no Swagger da API de Consulta antes do importer incremental**.
 - CNPJ da Câmara Municipal no PNCP: NÃO VERIFICADO.
 - Limites de requisição: NÃO VERIFICADO.
 - Numeração entre PNCP (`processo: "ATA-0053/2025"`) e SIGER (`ATA-0119/2026`) parece seguir o mesmo padrão — **HIPÓTESE** a validar para o cruzamento entre fontes.
