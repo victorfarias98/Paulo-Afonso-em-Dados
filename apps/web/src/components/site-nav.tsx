@@ -12,6 +12,7 @@ const LINKS = [
   { href: "/fornecedores", label: "Quem recebe" },
   { href: "/entenda", label: "Entenda" },
   { href: "/fontes", label: "Fontes" },
+  { href: "/novidades", label: "Novidades" },
 ] as const;
 
 const isCurrent = (pathname: string, href: string): boolean =>

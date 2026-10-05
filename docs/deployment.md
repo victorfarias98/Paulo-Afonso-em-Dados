@@ -35,16 +35,20 @@ Use `.env.production.example` como referência para preencher a tela Environment
 | `ADMIN_PASSWORD`            | opcional    | não usar    | mínimo 12 caracteres para habilitar admin                |
 | `COLLECTOR_USER_AGENT`      | não usar    | obrigatória | identificação com contato real da Baius                  |
 | `COLLECTOR_MIN_INTERVAL_MS` | não usar    | `2500`      | intervalo entre consultas à mesma fonte                  |
-| `WORKER_DAILY_AT`           | não usar    | `05:00`     | hora local de Paulo Afonso                               |
+| `WORKER_DAILY_AT`           | não usar    | `05:00`     | hora local de Paulo Afonso, de segunda a sexta           |
 
 `NODE_ENV=production`, `NEXT_TELEMETRY_DISABLED=1` (portal) e `TZ=America/Bahia` já estão nas imagens. Não configure `TEST_DATABASE_URL`, `BAIUS_PAD_PORT`, `POSTGRES_PORT` ou senhas de desenvolvimento nas aplicações de produção.
 
 Copie a URL interna que o Coolify fornece. Usuário/senha com caracteres especiais precisam estar percent-encoded na URL; não monte a conexão concatenando a senha sem escape. O Postgres não precisa de porta pública. Configure backup agendado do banco no próprio recurso.
 
+### Usuário administrador
+
+O acesso administrativo usa um usuário único definido por `ADMIN_USER` e uma senha forte em `ADMIN_PASSWORD`, protegidos pelo Basic Auth do proxy. Ao executar uma ação, esse usuário é registrado em `admin_users` e passa a aparecer no histórico de correções e coletas. Troque a senha no Coolify para revogar sessões anteriores; não coloque credenciais no repositório.
+
 ## Primeira subida
 
 1. Crie o banco e configure as credenciais no Coolify. Confirme que as duas aplicações alcançam sua rede interna.
-2. Suba o **worker primeiro**. O entrypoint exige `DATABASE_URL`, aplica migrations pendentes e cadastra as fontes oficiais. Os logs devem mostrar `Migrations aplicadas` e `fontes registradas`, depois o horário da próxima coleta. Não há dados fictícios no seed.
+2. Suba o **worker primeiro**. O entrypoint exige `DATABASE_URL`, aplica migrations pendentes e cadastra as fontes oficiais. Os logs devem mostrar `Migrations aplicadas` e `fontes registradas`, depois o horário da próxima coleta. O agendamento pula sábado e domingo. Não há dados fictícios no seed.
 3. Suba o **portal** com alvo `production`, porta `8080` e domínio HTTPS. O healthcheck da imagem consulta `/api/health` e exige conexão ao banco e existência das tabelas principais. Banco vazio sem migrations retorna HTTP 503, não um falso sucesso.
 4. Verifique `/api/health` (200), `/`, `/fontes` e uma ilustração em `/illustrations/civic-city.webp`. Confirme as fontes e a data da última coleta antes de divulgar o portal.
 

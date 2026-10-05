@@ -36,6 +36,7 @@ import {
   splitOfHundred,
 } from "@/lib/insights";
 import { getHomeNumbers } from "@/lib/overview";
+import { listNews } from "@/lib/news";
 import { plainModality, plainName } from "@/lib/plain";
 
 /** Os números vêm do banco a cada visita; a página não é gerada no build. */
@@ -275,7 +276,10 @@ function TopList({
 
 export default async function HomePage() {
   const legislative = buildLegislativeSummary(parseLegislativeSnapshot(legislativeData));
-  const numbers = await getHomeNumbers();
+  const [numbers, recentNews] = await Promise.all([
+    getHomeNumbers(),
+    listNews({ days: 7, limit: 5 }),
+  ]);
   const year = numbers.latestExpenseYear;
   // Prefeitura e Câmara têm orçamentos separados: os totais nunca são somados.
   const today = todayInBahia();
@@ -629,6 +633,37 @@ export default async function HomePage() {
           </div>
         </details>
       )}
+
+      <Block
+        id="novidades"
+        title="O que mudou por aqui"
+        lead="Atualizações recentes nos dados públicos, sempre ligadas à fonte oficial."
+      >
+        {recentNews.length === 0 ? (
+          <p className="rounded-xl bg-superficie p-5 text-suave">
+            Nenhuma novidade registrada nos últimos sete dias.
+          </p>
+        ) : (
+          <ol className="divide-y divide-linha rounded-xl bg-superficie px-5">
+            {recentNews.map((item) => (
+              <li key={item.id} className="py-4">
+                <Link href={item.href} className="group block">
+                  <p className="text-sm text-suave">
+                    {item.date} · {item.sourceName}
+                  </p>
+                  <h3 className="mt-1 text-lg font-medium group-hover:underline">{item.title}</h3>
+                  <p className="mt-1 text-sm text-suave">
+                    {item.created + item.updated} registros novos ou alterados.
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        )}
+        <Link href="/novidades" className="link mt-4 inline-flex min-h-11 items-center">
+          Ver todas as novidades e histórias →
+        </Link>
+      </Block>
 
       <Block
         id="participar"

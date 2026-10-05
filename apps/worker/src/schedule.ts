@@ -15,7 +15,9 @@ export function msUntilNextRun(now: Date, dailyAt: string): number {
 
   let next = startOfDayUtc + runMinutesUtc * MS_PER_MINUTE;
   while (next <= now.getTime()) next += MS_PER_DAY;
-  while (next - now.getTime() > MS_PER_DAY) next -= MS_PER_DAY;
+  // O coletor público roda apenas em dias úteis. Dados publicados no fim de
+  // semana entram na segunda-feira seguinte, preservando o ritmo das fontes.
+  while ([0, 6].includes(new Date(next).getUTCDay())) next += MS_PER_DAY;
   return next - now.getTime();
 }
 

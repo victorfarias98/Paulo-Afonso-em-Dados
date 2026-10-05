@@ -21,6 +21,15 @@ describe("msUntilNextRun", () => {
   test("rejects a malformed time", () => {
     expect(() => msUntilNextRun(new Date(), "25:99")).toThrow(/horário inválido/i);
   });
+
+  test("skips the weekend after Friday", () => {
+    // 09/10/2026, sexta-feira, 06:00 UTC; a coleta às 05:00 Bahia já passou.
+    expect(msUntilNextRun(new Date("2026-10-09T09:00:00Z"), "05:00")).toBe(71 * HOUR);
+  });
+
+  test("does not schedule a collection on Sunday", () => {
+    expect(msUntilNextRun(new Date("2026-10-11T10:00:00Z"), "05:00")).toBe(22 * HOUR);
+  });
 });
 
 describe("expenseMonthsFor", () => {
