@@ -366,6 +366,8 @@
     position: fixed;
     inset: 0;
     z-index: 60;
+    max-width: 100dvw;
+    overflow: hidden;
     background: color-mix(in srgb, var(--color-tinta) 42%, transparent);
     opacity: 0;
     pointer-events: none;
@@ -382,10 +384,12 @@
   .mobile-navigation-panel {
     height: 100dvh;
     width: min(100%, 28rem);
+    max-width: 100dvw;
     margin-left: auto;
     overflow-y: auto;
     background: var(--color-fundo);
     padding: max(1.25rem, env(safe-area-inset-top)) 1.25rem max(1.5rem, env(safe-area-inset-bottom));
+    box-sizing: border-box;
     transform: translateX(1.5rem);
     transition: transform 0.25s var(--ease-saida);
   }
@@ -1001,6 +1005,9 @@
 
 /* Instagram-like entry points with an auditable, full-screen civic story viewer. */
 .story-reel {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   margin-top: clamp(3rem, 7vw, 5.5rem);
   padding-block: clamp(1.5rem, 4vw, 2.5rem);
   border-block: 1px solid var(--color-linha);
@@ -1153,9 +1160,16 @@
   grid-template-rows: auto minmax(0, 1fr) auto;
   gap: 0.75rem;
   background: #09131b;
+  width: 100%;
+  max-width: 100dvw;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
   padding: max(0.75rem, env(safe-area-inset-top)) 0.75rem max(0.75rem, env(safe-area-inset-bottom));
+  box-sizing: border-box;
   color: #fff;
   overscroll-behavior: none;
+  touch-action: none;
 }
 
 .story-progress {
@@ -1437,7 +1451,12 @@
   }
 
   .story-viewer {
-    display: block;
+    display: grid;
+    width: 100dvw;
+    max-width: 100dvw;
+    height: 100dvh;
+    min-height: 100dvh;
+    grid-template: 1fr / minmax(0, 1fr);
     padding: 0;
   }
 
@@ -1451,10 +1470,15 @@
   }
 
   .story-stage {
+    grid-area: 1 / 1;
     width: 100%;
+    min-width: 0;
     max-width: none;
     height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
     aspect-ratio: auto;
+    margin: 0;
     border-radius: 0;
     box-shadow: none;
   }
@@ -1500,6 +1524,7 @@
     bottom: max(0.5rem, env(safe-area-inset-bottom));
     left: 0.75rem;
     width: auto;
+    max-width: calc(100dvw - 1.5rem);
   }
 
   .story-position small {

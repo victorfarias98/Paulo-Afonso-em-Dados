@@ -86,7 +86,9 @@ export function StoryReel({
   useEffect(() => {
     if (active === null) return;
     const previousOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
     if (!wasOpen.current) {
       closeButton.current?.focus();
       wasOpen.current = true;
@@ -112,6 +114,7 @@ export function StoryReel({
     window.addEventListener("keydown", keydown);
     return () => {
       document.body.style.overflow = previousOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
       window.removeEventListener("keydown", keydown);
     };
   }, [active, closeStories, goTo, stories.length]);
