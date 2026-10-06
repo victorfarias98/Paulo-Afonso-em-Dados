@@ -16,8 +16,8 @@
   --color-azul-forte: #195787;
   --color-alerta: #a2372a;
 
-  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
 
   --ease-saida: cubic-bezier(0.16, 1, 0.3, 1);
 }

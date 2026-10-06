@@ -27,6 +27,10 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Imagem enxuta para Docker/Coolify: copia só o servidor e as dependências rastreadas.
   output: "standalone",
+  experimental: {
+    useTypeScriptCli: false,
+    webpackBuildWorker: false,
+  },
   // Pacotes internos são consumidos como TypeScript-fonte.
   transpilePackages: ["@pad/database", "@pad/domain"],
   serverExternalPackages: ["postgres"],

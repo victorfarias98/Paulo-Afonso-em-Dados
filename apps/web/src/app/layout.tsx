@@ -2,7 +2,7 @@ import "./globals.css";
 
 import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense, type ReactNode } from "react";
@@ -12,7 +12,14 @@ import { SiteExperience } from "@/components/site-experience";
 import { PortalAnalytics } from "@/components/portal-analytics";
 import { readAnalyticsConfig } from "@/lib/analytics-config";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
+const lato = localFont({
+  src: [
+    { path: "./fonts/Lato-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/Lato-Heavy.ttf", weight: "800", style: "normal" },
+  ],
+  variable: "--font-lato",
+  display: "swap",
+});
 
 /**
  * Todas as páginas leem o banco, que muda a cada coleta: nada é gerado no
@@ -68,7 +75,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" className={geist.variable}>
+    <html lang="pt-BR" className={lato.variable}>
       <body className="flex min-h-dvh flex-col">
         <SiteExperience />
         <Suspense fallback={null}>
