@@ -28,9 +28,10 @@ RUN pnpm --filter @pad/web build
 
 FROM source AS production-worker
 ENV NODE_ENV=production TZ=America/Bahia
-RUN addgroup -S app && adduser -S app -G app && chown -R app:app /app \
-    && chmod +x /app/docker/worker-entrypoint.sh
-USER app
+# A imagem Node já inclui um usuário sem privilégios. Evitar chown recursivo aqui
+# reduz vários minutos de I/O sobre todo o monorepo e node_modules no Coolify.
+RUN chmod +x /app/docker/worker-entrypoint.sh
+USER node
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
   CMD kill -0 1 || exit 1
 ENTRYPOINT ["/app/docker/worker-entrypoint.sh"]
