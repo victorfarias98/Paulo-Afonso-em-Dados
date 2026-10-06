@@ -30,7 +30,13 @@ export interface StorySlide {
 
 const displayText = (value: string): string => value.replace(/\s*[–—]\s*/g, ", ");
 
-export function StoryReel({ stories }: { stories: StorySlide[] }) {
+export function StoryReel({
+  stories,
+  featured = false,
+}: {
+  stories: StorySlide[];
+  featured?: boolean;
+}) {
   const [active, setActive] = useState<number | null>(null);
   const stage = useRef<HTMLDivElement>(null);
   const viewer = useRef<HTMLDivElement>(null);
@@ -155,7 +161,10 @@ export function StoryReel({ stories }: { stories: StorySlide[] }) {
   if (stories.length === 0) return null;
 
   return (
-    <section className="story-reel" aria-labelledby="stories-title">
+    <section
+      className={`story-reel${featured ? " story-reel-featured" : ""}`}
+      aria-labelledby="stories-title"
+    >
       <div className="story-reel-heading">
         <div>
           <p className="story-kicker">P.A Stories</p>
@@ -183,7 +192,6 @@ export function StoryReel({ stories }: { stories: StorySlide[] }) {
                   <DatabaseIcon size={28} aria-hidden="true" />
                 )}
               </span>
-              <strong>{displayText(item.title)}</strong>
             </button>
           </li>
         ))}
@@ -283,20 +291,24 @@ export function StoryReel({ stories }: { stories: StorySlide[] }) {
               )}
             </div>
             <div className="story-stage-copy" data-lenis-prevent>
-              <p className="story-eyebrow">{displayText(story.eyebrow)}</p>
-              <h3>{displayText(story.title)}</h3>
-              <p className="story-summary">{displayText(story.summary)}</p>
+              <div className="story-copy-intro">
+                <p className="story-eyebrow">{displayText(story.eyebrow)}</p>
+                <h3>{displayText(story.title)}</h3>
+                <p className="story-summary">{displayText(story.summary)}</p>
+              </div>
               <div className="story-metric">
                 <strong>{story.metric}</strong>
                 <span>{displayText(story.metricLabel)}</span>
               </div>
-              <div className="story-audit">
-                <span>De onde veio</span>
-                <Link href={story.sourceHref}>{displayText(story.sourceLabel)}</Link>
+              <div className="story-footer">
+                <div className="story-audit">
+                  <span>Fonte do dado</span>
+                  <Link href={story.sourceHref}>{displayText(story.sourceLabel)}</Link>
+                </div>
+                <Link href={story.href} className="story-open-link">
+                  Ver registros <ArrowRightIcon size={20} aria-hidden="true" />
+                </Link>
               </div>
-              <Link href={story.href} className="story-open-link">
-                Ver registros <ArrowRightIcon size={20} aria-hidden="true" />
-              </Link>
             </div>
           </div>
           <div className="story-controls">

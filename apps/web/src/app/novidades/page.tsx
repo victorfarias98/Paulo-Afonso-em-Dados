@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
 import { StoryReel, type StorySlide } from "@/components/story-reel";
@@ -35,7 +36,7 @@ function StoryCard({
       <h3 className="mt-2 text-xl font-medium group-hover:underline">{title}</h3>
       <p className="mt-2 text-sm text-suave">{text}</p>
       <span className="mt-5 inline-flex min-h-10 items-center font-medium text-azul">
-        Ver registros →
+        Ver registros <ArrowRightIcon className="ml-1" size={18} aria-hidden="true" />
       </span>
     </Link>
   );
@@ -64,7 +65,7 @@ export default async function NewsPage() {
       id: `politician-${person.id}`,
       eyebrow: "Atuação política",
       title: person.name,
-      summary: `A Câmara registra ${person.requestsCount} requerimentos e ${person.totalCount} matérias no nome deste parlamentar.`,
+      summary: `Nos registros da Câmara, aparecem ${person.requestsCount} requerimentos e ${person.totalCount} matérias.`,
       metric: String(person.projectsCount),
       metricLabel: "projetos apresentados",
       image: `/people/vereador-${person.id}.png`,
@@ -91,15 +92,17 @@ export default async function NewsPage() {
 
   return (
     <>
-      <h1 className="font-display text-4xl font-medium tracking-tight sm:text-5xl">
-        Novidades da cidade
-      </h1>
-      <p className="mt-4 max-w-2xl text-lg text-suave">
-        O que mudou nos dados públicos, quem está apresentando projetos e quais órgãos estão
-        movimentando recursos. Cada história aponta para a fonte e para os registros que a explicam.
-      </p>
+      <StoryReel stories={stories} featured />
 
-      <StoryReel stories={stories} />
+      <header className="mt-12 max-w-2xl sm:mt-16">
+        <h1 className="font-display text-4xl font-medium tracking-tight sm:text-5xl">
+          Novidades da cidade
+        </h1>
+        <p className="mt-4 text-lg text-suave">
+          Acompanhe mudanças nos dados públicos, a atuação registrada na Câmara e os órgãos que
+          movimentam recursos.
+        </p>
+      </header>
 
       <section aria-labelledby="feed" className="mt-12">
         <div className="flex items-end justify-between gap-4 border-b-2 border-tinta pb-3">
