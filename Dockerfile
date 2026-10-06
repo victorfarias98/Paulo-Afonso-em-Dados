@@ -31,6 +31,8 @@ ENV NODE_ENV=production TZ=America/Bahia
 RUN addgroup -S app && adduser -S app -G app && chown -R app:app /app \
     && chmod +x /app/docker/worker-entrypoint.sh
 USER app
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
+  CMD kill -0 1 || exit 1
 ENTRYPOINT ["/app/docker/worker-entrypoint.sh"]
 CMD ["pnpm", "worker", "agendar"]
 
