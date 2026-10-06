@@ -16,14 +16,14 @@ import edge_tts
 OUTPUT = Path(__file__).resolve().parents[1] / "public"
 VOICE = "pt-BR-FranciscaNeural"
 SCENES = (
-    (6, "O dinheiro público faz parte da sua vida. Mas acompanhar tudo nem sempre é fácil."),
-    (7, "O Paulo Afonso em Dados aproxima você das decisões da cidade."),
-    (9, "Veja gastos, contratos e obras. Entenda quem recebe os pagamentos e o que está sendo comprado."),
-    (7, "Confira a origem dos registros, a fonte oficial e a data da consulta."),
-    (10, "Na Câmara, busque um vereador. Consulte projetos e pedidos registrados, com links para as propostas."),
-    (7, "Proposta não significa execução. E a ausência de projetos não resume todo o trabalho de um vereador."),
-    (7, "Com informação clara, fica mais fácil entender, perguntar e acompanhar a nossa cidade."),
-    (7, "Acompanhe o Paulo Afonso em Dados. Compartilhe com quem vive aqui."),
+    (5.5, "Sua cidade gera dados todos os dias. Entender o que eles dizem ainda dá trabalho."),
+    (6.5, "O Paulo Afonso em Dados organiza tudo em um portal simples, gratuito e feito para a população."),
+    (7.5, "Nos dias úteis, o coletor consulta fontes oficiais, registra o que mudou e atualiza o portal automaticamente."),
+    (10, "Nos gastos, você acompanha dinheiro reservado, entrega conferida e pagamento. Também vê fornecedor, órgão, objeto e contrato relacionado."),
+    (7, "No P.A Stories, as novidades aparecem em sequência, com contexto e acesso direto aos registros."),
+    (8.5, "Na Câmara, consulte projetos, requerimentos e matérias por vereador. Cada número leva ao documento publicado no SAPL."),
+    (8, "Sinais de variação e concentração seguem regras transparentes, sem julgamento automático e com a fonte visível."),
+    (7, "Acesse Paulo Afonso em Dados ponto Baius Tecnologia ponto com ponto br. Pesquise e acompanhe a cidade."),
 )
 
 

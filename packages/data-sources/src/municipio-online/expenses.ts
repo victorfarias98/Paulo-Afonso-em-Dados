@@ -40,6 +40,21 @@ export function parseExpenseTable(html: string, phase: ExpensePhase): ExpenseRow
     .toArray()
     .map((cell) => collapse($(cell).text()));
 
+  if (table.length === 0) {
+    const panel = $(`#body_pn${tab}`);
+    const hasPhaseControls =
+      $(`#body_hfAno${tab}`).length === 1 &&
+      $(`#body_hfMes${tab}`).length === 1 &&
+      $(`#body_btnFiltrar${tab}S`).length === 1;
+    const isEmptyResult =
+      panel.length === 1 &&
+      panel.children().length === 0 &&
+      collapse(panel.text()) === "" &&
+      hasPhaseControls;
+
+    if (isEmptyResult) return [];
+  }
+
   if (table.length === 0 || !headers.includes(KEY_COLUMN)) {
     throw new Error(`Tabela de ${label} não encontrada na página do Município Online.`);
   }
@@ -105,7 +120,15 @@ export function createMunicipioOnlineClient(
       const html = await fetchText(pageUrl, { body });
       const nextState = hiddenFields(html);
       if (nextState.__VIEWSTATE) formState = nextState;
-      return parseExpenseTable(html, phase);
+      const rows = parseExpenseTable(html, phase);
+      if (rows.length > 0) return rows;
+      const $ = load(html);
+      const selectedYear = $(`#body_hfAno${tab}`).attr("value");
+      const selectedMonth = $(`#body_hfMes${tab}`).attr("value");
+      if (selectedYear !== String(year) || selectedMonth !== String(month).padStart(2, "0")) {
+        throw new Error(`A fonte não confirmou o período solicitado para ${TABS[phase].label}.`);
+      }
+      return rows;
     },
   };
 }

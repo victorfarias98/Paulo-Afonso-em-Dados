@@ -50,7 +50,7 @@ COPY --from=builder --chown=app:app /app/apps/web/.next/static ./apps/web/.next/
 COPY --from=builder --chown=app:app /app/apps/web/public ./apps/web/public
 USER app
 EXPOSE 8080
-HEALTHCHECK --interval=10s --timeout=5s --start-period=120s --retries=6 \
+HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=6 \
   CMD wget -q -O /dev/null "http://127.0.0.1:${PORT}/api/health" || exit 1
 CMD ["node", "apps/web/server.js"]
 

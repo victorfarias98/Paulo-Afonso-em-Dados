@@ -32,6 +32,21 @@ describe("parseExpenseTable", () => {
     expect(payment).toMatchObject({ Chave: "1297_2026", Pago: "R$ 585,03" });
   });
 
+  test("returns no payments when the source renders the phase panel empty", () => {
+    const rows = parseExpenseTable(fixture("pagamentos-sem-movimento-2026-10.html"), "payment");
+
+    expect(rows).toEqual([]);
+  });
+
+  test("does not treat unexpected panel content as an empty result", () => {
+    const changedLayout = fixture("pagamentos-sem-movimento-2026-10.html").replace(
+      '<div id="body_pnPagamentos">\n      </div>',
+      '<div id="body_pnPagamentos"><div class="new-results-layout">resultado</div></div>',
+    );
+
+    expect(() => parseExpenseTable(changedLayout, "payment")).toThrow(/tabela de pagamentos/i);
+  });
+
   test("throws when the expected table is not in the page", () => {
     expect(() => parseExpenseTable(fixture("empenhos-2026-09.html"), "payment")).toThrow(
       /tabela de pagamentos/i,
@@ -63,6 +78,33 @@ describe("createMunicipioOnlineClient", () => {
     expect(body.get("ctl00$body$hfAnoEmpenhos")).toBe("2026");
     expect(body.get("ctl00$body$hfMesEmpenhos")).toBe("09");
     expect(body.get("ctl00$body$btnFiltrarEmpenhosS")).toBe("Button");
+  });
+
+  test("returns an empty payment month through the complete client flow", async () => {
+    const initialPage = fixture("pagamentos-sem-movimento-2026-10.html").replace(
+      'value="10"',
+      'value="09"',
+    );
+    const fetchText = vi
+      .fn()
+      .mockResolvedValueOnce(initialPage)
+      .mockResolvedValueOnce(fixture("pagamentos-sem-movimento-2026-10.html"));
+    const client = createMunicipioOnlineClient({ pageUrl: PAGE_URL, fetchText });
+
+    await expect(client.fetchMonth("payment", 2026, 10)).resolves.toEqual([]);
+  });
+
+  test("rejects an empty response that does not confirm the requested period", async () => {
+    const html = fixture("pagamentos-sem-movimento-2026-10.html").replace(
+      'value="10"',
+      'value="09"',
+    );
+    const fetchText = vi.fn(async () => html);
+    const client = createMunicipioOnlineClient({ pageUrl: PAGE_URL, fetchText });
+
+    await expect(client.fetchMonth("payment", 2026, 10)).rejects.toThrow(
+      /não confirmou o período/i,
+    );
   });
 
   test("rejects an invalid month before calling the source", async () => {

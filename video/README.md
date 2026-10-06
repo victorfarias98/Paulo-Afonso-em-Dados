@@ -2,7 +2,7 @@
 
 Apresentação de 60 segundos em português, com narração sintética natural e trilha instrumental original. Duas composições independentes: `Vertical` (1080 × 1920) e `Horizontal` (1920 × 1080), 30 fps. MP4 H.264, áudio AAC stereo e pixels 4:2:0. Os títulos e explicações permanecem na tela para leitura sem som.
 
-O roteiro e a legenda sugerida para Instagram estão em [docs/video-script.md](../docs/video-script.md). A peça apresenta o projeto em preparação; não anuncia um endereço publicado. Cartões são ilustrações das consultas, sem métricas fictícias nem avaliação de vereadores.
+O roteiro e a legenda sugerida para Instagram estão em [docs/video-script.md](../docs/video-script.md). A peça apresenta a plataforma no ar, explica a atualização automática e divulga o endereço publicado. Cartões são ilustrações das consultas, sem métricas fictícias nem avaliação de vereadores.
 
 ## Reproduzir
 

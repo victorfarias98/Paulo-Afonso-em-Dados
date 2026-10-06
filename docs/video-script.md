@@ -1,81 +1,38 @@
-# Vídeo de apresentação: Paulo Afonso em Dados
+# Vídeo do Paulo Afonso em Dados
 
-Peça de 60 segundos em português, com versões próprias em 1080 × 1920 (vertical) e
-1920 × 1080 (horizontal), a 30 fps. O vídeo apresenta o projeto em preparação para
-lançamento. Não anuncia endereço nem data de publicação.
-
-## Ideia
-
-O dinheiro público e as decisões da cidade fazem parte da vida de quem mora aqui.
-O projeto aproxima a população dessas informações, com linguagem simples, fonte
-oficial e contexto. A mensagem é um convite para entender, perguntar e acompanhar.
+Peça de 60 segundos em português, com versões 1080 × 1920 e 1920 × 1080, narração e trilha instrumental original. O vídeo apresenta a plataforma em funcionamento e evita métricas fictícias.
 
 ## Roteiro
 
-| Tempo   | Texto principal e subtítulo na tela                                                                                         | Narração da edição final                                                                               |
-| ------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| 0–6 s   | **Para onde vai o dinheiro da cidade?** / A informação pública também precisa chegar até você.                              | “O dinheiro público faz parte da sua vida. Mas acompanhar tudo nem sempre é fácil.”                    |
-| 6–13 s  | **Paulo Afonso em Dados** / Informação pública, perto de você.                                                              | “O Paulo Afonso em Dados aproxima você das decisões da cidade.”                                        |
-| 13–22 s | **Gastos. Contratos. Obras.** / Quem recebe? O que foi contratado? Como está a obra?                                        | “Veja gastos, contratos e obras. Entenda quem recebe os pagamentos e o que está sendo comprado.”       |
-| 22–29 s | **Cada informação tem uma fonte.** / Confira a origem e a data da consulta.                                                 | “Confira a origem dos registros, a fonte oficial e a data da consulta.”                                |
-| 29–39 s | **E os vereadores?** / Busque o nome. Veja projetos e pedidos registrados.                                                  | “Na Câmara, busque um vereador. Consulte projetos e pedidos registrados, com links para as propostas.” |
-| 39–46 s | **Proposta não é obra executada.** / Quantidade não mede qualidade. Fiscalização e comissões também fazem parte do mandato. | “Proposta não significa execução. E a ausência de projetos não resume todo o trabalho de um vereador.” |
-| 46–53 s | **Entenda. Pergunte. Acompanhe.** / Sua cidade também é assunto seu.                                                        | “Com informação clara, fica mais fácil entender, perguntar e acompanhar a nossa cidade.”               |
-| 53–60 s | **Uma cidade mais clara para todo mundo.** / Acompanhe o projeto. Compartilhe com quem vive aqui.                           | “Acompanhe o Paulo Afonso em Dados. Compartilhe com quem vive aqui.”                                   |
+| Tempo | Tema | Narração |
+| --- | --- | --- |
+| 0 a 5,5 s | O desafio | Sua cidade gera dados todos os dias. Entender o que eles dizem ainda dá trabalho. |
+| 5,5 a 12 s | A plataforma | O Paulo Afonso em Dados organiza tudo em um portal simples, gratuito e feito para a população. |
+| 12 a 19,5 s | Como funciona | Nos dias úteis, o coletor consulta fontes oficiais, registra o que mudou e atualiza o portal automaticamente. |
+| 19,5 a 29,5 s | Gastos | Nos gastos, você acompanha dinheiro reservado, entrega conferida e pagamento. Também vê fornecedor, órgão, objeto e contrato relacionado. |
+| 29,5 a 36,5 s | P.A Stories | No P.A Stories, as novidades aparecem em sequência, com contexto e acesso direto aos registros. |
+| 36,5 a 45 s | Câmara | Na Câmara, consulte projetos, requerimentos e matérias por vereador. Cada número leva ao documento publicado no SAPL. |
+| 45 a 53 s | Sinais | Sinais de variação e concentração seguem regras transparentes, sem julgamento automático e com a fonte visível. |
+| 53 a 60 s | Convite | Acesse Paulo Afonso em Dados ponto Baius Tecnologia ponto com ponto br. Pesquise e acompanhe a cidade. |
 
-A edição final inclui narração em português do Brasil com a voz sintética Francisca
-(`pt-BR-FranciscaNeural`), trilha instrumental original e textos na tela. A narração
-tem 111 palavras. Cada trecho começa aproximadamente 0,33 segundo após o início da cena, conforme
-[os tempos do áudio](../video/public/narration-timing.json). Os títulos e subtítulos
-correspondem à [definição das cenas](../video/src/story.mjs).
+## Legenda para Instagram
 
-## Adaptação dos formatos
+Dados públicos não precisam continuar presos em planilhas difíceis de entender.
 
-- **Vertical:** uma mensagem por bloco, ilustração abaixo ou acima do título; proteger
-  texto essencial das áreas ocupadas pelos controles do Instagram. Evitar texto pequeno
-  no rodapé. As notas de contexto devem ser parte da composição principal.
-- **Horizontal:** distribuir título e ilustração em duas colunas; preservar a mesma
-  ordem narrativa. A composição deve ser reorganizada, sem cortar o vídeo vertical.
-- **Ambas:** azul e creme da identidade do portal, contraste alto, transições suaves,
-  texto em português e música instrumental original discreta. Não simular rolagem rápida
-  de uma interface que torne o conteúdo ilegível.
+O Paulo Afonso em Dados reúne gastos, obras, licitações, contratos e atividade da Câmara em uma consulta simples. O portal também mostra o objeto das compras, fornecedores, documentos oficiais e sinais calculados por regras transparentes.
 
-## Legenda sugerida para Instagram
+No P.A Stories, você passa pelas novidades da cidade e abre a fonte de cada informação.
 
-Você sabe onde encontrar informações sobre os gastos, contratos, obras e propostas
-da sua cidade?
-
-Estamos preparando o **Paulo Afonso em Dados**: um portal independente e apartidário
-para organizar dados públicos, explicar os termos e facilitar a consulta às fontes
-oficiais.
-
-Também será possível consultar projetos e pedidos registrados por vereadores.
-Esses números precisam de contexto: apresentar uma proposta não significa executá-la,
-e a ausência de projetos não mede todas as atividades do mandato.
-
-Acompanhe o projeto e compartilhe com alguém de Paulo Afonso. Informação clara ajuda
-a população a perguntar, acompanhar e cobrar.
+Acesse **pauloafonsoemdados.baiustecnologia.com.br**.
 
 #PauloAfonso #TransparênciaPública #DadosAbertos #Cidadania #Baius
 
-## Checagem editorial antes de publicar
+## Critérios editoriais
 
-- Não incluir valor de gasto, quantidade de obras ou ranking sem fonte e período
-  visíveis. Este roteiro prefere explicar as consultas disponíveis.
-- Usar apenas filtros que existem: nome, com projetos apresentados, sem projetos
-  encontrados e sem propostas encontradas. Não prometer filtro de aprovação.
-- Não tratar proposta como aprovação, execução, benefício comprovado ou medida de
-  qualidade do voto.
-- Não atribuir ausência de registros a falta de trabalho ou inventar justificativas.
-- Manter a informação de preparação para lançamento na legenda enquanto o deploy
-  não for confirmado.
-- Conferir legibilidade em tela de celular, ausência de cortes nos dois formatos,
-  duração, trilha e último quadro antes da entrega.
+- Não apresentar valores, rankings ou conclusões sem fonte e período.
+- Não confundir proposta, aprovação e execução.
+- Não usar quantidade de matérias como medida isolada de qualidade do mandato.
+- Explicar que os sinais apontam registros para conferência e não determinam irregularidade.
+- Manter a fonte oficial acessível em todas as consultas citadas.
 
-## Base factual
-
-O conteúdo corresponde ao [README](../README.md), à
-[home](../apps/web/src/app/page.tsx) e à
-[seção de autores legislativos](../apps/web/src/components/legislative-authors.tsx).
-As propostas parlamentares vêm do SAPL da Câmara Municipal. A consulta é um retrato
-datado, atualizado quando uma nova coleta é publicada; não é uma atualização em tempo real.
+Os tempos completos da voz estão em [narration-timing.json](../video/public/narration-timing.json). As cenas estão em [story.mjs](../video/src/story.mjs).

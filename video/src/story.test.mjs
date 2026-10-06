@@ -15,11 +15,14 @@ test("story fills exactly one minute without gaps or overlaps", () => {
   assert.equal(scenes.at(-1).from + scenes.at(-1).duration, durationInFrames);
 });
 
-test("presentation does not promise a published URL or use invented financial metrics", () => {
+test("presentation describes the live product without invented financial metrics", () => {
   const copy = JSON.stringify(scenes);
-  assert.doesNotMatch(copy, /https?:|R\$|ranking|não faz nada/i);
-  assert.match(copy, /Quantidade não mede qualidade/);
-  assert.match(copy, /fonte/i);
+  assert.doesNotMatch(copy, /R\$|ranking|não faz nada/i);
+  assert.match(copy, /pauloafonsoemdados\.baiustecnologia\.com\.br/);
+  assert.match(copy, /dias úteis/i);
+  assert.match(copy, /P\.A Stories/i);
+  assert.match(copy, /SAPL/i);
+  assert.match(copy, /regras claras/i);
 });
 
 test("all narration files exist and finish inside their scene", () => {

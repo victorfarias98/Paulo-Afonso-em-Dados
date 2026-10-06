@@ -154,9 +154,9 @@ function Spending() {
   return (
     <div style={{ display: "grid", gap: 24 }}>
       {[
-        ["money", "Gastos públicos", "Conheça os pagamentos e os fornecedores."],
-        ["file", "Contratos", "Entenda o que está sendo comprado."],
-        ["work", "Obras", "Acompanhe o andamento informado."],
+        ["file", "Fontes oficiais", "Prefeitura, Câmara e PNCP."],
+        ["work", "Coleta automática", "Atualizações nos dias úteis."],
+        ["search", "Consulta organizada", "Busca simples e histórico."],
       ].map(([kind, title, detail], i) => (
         <div
           {...animated}
@@ -186,9 +186,9 @@ function Sources() {
           <Icon kind="file" size={85} />
           <div style={{ fontSize: 23, color: C.blue, fontWeight: 800 }}>DADOS PÚBLICOS</div>
         </div>
-        <div style={{ fontSize: 43, fontWeight: 800, marginTop: 34 }}>Você pode conferir.</div>
+        <div style={{ fontSize: 43, fontWeight: 800, marginTop: 34 }}>Entenda cada gasto.</div>
         <div style={{ height: 2, background: "#d0cabe", margin: "28px 0" }} />
-        {["Origem do registro", "Data da consulta", "Link para a fonte oficial"].map((text) => (
+        {["O que foi comprado", "Fornecedor e órgão", "Contrato e fonte oficial"].map((text) => (
           <div
             key={text}
             style={{ display: "flex", gap: 16, alignItems: "center", fontSize: 30, marginTop: 23 }}
@@ -213,13 +213,13 @@ function Sources() {
           justifyContent: "space-between",
         }}
       >
-        Fonte oficial <Icon kind="arrow" color={C.cream} size={42} />
+        Do reservado ao pagamento <Icon kind="arrow" color={C.cream} size={42} />
       </div>
     </div>
   );
 }
 
-function Council() {
+function Stories() {
   return (
     <div {...animated} style={{ ...card, padding: 34 }}>
       <div
@@ -235,7 +235,7 @@ function Council() {
           color: C.muted,
         }}
       >
-        <Icon kind="search" size={38} /> Nome do vereador{" "}
+        <Icon kind="search" size={38} /> Passe pelas novidades{" "}
         <span style={{ width: 2, height: 32, background: C.blue }} />
       </div>
       <div
@@ -252,10 +252,10 @@ function Council() {
           alignItems: "center",
         }}
       >
-        <Icon kind="check" color="white" size={32} /> Com projetos apresentados
+        <Icon kind="check" color="white" size={32} /> P.A Stories
       </div>
       <div style={{ height: 2, background: "#d0cabe", margin: "29px 0" }} />
-      {["Projetos apresentados", "Pedidos registrados", "Links para as propostas"].map((t, i) => (
+      {["Obras", "Atuação política", "Gastos públicos"].map((t, i) => (
         <div
           {...animated}
           key={t}
@@ -273,8 +273,26 @@ function Council() {
         </div>
       ))}
       <div style={{ fontSize: 23, color: C.muted, marginTop: 35, lineHeight: 1.4 }}>
-        Consulta datada · Fonte: SAPL da Câmara
+        Abra cada novidade e confira a fonte
       </div>
+    </div>
+  );
+}
+
+function Council() {
+  return (
+    <div {...animated} style={{ ...card, padding: 34 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 18, background: C.cream, border: "2px solid #d0cabe", borderRadius: 18, padding: "22px 24px", fontSize: 32, color: C.muted }}>
+        <Icon kind="search" size={38} /> Busque um vereador
+      </div>
+      <div style={{ height: 2, background: "#d0cabe", margin: "29px 0" }} />
+      {["Projetos apresentados", "Requerimentos", "Matérias e documentos"].map((text, index) => (
+        <div {...animated} key={text} style={{ display: "flex", alignItems: "center", gap: 21, marginTop: 23, fontSize: 33 }}>
+          <span style={{ width: 13, height: 13, borderRadius: "50%", background: index === 1 ? C.gold : C.blue }} />
+          {text}
+        </div>
+      ))}
+      <div style={{ fontSize: 23, color: C.muted, marginTop: 35, lineHeight: 1.4 }}>Consulta datada. Fonte: SAPL da Câmara.</div>
     </div>
   );
 }
@@ -288,9 +306,9 @@ function Context() {
       >
         <Icon kind="file" size={76} />
         <div style={{ fontSize: 37, fontWeight: 800 }}>
-          Proposta
+          Variações
           <br />
-          apresentada
+          encontradas
         </div>
       </div>
       <div
@@ -303,7 +321,7 @@ function Context() {
           lineHeight: 0.9,
         }}
       >
-        ≠
+        +
       </div>
       <div
         {...animated}
@@ -311,9 +329,9 @@ function Context() {
       >
         <Icon kind="work" size={76} />
         <div style={{ fontSize: 37, fontWeight: 800 }}>
-          Obra
+          Regras
           <br />
-          executada
+          transparentes
         </div>
       </div>
       <div
@@ -327,33 +345,7 @@ function Context() {
           lineHeight: 1.45,
         }}
       >
-        A ausência de projetos não resume todo o trabalho do mandato.
-      </div>
-    </div>
-  );
-}
-
-function Participation() {
-  return (
-    <div style={{ position: "relative" }}>
-      <City />
-      <div
-        {...animated}
-        style={{
-          ...card,
-          position: "absolute",
-          bottom: 28,
-          right: 22,
-          padding: "24px 26px",
-          maxWidth: 390,
-          fontSize: 32,
-          lineHeight: 1.25,
-          fontWeight: 800,
-        }}
-      >
-        Informação clara.
-        <br />
-        <span style={{ color: C.blue }}>Participação de verdade.</span>
+        Fonte visível e nenhum veredito automático.
       </div>
     </div>
   );
@@ -401,26 +393,26 @@ function Scene({ scene, index }: { scene: SceneData; index: number }) {
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
   const visual =
-    scene.key === "spending" ? (
+    scene.key === "pipeline" ? (
       <Spending />
-    ) : scene.key === "sources" ? (
+    ) : scene.key === "spending" ? (
       <Sources />
+    ) : scene.key === "stories" ? (
+      <Stories />
+    ) : scene.key === "signals" ? (
+      <Context />
     ) : scene.key === "council" ? (
       <Council />
-    ) : scene.key === "context" ? (
-      <Context />
-    ) : scene.key === "citizen" ? (
-      <Participation />
     ) : (
       <City dark={dark} />
     );
   const titleSize = vertical
     ? scene.key === "brand"
       ? 112
-      : scene.key === "sources" || scene.key === "context"
+      : scene.key === "pipeline" || scene.key === "signals"
         ? 94
         : 112
-    : scene.key === "sources" || scene.key === "context" || scene.key === "end"
+    : scene.key === "pipeline" || scene.key === "signals" || scene.key === "end"
       ? 94
       : 116;
   return (
@@ -513,7 +505,7 @@ function Scene({ scene, index }: { scene: SceneData; index: number }) {
                 color:
                   scene.key === "brand" && i === 1
                     ? C.blue
-                    : scene.key === "citizen" && i === 2
+                    : scene.key === "end" && i === 2
                       ? C.blue
                       : "inherit",
               }}
@@ -541,16 +533,18 @@ function Scene({ scene, index }: { scene: SceneData; index: number }) {
           left: vertical ? 86 : 1030,
           right: vertical ? 115 : 100,
           top: vertical
-            ? scene.key === "context"
+            ? scene.key === "signals"
               ? 1030
-              : scene.key === "sources"
+              : scene.key === "spending"
+                ? 970
+              : scene.key === "pipeline"
                 ? 960
                 : scene.key === "end"
                   ? 970
-                  : ["question", "brand", "citizen"].includes(scene.key)
+                  : ["question", "brand", "council"].includes(scene.key)
                     ? 1000
                     : 1070
-            : scene.key === "context"
+            : scene.key === "signals"
               ? 225
               : 278,
         }}
@@ -589,7 +583,7 @@ function Scene({ scene, index }: { scene: SceneData; index: number }) {
           color: dark ? "#c4d4df" : C.muted,
         }}
       >
-        <span>Independente · Apartidário</span>
+        <span>Independente e apartidário</span>
         <span style={{ fontWeight: 700 }}>BAIUS</span>
       </div>
       <div
@@ -632,7 +626,15 @@ export function ProjectVideo() {
   }, [fontHandle]);
   return (
     <AbsoluteFill style={{ background: C.ink, fontFamily: "Lato, sans-serif" }}>
-      <Audio src={staticFile("music.wav")} volume={0.22} />
+      <Audio
+        src={staticFile("music.wav")}
+        volume={(frame) =>
+          interpolate(frame, [0, fps, 58 * fps, 60 * fps], [0, 0.2, 0.2, 0], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          })
+        }
+      />
       {scenes.map((scene, index) => (
         <Sequence
           key={`voice-${scene.key}`}
